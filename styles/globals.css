@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.sliderDot {
+width: 52px;
+height: 5px;
+border-radius: 5px;
+display: flex;
+color: black;
+}
+.sliderDotActive {
+  color: #1B1B96;
+}
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -37,6 +47,7 @@
     #00000010,
     #00000080
   );
+
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -109,3 +120,4 @@ a {
     color-scheme: light;
   }
 }
+

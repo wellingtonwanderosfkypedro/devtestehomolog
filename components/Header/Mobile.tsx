@@ -29,7 +29,7 @@ export const MobileHeader = () => {
 
   return (
     <header
-      className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-10 font-rajdhani fixed ${
+      className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-50 font-rajdhani fixed ${
         isOpenMenu || headerWhite
           ? "bg-white border-b-[1px] border-blue-100"
           : "bg-transparent"

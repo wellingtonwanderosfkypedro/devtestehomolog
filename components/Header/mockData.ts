@@ -136,7 +136,7 @@ export const mockHeader: MenuData = {
                     "Faça análises de compliance mais ágeis, completas e seguras com as tecnologias e dados disponibilizados pela Neoway. Nossas soluções entregam tudo o que você precisa para avaliar e monitorar empresas e pessoas.",
 
                   label: "Saiba Mais",
-                  path: "#",
+                  path: "prevencao-perdas",
                 },
                 node: {
                   id: "compliance",
@@ -198,7 +198,7 @@ export const mockHeader: MenuData = {
                   description:
                     "Explore dados confiáveis e tecnologias de ponta para navegar no mercado de capitais e investimentos. Soluções que ajudam a melhorar tomadas de decisão e resultados, além de automatizar processos de monitoramento.",
                   label: "Saiba Mais",
-                  path: "#",
+                  path: "mercados-capitais",
                 },
                 node: {
                   id: "markets",

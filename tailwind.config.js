@@ -12,7 +12,7 @@ module.exports = {
         tablet: "640px",
         laptop: "1024px",
         desktop: "1280px",
-        maxDesktop: "1440px"
+        maxDesktop: "1440px",
       },
       colors: {
         blue: {
@@ -26,6 +26,7 @@ module.exports = {
         },
         orange: {
           100: "#F0680A99",
+          200: "#F0680A",
           300: "#FF5C00",
           500: "#FF6006",
           600: "#E96024",
@@ -52,9 +53,9 @@ module.exports = {
           100: "#F2F5FC",
           300: "#757385",
         },
-        red:{
-          400: "#FF0000"
-        }
+        red: {
+          400: "#FF0000",
+        },
       },
       fontFamily: {
         rajdhani: "var(--font-family-rajdhani)",
@@ -77,11 +78,34 @@ module.exports = {
         "show-menu": "showMenu 0.5s linear",
       },
       backgroundImage: {
-        'banner-form': "url('/banner-principal-form.png')",
-        'banner-form-solutions':"url('/banner-principal-form-solutions.png')",
-        'button-next':"url('/button-next.svg')"
-      }
+        "banner-form": "url('/banner-principal-form.png')",
+        "banner-form-mob": "url('/banner-principal-form-mobile.png')",
+        "banner-product": "url('/banner-product.png')",
+        "banner-product-mob": "url('/banner-product-mob.png')",
+        "banner-form-solutions": "url('/banner-principal-form-solutions.png')",
+        "button-next": "url('/button-next.svg')",
+        "solutions-card": "url('/solutions-card-background.png')",
+      },
     },
   },
-  plugins: []
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".scrollbar-webkit": {
+          "&::-webkit-scrollbar": {
+            width: "8px",
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "rgb(227 227 227)",
+            borderRadius: "10px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgb(255 92 0)",
+            borderRadius: "10px",
+          },
+        },
+      };
+      addUtilities(newUtilities, []);
+    },
+  ],
 };

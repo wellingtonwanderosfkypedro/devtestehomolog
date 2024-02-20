@@ -22,7 +22,7 @@ export const SimpleMenu = ({
     if (justIcons && setIsSimpleIcons) {
       setIsSimpleIcons(true);
     }
-  }, []);
+  }, [justIcons, setIsSimpleIcons]);
 
   const itemMenu = menuItem?.node;
   return (
