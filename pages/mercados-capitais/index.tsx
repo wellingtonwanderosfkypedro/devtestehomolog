@@ -6,10 +6,11 @@ import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
 import { AppLayout } from "@/components/Layout";
 import { PlatformSolutions } from "@/components/PlatformSolutions/PlatformSolutions";
 import { SEO } from "@/components/Seo";
-import SpeakWithSpecialist from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
+import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
+import { mockSpeakWithSpecialistMarket as Mocked } from "@/components/SpeakWithSpecialist/mockData";
 import { SpecialistBanner } from "@/components/SpecialistBanner";
 import { StrategicSolutions } from "@/components/StrategicSolutions/StrategicSolutions";
-import { mockStrategicSolutions } from "./mockData";
+import { mockStrategicSolutions } from "../../components/mockStrategicSolutions";
 
 const PrevencaoPerdas = () => {
   const idPage = "mercados-capitais";
@@ -21,7 +22,11 @@ const PrevencaoPerdas = () => {
         description="A Neoway desenvolve soluções de Big Data Analytics e Inteligência Artificial que geram precisão para tomada de decisão e produtividade para seus processos."
       />
       <FormOurSolutions idPage={idPage} />
-      <SpeakWithSpecialist />
+      <SpeakWithSpecialist
+        title={Mocked.title}
+        description={Mocked.description}
+        speakWithSpecialistCards={Mocked.speakWithSpecialistCards}
+      />
       <StrategicSolutions
         title={mockStrategicSolutions.title}
         description={mockStrategicSolutions.description}

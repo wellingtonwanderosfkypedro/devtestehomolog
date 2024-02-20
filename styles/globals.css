@@ -2,16 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+.swiper-pagination {
+  display: flex;
+  gap: 10px;
+}
+
 .sliderDot {
 width: 52px;
 height: 5px;
 border-radius: 5px;
 display: flex;
-color: black;
+background: #f4f4f4;
+cursor: pointer;
 }
 .sliderDotActive {
-  color: #1B1B96;
+  background: #1B1B96;
 }
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
