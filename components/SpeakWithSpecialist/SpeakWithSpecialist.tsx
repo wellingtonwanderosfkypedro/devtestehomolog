@@ -1,3 +1,4 @@
+import Richtext from "../RichText/RichText";
 import { SpeakWithSpecialistCard } from "./components/SpeakWithSpecialistCard";
 
 export interface SpeakWithSpecialistData {
@@ -33,16 +34,19 @@ export function SpeakWithSpecialist({
         </div>
 
         <div className="laptop:w-5/12 font-archivo">
-          <h2 className="font-rajdhani laptop:text-5xl text-2xl laptop:leading-[58px] font-medium text-[#28283F]">
-            <span className="font-bold text-[#1B1B96] ">
-              Inteligência analítica
-            </span>{" "}
-            da Neoway para{" "}
-            <span className="font-bold text-[#1B1B96] ">
-              Prevenção de Perdas
-            </span>{" "}
-            em todas as etapas do seu negócio.
-          </h2>
+          <div className="font-rajdhani text-left">
+            <Richtext
+              colorText="#000"
+              text={
+                "# **Inteligência analítica**  da Neoway para **Prevenção de Perdas** em todas as etapas do seu negócio."
+              }
+            />
+          </div>
+          {/* <h2 className="font-rajdhani laptop:text-5xl text-2xl laptop:leading-[58px] font-medium text-[#28283F]">
+            <span className="font-bold text-[#1B1B96] "></span>{" "}
+            <span className="font-bold text-[#1B1B96] "></span>{" "}
+          </h2> */}
+
           <p className="text-lg text-gray-200 font-normal mt-6 max-tablet:text-base">
             {description}
           </p>

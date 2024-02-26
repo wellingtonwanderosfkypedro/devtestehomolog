@@ -21,7 +21,7 @@ export function StrategicSolutions({
   solutionCards,
 }: StrategicSolutionsData) {
   return (
-    <div className="maxDesktop:max-w-[1440px] px-5  mx-auto  pt-12 pb-[34px] flex flex-col justify-between self-start  laptop:py-8 laptop:flex-row laptop:mt-[143px] laptop:mb-[56px] maxDesktop:px-0">
+    <div className="maxDesktop:max-w-[1440px] px-5  mx-auto  pt-12 pb-[34px] flex flex-col justify-between self-start  laptop:py-8 laptop:flex-row laptop:mt-[143px] laptop:mb-[56px] maxDesktop:px-0 strategicSolutions">
       <div className="mb-[30px] laptop:max-w-[502px] laptop:mr-[71px] laptop:mb-0">
         <h1 className="font-rajdhani text-2xl mb-[14px] text-[#28283F] font-bold laptop:text-[38px] laptop:mb-6">
           {title}
@@ -37,13 +37,13 @@ export function StrategicSolutions({
           spaceBetween={32}
           breakpoints={{
             560: {
-              slidesPerView: 1,
+              slidesPerView: 1.2,
             },
             768: {
-              slidesPerView: 1,
+              slidesPerView: 2.4,
             },
             1024: {
-              slidesPerView: 1,
+              slidesPerView: 2.4,
             },
           }}
           className="h-[100%]"

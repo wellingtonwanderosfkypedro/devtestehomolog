@@ -7,10 +7,10 @@ import { AppLayout } from "@/components/Layout";
 import { PlatformSolutions } from "@/components/PlatformSolutions/PlatformSolutions";
 import { SEO } from "@/components/Seo";
 import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
-import { mockSpeakWithSpecialistMarket as Mocked } from "@/components/SpeakWithSpecialist/mockData";
 import { SpecialistBanner } from "@/components/SpecialistBanner";
 import { StrategicSolutions } from "@/components/StrategicSolutions/StrategicSolutions";
-import { mockStrategicSolutions } from "../../components/mockStrategicSolutions";
+import { mockStrategicSolutions } from "../../components/StrategicSolutions/mockStrategicSolutions";
+import { mockSpeakWithSpecialistMarket as Mocked } from "@/components/SpeakWithSpecialist/mockData";
 
 const PrevencaoPerdas = () => {
   const idPage = "mercados-capitais";

@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.swiper-pagination {
-  display: flex;
-  gap: 10px;
-}
-
-.sliderDot {
-width: 52px;
-height: 5px;
-border-radius: 5px;
-display: flex;
-background: #f4f4f4;
-cursor: pointer;
-}
-.sliderDotActive {
-  background: #1B1B96;
-}
-
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -127,4 +110,73 @@ a {
     color-scheme: light;
   }
 }
+
+/* Strategic Solutions Slider CSS */
+
+.strategicSolutions .swiper {
+  height: 432px;
+}
+.strategicSolutions .swiper-wrapper {
+  overflow: hidden;
+}
+.strategicSolutions .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.sliderDot {
+  width: 52px;
+  height: 5px;
+  border-radius: 5px;
+  display: flex;
+  background: #f4f4f4;
+  cursor: pointer;
+}
+.sliderDotActive {
+  background: #1B1B96;
+}
+@media (max-width: 1320px) {
+   .strategicSolutions .swiper-pagination {
+    transform: translateX(-190%);
+  } 
+}
+
+@media (max-width: 1024px) {
+   .strategicSolutions .swiper-pagination {
+    transform: unset;
+    left: unset;
+  }  
+
+  .strategicSolutions .swiper-wrapper {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .strategicSolutions .swiper-pagination {
+   width: 100vw !important;
+   transform: unset;
+ } 
+
+ 
+}
+
+/* RichText Style Patterns */
+
+.richText h1 {
+  line-height: 62px;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.richText p {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.richText strong {
+  font-weight: 700;
+}
+
 
