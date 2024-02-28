@@ -19,7 +19,7 @@ const options = {
   },
   orange: {
     class:
-      "text-orange-300 border border-orange-300 hover:border-none hover:bg-orange hover:text-white transition-all",
+      "text-orange-300 border border-orange-300 hover:border-none hover:bg-orange-300 hover:text-white transition-all",
   },
 };
 

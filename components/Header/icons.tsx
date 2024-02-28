@@ -1,6 +1,7 @@
 export const ChooseThemeIcon = ({ color }: any) => {
   return (
     <svg
+      className="hover:border-b border-white"
       width="35"
       height="35"
       viewBox="0 0 35 35"
@@ -146,8 +147,8 @@ export const ChevronSeeMore = () => {
         d="M1 9L5 5L1 1"
         stroke="#FF5C00"
         stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

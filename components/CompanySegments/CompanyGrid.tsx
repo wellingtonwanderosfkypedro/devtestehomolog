@@ -1,4 +1,9 @@
 import SecureIcon from "@/assets/images/home/segments/seguros.svg";
+import AutomotivoIcon from "@/assets/images/home/segments/automotivos.svg";
+import ConsumoIcon from "@/assets/images/home/segments/consumo.svg";
+import TelecomIcon from "@/assets/images/home/segments/telecom.svg";
+import VarejoIcon from "@/assets/images/home/segments/automotivos.svg";
+import TecnologiaIcon from "@/assets/images/home/segments/tecnologia.svg";
 import { CompanyIcon } from "./CompanyIcon";
 
 const options = [
@@ -8,23 +13,23 @@ const options = [
   },
   {
     text: "Automotivo",
-    image: SecureIcon,
+    image: AutomotivoIcon,
   },
   {
     text: "Bens de Consumo",
-    image: SecureIcon,
+    image: ConsumoIcon,
   },
   {
     text: "Telecom",
-    image: SecureIcon,
+    image: TelecomIcon,
   },
   {
     text: "Varejo",
-    image: SecureIcon,
+    image: VarejoIcon,
   },
   {
     text: "Tecnologia",
-    image: SecureIcon,
+    image: TecnologiaIcon,
   },
 ];
 

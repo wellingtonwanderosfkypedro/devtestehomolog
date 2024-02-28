@@ -16,7 +16,6 @@ export const SimpleMenu = ({
   justIcons,
   setIsSimpleIcons,
 }: MenuItemProps) => {
-  const isMob = useMedia("(max-width: 1024px)", false);
 
   useEffect(() => {
     if (justIcons && setIsSimpleIcons) {
@@ -32,20 +31,20 @@ export const SimpleMenu = ({
         href={itemMenu?.path ?? ""}
         className="min[1024px]:max-w-[45%]  w-[290px]"
       >
-        <li className={`flex items-center  gap-2  ${!justIcons ? " " : ""}`}>
-          {itemMenu?.icon && !isMob && (
+        <li className={`flex items-start gap-2`}>
+          {itemMenu?.icon && (
             <Image
               src={`/icons/${itemMenu?.icon}`}
               alt={`${itemMenu?.label} icon`}
               width={36}
               height={36}
+              className={`hidden lg:block`}
             />
           )}
           <div className={`text-blue-700  hover:text-blue-500 `}>
             <h4
-              className={`flex items-center gap-2  ${
-                !justIcons ? " text-base" : "text-2xl "
-              } ${isMob ? "text-sm font-medium px-2.5 py-1" : "font-semibold"}`}
+              className={`flex items-center gap-2  ${!justIcons ? " text-base" : "text-2xl "
+                } ${"text-sm font-medium px-2.5 py-1 lg:font-semibold lg:text-2xl lg:p-0"}`}
             >
               {itemMenu?.label}
             </h4>

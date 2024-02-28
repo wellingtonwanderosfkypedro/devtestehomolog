@@ -15,7 +15,7 @@ import ErrorScreen from "./ErrorScreen/ErrorScreen";
 interface FormValues {
   company: string;
   area: string;
-  office: string;
+  // office: string;
   corporateEmail: string;
   demand: string;
   helpAreas: string;
@@ -27,7 +27,7 @@ const schema = yup.object().shape({
     .min(3, "Mínimo de 3 caracteres")
     .required("Campo obrigatório*"),
   area: yup.string().required("Campo obrigatório*"),
-  office: yup.string().required("Campo obrigatório*"),
+  // office: yup.string().required('Campo obrigatório*'),
   corporateEmail: yup
     .string()
     .email("E-mail inválido")
@@ -45,7 +45,7 @@ const schemaStep1 = yup.object().shape({
     .min(3, "Mínimo de 3 caracteres")
     .required("Campo obrigatório*"),
   area: yup.string().required("Campo obrigatório*"),
-  office: yup.string().required("Campo obrigatório*"),
+  // office: yup.string().required("Campo obrigatório*"),
 });
 
 const Form: React.FC = () => {
@@ -54,7 +54,7 @@ const Form: React.FC = () => {
     defaultValues: {
       company: "",
       area: "",
-      office: "",
+      // office: "",
       corporateEmail: "",
       demand: "",
       helpAreas: "",
@@ -99,10 +99,18 @@ const Form: React.FC = () => {
 
   const onNextStep = async (value: number) => {
     const values = getValues();
-    const { company, area, office } = values;
+    const {
+      company,
+      area,
+      // office
+    } = values;
     try {
       await schemaStep1.validate(
-        { company, area, office },
+        {
+          company,
+          area,
+          // office
+        },
         { abortEarly: false }
       );
 

@@ -19,18 +19,16 @@ export const MenuItemRenderMobile: React.FC<MenuItemProps> = ({ menuItem }) => {
 
   return (
     <div
-      className={`bg-white text-zinc-900  rounded-b-lg ${
-        isSimpleIcons ? "pl-6" : "pl-3"
-      }`}
+      className={`bg-white text-zinc-900  rounded-b-lg ${isSimpleIcons ? "pl-6" : "pl-3"
+        }`}
       onClick={(e) => {
         e.stopPropagation();
       }}
     >
       <ul className={`pt-2  "flex w-full"`}>
         <div
-          className={`flex flex-col gap-1 ${
-            isSimpleIcons ? "flex flex-wrap  gap-6" : ""
-          }`}
+          className={`flex flex-col gap-1 ${isSimpleIcons ? "flex flex-wrap  gap-6" : ""
+            }`}
         >
           {menuItem?.map((item, key) => {
             if (item.title) {

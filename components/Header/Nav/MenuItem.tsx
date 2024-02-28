@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useEffect } from "react";
 import { ChevronSeeMore } from "../icons";
 import { ChildItem } from "../mockData";
 import { SimpleMenu } from "./SimpleMenu";
@@ -17,14 +18,13 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
 
   return (
     <div
-      className={`bg-white text-zinc-900   w-[950px] flex h-full rounded-b-lg ${
-        isSimpleIcons ? "pl-6" : "pl-3"
-      }`}
+      className={`bg-white text-zinc-900  min-h-[430px] w-[950px] flex h-full rounded-b-lg ${isSimpleIcons ? "pl-6" : "pl-3"
+        }`}
       onClick={(e) => {
         e.stopPropagation();
       }}
     >
-      <ul className={`pt-4 ${isSimpleIcons ? "flex w-full h-fit" : "w-[20%]"}`}>
+      <ul className={`pt-6 ${isSimpleIcons ? "flex w-full h-fit" : "w-[20%]"}`}>
         <div className={`${isSimpleIcons ? "flex flex-wrap  gap-6" : ""}`}>
           {menuItem?.map((item, key) => {
             if (item.title) {
@@ -56,7 +56,7 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
       {menuItem?.map((item) => {
         return isOpenMenu === item.node?.id && item.title ? (
           <div
-            className={`transition-all w-[80%]  flex flex-col bg-blue-100 pl-10 pt-4 pr-8 gap-6 rounded-br-lg`}
+            className={`transition-all w-[80%]  flex flex-col bg-blue-100 p-8  gap-6 rounded-br-lg`}
           >
             {item.headerSection && (
               <div className="flex flex-col gap-2">
@@ -68,7 +68,7 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
                 </p>
                 <Link
                   href={item.headerSection?.path ?? ""}
-                  className="flex gap-2 items-center font-medium text-sm leading-5 text-orange-300"
+                  className="flex gap-2 items-center font-medium text-sm leading-5 text-orange-300 hover:text-orange-600 hover:underline"
                 >
                   {item.headerSection?.label}
                   <ChevronSeeMore />
@@ -77,9 +77,8 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
             )}
 
             <ul
-              className={`flex flex-wrap justify-between gap-8 ${
-                item.headerSection ?? "flex-col"
-              } `}
+              className={`flex flex-wrap justify-between gap-8 ${item.headerSection ?? "flex-col"
+                } `}
             >
               {item?.childs?.map((subItem) => {
                 return (

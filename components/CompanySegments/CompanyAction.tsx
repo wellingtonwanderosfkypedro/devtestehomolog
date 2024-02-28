@@ -23,7 +23,7 @@ export const CompanyAction = () => {
         gerando ganhos significativos para o seu negócio.
       </p>
       <Link
-        className="bg-orange-300 h-14 flex text-xs items-center justify-center text-white"
+        className="bg-orange-300 h-14 flex text-xs items-center justify-center text-white transition hover:bg-orange-700 "
         href={"/"}
       >
         Conheça nossas soluções para FSI 

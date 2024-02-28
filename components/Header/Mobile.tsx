@@ -27,9 +27,31 @@ export const MobileHeader = () => {
     setIsOpenMenu(!isOpenMenu);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const htmlElement = document.querySelector("html");
+      if (htmlElement) {
+        if (isOpenMenu === true) {
+          htmlElement.style.overflow = "hidden";
+        } else {
+          htmlElement.style.overflow = "auto";
+        }
+      }
+    };
+
+    handleScroll();
+
+    return () => {
+      const htmlElement = document.querySelector("html");
+      if (htmlElement) {
+        htmlElement.style.overflow = "auto";
+      }
+    };
+  }, [isOpenMenu]);
+
   return (
     <header
-      className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-50 font-rajdhani fixed ${
+      className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-10 font-rajdhani fixed ${
         isOpenMenu || headerWhite
           ? "bg-white border-b-[1px] border-blue-100"
           : "bg-transparent"
@@ -112,7 +134,7 @@ export const MobileHeader = () => {
       >
         <div className="flex justify-center py-4 max-[500px]:px-4">
           <Link
-            href="#"
+            href="https://apps.neoway.com.br/auth/login?_gl=1*1g8rov2*_ga*MTI1MDY2Ny4xNzAyNTcwMjQ1*_ga_D0GKM1QCJT*MTcwNTY3MTQ4MC43LjAuMTcwNTY3MTQ4MC42MC4wLjA"
             className="flex gap-[10px] max-[500px]:gap-[6px] cursor-pointer py-3 px-12 max-[420px]:px-5"
           >
             <LoginIcon color={"#E96024"} />
@@ -121,7 +143,7 @@ export const MobileHeader = () => {
             </span>
           </Link>
           <Link
-            href="https://apps.neoway.com.br/auth/login?_gl=1*1g8rov2*_ga*MTI1MDY2Ny4xNzAyNTcwMjQ1*_ga_D0GKM1QCJT*MTcwNTY3MTQ4MC43LjAuMTcwNTY3MTQ4MC42MC4wLjA"
+            href=""
             className="flex text-orange-500 bg-orange-500/[.15] text-sm font-semibold py-3 px-12 max-[420px]:px-5 border-[1px] border-orange-500 text-nowrap"
           >
             Contato Comercial
