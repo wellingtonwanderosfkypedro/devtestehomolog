@@ -1,11 +1,18 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import FormFooter from "../FormFooter/FormFooter";
 
 import Error from "@/assets/images/home/form/error.svg";
-import Link from 'next/link';
 
-const ErrorScreen = () => {
+import { Information, Security } from '../../types/formOurSolutionsTypes';
+
+interface ErrorScreenProps {
+    information: Information;
+    security: Security;
+}
+
+const ErrorScreen = ({information, security}: ErrorScreenProps) => {
     return(
         <div className='bg-white px-[30px] py-[20px] rounded-[4.24px] tablet:rounded-md tablet:px-[35px] laptop:max-w-[488px]'>
             <div className='flex flex-col items-center my-[70px]'>
@@ -22,7 +29,10 @@ const ErrorScreen = () => {
                     Tente enviar novamente os dados, <Link className='underline hover:text-red-400' href='/'>clique aqui.</Link> 
                 </p>
             </div>
-            <FormFooter />
+            <FormFooter 
+                information={information} 
+                security={security}
+            />
         </div>
     )
 } 

@@ -7,9 +7,10 @@ interface Step1Props {
   control: any;
   onNextStep: (value: number) => void;
   errors: any;
+  textButton: string;
 }
 
-const Step1: React.FC<Step1Props> = ({ control, onNextStep, errors }) => {
+const Step1 = ({ control, onNextStep, errors, textButton }: Step1Props) => {
   return (
     <div>
       <div className="mb-[10px] tablet:mb-[15px] relative">
@@ -125,7 +126,7 @@ const Step1: React.FC<Step1Props> = ({ control, onNextStep, errors }) => {
       </div> */}
 
       <Button
-        message="Prosseguir"
+        message={textButton}
         type="submit"
         onNextStep={() => onNextStep(2)}
       />

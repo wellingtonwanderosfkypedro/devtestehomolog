@@ -2,7 +2,6 @@ import Device from "@/assets/images/home/Device.png";
 import Image from "next/image";
 import Link from "next/link";
 import { SolutiionsPage, solutiionsPageItems } from "./mockData";
-import { useState } from "react";
 
 interface PageProps {
   idPage?: string;

@@ -1,23 +1,14 @@
 import Image from "next/image";
-import { faqDatas } from "./mockDataFaq";
-import ContactIcon from "@/assets/images/pages/icon-contact.svg";
 import Link from "next/link";
 import { useState } from "react";
+import { FAQInterface } from "./types/faqTypes";
 
-interface pageProps {
-  idPage: string;
+interface FaqProps {
+  data: FAQInterface;
 }
 
-export const Faq = ({ idPage }: pageProps) => {
+export const Faq = ({ data }: FaqProps) => {
   const [activeOption, setActiveOption] = useState(null);
-
-  const dataAtualPage = faqDatas.pageDataFaq
-    .filter((pageData) => {
-      if (pageData.idPage === idPage) return pageData;
-    })
-    .reduce((dataAtual, pageData) => {
-      return (dataAtual = pageData);
-    });
 
   const toggleOption = (optionID: any) => {
     setActiveOption(activeOption === optionID ? null : optionID);
@@ -28,41 +19,38 @@ export const Faq = ({ idPage }: pageProps) => {
       <div className="flex gap-[70px] max-laptop:flex-col">
         <div className="flex flex-col gap-2 w-[50%] max-laptop:w-full">
           <h4 className="font-roboto text-blue-400 font-bold text-base uppercase mb-4">
-            Perguntas frequentes sobre as soluções para {dataAtualPage.page}
+            {data?.title}
           </h4>
           <p className="font-rajdhani font-bold text-3xl text-blue-700 max-laptop:text-2xl">
-            Ficou com alguma dúvida?
+            {data?.subTitle}
           </p>
           <span className="font-roboto font-medium text-base text-gray-700 mb-2 max-w-[490px]">
-            Ficou com alguma dúvida? Separamos as principais perguntas e
-            respostas sobre {dataAtualPage.page}. Caso queira saber sobre outros
-            assuntos não mencionados por aqui, entre em contato pelos nossos
-            canais de atendimento.
+            {data?.description}
           </span>
 
-          <Link href={""} className="flex gap-2">
-            <Image alt="" src={ContactIcon} />
+          <Link href={data?.button?.url} className="flex gap-2">
+            <Image alt="" src={data?.image_data} width={24} height={24} />
             <span className="font-archivo font-bold text-base">
-              Ainda com dúvidas? Fale conosco!
+              {data?.button?.title}
             </span>
           </Link>
         </div>
         <div className="w-[50%] max-laptop:w-full">
-          {dataAtualPage.qas.map((qa, key) => {
+          {data?.items.map((qa, key) => {
             const isOptionActive = activeOption === key;
 
             return (
               <div
                 key={key}
                 className={`relative flex flex-col pb-7   ${
-                  key !== dataAtualPage.qas.length - 1
+                  key !== data?.items.length - 1
                     ? "border-b border-gray-400 mb-7"
                     : ""
                 }`}
               >
                 <div className="flex">
                   <p className="font-archivo font-bold text-lg text-blue-700 w-[90%] max-laptop:text-base">
-                    {qa.question}
+                    {qa.title}
                   </p>
                   <button
                     className="absolute w-11 h-11 p-3 border border-gray-400 rounded-full top-0 right-0 max-tablet:w-8 max-tablet:h-8 max-tablet:p-2"
@@ -85,7 +73,7 @@ export const Faq = ({ idPage }: pageProps) => {
                 </div>
                 {isOptionActive && (
                   <span className="font-roboto font-medium text-base text-gray-700 pt-7">
-                    {qa.answer}
+                    {qa.description}
                   </span>
                 )}
               </div>

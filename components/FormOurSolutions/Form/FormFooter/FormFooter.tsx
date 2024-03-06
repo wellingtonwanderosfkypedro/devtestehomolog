@@ -1,44 +1,54 @@
 import Link from "next/link"
 import Image from 'next/image';
 
-import Security from "@/assets/images/home/form/security.svg";
+import { Information, Security } from "../../types/formOurSolutionsTypes";
 
-const FormFooter = () => {
+interface FormFooterProps {
+    information: Information;
+    security: Security;
+}
+
+
+const FormFooter = ({ information, security }: FormFooterProps) => {
+
     return (
         <div className="laptop:mb-[10px]">
             <div className='mt-[10px] mb-[10px] tablet:mt-[25px] tablet:mb-[20px]'>
                 <p className='text-neutral-300 font-roboto font-normal text-[10px] leading-[18px] tablet:text-[14px]'>
-                    Para obter mais informações sobre como tratamos os seus dados pessoais,
-                    consulte a nossa
+                    {information?.text}
                     <Link
                         className='underline ml-1'
-                        href={'https://f.hubspotusercontent10.net/hubfs/7323764/POL%C3%8DTICA%20DE%20TRATAMENTO%20DE%20DADOS.docx.pdf'}
-                        target='_blank'
+                        href={information?.link_1?.url ? information?.link_1?.url : '#'}
+                        target={information?.link_1?.target}
                     >
-                        Política de Tratamento de Dados
+                        {information?.link_1?.title}
                     </Link>
-                    {''} e {''}
-                    <Link
-                        className='underline'
-                        href={'https://blog.neoway.com.br/politica-de-privacidade/?_ga=2.88649627.1889950759.1615312694-120152612.1606833620'}
-                        target='_blank'
-                    >
-                        Aviso de Privacidade do Site Neoway
-                    </Link>
+                    {information?.link_2?.url && information?.link_2.title && (
+                        <>
+                            {''} e {''}
+                            <Link
+                                className='underline'
+                                href={information?.link_2?.url ? information?.link_2?.url : '#'}
+                                target={information?.link_2?.target}
+                            >
+                                {information?.link_2.title}
+                            </Link>
+                        </>
+                    )}
                 </p>
             </div>
 
-            <div className="border border-solid border-gray-600 mb-[20px]"/>
+            <div className="border border-solid border-gray-600 mb-[20px]" />
 
             <div className='flex items-center gap-2 tablet:gap-3'>
                 <Image
-                    src={Security}
+                    src={security?.icon}
                     width={21.6}
                     height={24}
                     alt="Security"
                 />
                 <span className='text-neutral-300 font-roboto font-normal text-[10px] leading-[18px] tablet:text-[14px]'>
-                    Seus dados estão seguros
+                    {security?.text}
                 </span>
             </div>
         </div>

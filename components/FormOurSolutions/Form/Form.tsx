@@ -11,6 +11,7 @@ import SuccessScreen from "./SuccessScreen/SuccessScreen";
 import FormHeader from "./FormHeader/FormHeader";
 import Button from "./Button";
 import ErrorScreen from "./ErrorScreen/ErrorScreen";
+import { Form } from "../types/formOurSolutionsTypes";
 
 interface FormValues {
   company: string;
@@ -48,7 +49,11 @@ const schemaStep1 = yup.object().shape({
   // office: yup.string().required("Campo obrigatório*"),
 });
 
-const Form: React.FC = () => {
+interface FormProps {
+  form: Form;
+}
+
+const Form = ({ form }: FormProps) => {
   const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -125,27 +130,61 @@ const Form: React.FC = () => {
   };
 
   if (requestStatus === "success") {
-    return <SuccessScreen />;
+    return <SuccessScreen
+      information={form?.information}
+      security={{
+        icon: form.image_data,
+        text: form.security_title
+      }}
+    />;
   } else if (requestStatus === "error") {
-    return <ErrorScreen />;
+    return <ErrorScreen
+      information={form?.information}
+      security={{
+        icon: form.image_data,
+        text: form.security_title
+      }}
+    />;
   }
 
   return (
     <FormProvider {...methods}>
       <div className="bg-white px-[30px] py-[20px] rounded-[4.24px] tablet:rounded-md tablet:px-[35px] laptop:max-w-[488px] z-10">
-        <FormHeader currentStep={currentStep} onNextStep={onNextStep} />
+        <FormHeader
+          currentStep={currentStep}
+          onNextStep={onNextStep}
+          titleStep1={{
+            title1: form?.title_form_step_1,
+            title2: form?.title_form_step_complement_1
+          }}
+          titleStep2={{
+            title1: form?.title_form_step_2,
+            title2: form?.title_form_step_complement_2
+          }}
+        />
         <form onSubmit={handleSubmit(onSubmit)}>
           {currentStep === 1 && (
-            <Step1 control={control} onNextStep={onNextStep} errors={errors} />
+            <Step1
+              control={control}
+              onNextStep={onNextStep}
+              errors={errors}
+              textButton={form?.text_button_step_1}
+            />
           )}
           {currentStep === 2 && (
             <>
               <Step2 control={control} errors={errors} />
-              <Button message="Enviar ao time comercial" type="submit" />
+              <Button message={form?.text_button_step_2} type="submit" />
             </>
           )}
         </form>
-        <FormFooter />
+        <FormFooter
+          information={form?.information}
+          security={{
+            icon: form?.image_data,
+            text: form?.security_title
+          }}
+        />
       </div>
     </FormProvider>
   );

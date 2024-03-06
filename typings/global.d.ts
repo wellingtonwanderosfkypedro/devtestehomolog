@@ -21,3 +21,9 @@ export interface MenuData {
         edges: MenuItem[];
     };
 }
+
+
+export type SeoProps = {
+    title: string;
+    description: string;
+}

@@ -8,7 +8,6 @@ import { PlatformSolutions } from "@/components/PlatformSolutions/PlatformSoluti
 import { SEO } from "@/components/Seo";
 import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
 import { SpecialistBanner } from "@/components/SpecialistBanner";
-import { mockSpeakWithSpecialistSales as Mock } from "@/components/SpeakWithSpecialist/mockData";
 
 const PrevencaoPerdas = () => {
   const idPage = "sales-marketing";
@@ -18,7 +17,7 @@ const PrevencaoPerdas = () => {
         title="Neoway | Transforme dados em conhecimento"
         description="A Neoway desenvolve soluções de Big Data Analytics e Inteligência Artificial que geram precisão para tomada de decisão e produtividade para seus processos."
       />
-      <FormOurSolutions idPage={idPage} />
+      {/* <FormOurSolutions idPage={idPage} />
       <SpeakWithSpecialist
         title={Mock.title}
         description={Mock.description}
@@ -31,7 +30,7 @@ const PrevencaoPerdas = () => {
       <SpecialistBanner />
       <CompanySegments />
       <Faq idPage={idPage} />
-      <FormAnalyticalSolutions />
+      <FormAnalyticalSolutions /> */}
     </AppLayout>
   );
 };

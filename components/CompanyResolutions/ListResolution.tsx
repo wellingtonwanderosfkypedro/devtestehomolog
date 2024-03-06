@@ -1,43 +1,33 @@
-import IconBlue from "@/assets/images/home/resolutions/icon-blue.svg";
-import IconOrange from "@/assets/images/home/resolutions/icon-orange.svg";
-import IconPurple from "@/assets/images/home/resolutions/icon-purple.svg";
-
-const options = {
-  purple: {
-    icon: IconPurple,
-  },
-  blue: {
-    icon: IconBlue,
-  },
-  orange: {
-    icon: IconOrange,
-  },
-};
-
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export interface ListProps {
-  icon: "purple" | "blue" | "orange";
-  text: string;
-}
+import { SubItem } from "./types/companyResolutionsTypes";
+
 interface ListResolutionProps {
-  list: ListProps[];
+  subItem: SubItem;
 }
 
-const ListResolution = ({ list = [] }: ListResolutionProps) => {
+const ListResolution = ({ subItem }: ListResolutionProps) => {
+
+  const [valuesImage, setValuesImage] = useState({ width: 28, height: 28, url: '' });
+
+  useEffect(() => {
+    if (typeof subItem.image_data === 'string') {
+      setValuesImage({ width: 28, height: 28, url: subItem?.image_data });
+    }
+  }, [subItem?.image_data]);
+
+  const { url, width, height } = typeof subItem?.image_data === 'string' ? valuesImage : subItem?.image_data;
+
   return (
-    <div className="pb-10 gap-5 h-[203px]  flex flex-col justify-between">
-      {list.map(({ icon, text }) => (
-        <div key={icon} className="flex gap-3 items-center">
-          <Image
-            alt="icon action"
-            width={28}
-            height={28}
-            src={options[icon].icon}
-          ></Image>
-          <p className="lg:text-sm text-xs text-gray-200 font-roboto font-medium">{text}</p>
-        </div>
-      ))}
+    <div key={subItem?.logo} className="h-[54px] flex gap-3 items-center">
+      <Image
+        alt={'Icon'}
+        width={width}
+        height={height}
+        src={url}
+      />
+      <p className="lg:text-sm text-xs text-gray-200 font-roboto font-medium">{subItem.text}</p>
     </div>
   );
 };

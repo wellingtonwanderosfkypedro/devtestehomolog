@@ -4,7 +4,14 @@ import FormFooter from "../FormFooter/FormFooter"
 
 import SuccessScreenIcon from "@/assets/images/home/form/success-screen.svg";
 
-const SuccessScreen = () => {
+import { Information, Security } from '../../types/formOurSolutionsTypes';
+
+interface ErrorScreenProps {
+    information: Information;
+    security: Security;
+}
+
+const SuccessScreen = ({ information, security }: ErrorScreenProps) => {
     return(
         <div className='bg-white px-[30px] py-[20px] rounded-[4.24px] tablet:rounded-md tablet:px-[35px] laptop:max-w-[488px]'>
             <div className='flex flex-col items-center my-[70px]'>
@@ -21,7 +28,10 @@ const SuccessScreen = () => {
                     Aguarde que em breve um de nossos consultores entrará em contato com você para dar prosseguimento
                 </p>
             </div>
-            <FormFooter />
+            <FormFooter 
+                information={information} 
+                security={security}
+            />
         </div>
     )
 } 

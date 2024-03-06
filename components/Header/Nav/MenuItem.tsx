@@ -18,8 +18,9 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
 
   return (
     <div
-      className={`bg-white text-zinc-900  min-h-[430px] w-[950px] flex h-full rounded-b-lg ${isSimpleIcons ? "pl-6" : "pl-3"
-        }`}
+      className={`bg-white text-zinc-900  min-h-[430px] w-[950px] flex h-full rounded-b-lg ${
+        isSimpleIcons ? "pl-6" : "pl-3"
+      }`}
       onClick={(e) => {
         e.stopPropagation();
       }}
@@ -53,7 +54,7 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
         </div>
       </ul>
 
-      {menuItem?.map((item) => {
+      {menuItem?.map((item, key) => {
         return isOpenMenu === item.node?.id && item.title ? (
           <div
             className={`transition-all w-[80%]  flex flex-col bg-blue-100 p-8  gap-6 rounded-br-lg`}
@@ -77,8 +78,9 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
             )}
 
             <ul
-              className={`flex flex-wrap justify-between gap-8 ${item.headerSection ?? "flex-col"
-                } `}
+              className={`flex flex-wrap justify-between gap-8 ${
+                item.headerSection ?? "flex-col"
+              } `}
             >
               {item?.childs?.map((subItem) => {
                 return (

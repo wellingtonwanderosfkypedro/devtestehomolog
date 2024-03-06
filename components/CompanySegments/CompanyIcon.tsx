@@ -1,15 +1,30 @@
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { ImageProps } from "./types/companySegments";
 
 interface CompanyIconProps {
-  text: string;
-  image: string;
+  image: ImageProps | string;
+  title: string;
 }
 
-export const CompanyIcon = ({ text, image }: CompanyIconProps) => {
+export const CompanyIcon = ({ image, title }: CompanyIconProps) => {
+  const [valuesImage, setValuesImage] = useState({ width: 38, height: 60, url: '' });
+
+  useEffect(() => {
+    if (typeof image === 'string') {
+      setValuesImage({ width: 59.26, height: 59.26, url: image });
+    }
+  }, [image]);
+
+  const { url, width, height } = typeof image === 'string' ? valuesImage : image;
+
   return (
     <div className="bg-white flex flex-col lg:gap-7 gap-4 max-w-[232px] px-6 py-8 lg:p-10 max-h-[147px] lg:h-[209px] lg:max-h-[209px]">
-      <Image className="w-[38px] lg:w-[60px]" src={image} alt={text}></Image>
-      <p className="font-semibold lg:text-2xl text-lg font-archivo text-gray-500 leading-5">{text}</p>
+      <Image className="w-[38px] lg:w-[60px]" src={url} width={width} height={height} alt={title} />
+      <p className="font-semibold lg:text-2xl text-lg font-archivo text-gray-500 leading-5">{title}</p>
     </div>
   );
 };
+
+
+
