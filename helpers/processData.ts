@@ -1,6 +1,6 @@
-import { fetchImage } from "@/helpers/fetchImage";
-import { fetchImagesForItems } from "@/helpers/fetchImagesForItems";
-import { objectValuesToArray } from "@/helpers/objectValuesToArray";
+import { fetchImage } from "./fetchImage";
+import { fetchImagesForItems } from "./fetchImagesForItems";
+import { objectValuesToArray } from "./objectValuesToArray";
 
 export const processData = async (data: any) => {
   const {
@@ -16,77 +16,46 @@ export const processData = async (data: any) => {
     perguntas_frequentes,
   } = data || {};
 
+  const promises = [];
+
   const formOurSolutions = somos_o_maior_hub_de_inteligencia;
-  await fetchImage(
-    formOurSolutions,
-    formOurSolutions?.image_desktop,
-    "image_data_desktop"
-  );
-  await fetchImage(
-    formOurSolutions,
-    formOurSolutions?.image_mobile,
-    "image_data_mobile"
-  );
+  promises.push(fetchImage(formOurSolutions, formOurSolutions?.image_desktop, "image_data_desktop"));
+  promises.push(fetchImage(formOurSolutions, formOurSolutions?.image_mobile, "image_data_mobile"));
 
   const platformSolutions = fale_com_um_especialista;
-  await fetchImage(platformSolutions, platformSolutions?.image, "image_data");
+  promises.push(fetchImage(platformSolutions, platformSolutions?.image, "image_data"));
   if (typeof platformSolutions?.content_2 === "object") {
-    platformSolutions.content_2 = objectValuesToArray(
-      platformSolutions?.content_2
-    );
+    platformSolutions.content_2 = objectValuesToArray(platformSolutions?.content_2);
   }
 
   const companySegments = conheca_os_nossos_segmentos_de_atuacao;
-  const companySegmentsItemsWidthImage = await fetchImagesForItems(
-    companySegments?.items
-  );
-  companySegments.items = companySegmentsItemsWidthImage;
+  promises.push(fetchImagesForItems(companySegments?.items).then(images => companySegments.items = images));
 
   const customerExperience = como_e_a_experiencia_dos_nossos_clientes;
-  const customerExperienceItemsWidthImage = await fetchImagesForItems(
-    customerExperience?.items
-  );
-  customerExperience.items = customerExperienceItemsWidthImage;
+  promises.push(fetchImagesForItems(customerExperience?.items).then(images => customerExperience.items = images));
 
   const formAnalyticalSolutions = solucoes_analiticas_disponiveis;
-  await fetchImage(
-    formAnalyticalSolutions,
-    formAnalyticalSolutions?.image_desktop,
-    "image_data_desktop"
-  );
-  await fetchImage(
-    formAnalyticalSolutions?.form,
-    formAnalyticalSolutions?.form?.icon,
-    "image_data"
-  );
+  promises.push(fetchImage(formAnalyticalSolutions, formAnalyticalSolutions?.image_desktop, "image_data_desktop"));
+  promises.push(fetchImage(formAnalyticalSolutions?.form, formAnalyticalSolutions?.form?.icon, "image_data"));
 
   const specialistBanner = solucoes_e_dados_unicos_impulsionam;
-  await fetchImage(specialistBanner, specialistBanner?.image, "image_data");
+  promises.push(fetchImage(specialistBanner, specialistBanner?.image, "image_data"));
 
   const faq = perguntas_frequentes;
-  await fetchImage(faq, faq?.icon, "image_data");
-  faq.items = objectValuesToArray(faq?.items);
+  promises.push(fetchImage(faq, faq?.icon, "image_data").then(() => faq.items = objectValuesToArray(faq?.items)));
 
   const sectionPosBanner = secao_pos_banner;
-  await fetchImage(
-    sectionPosBanner,
-    sectionPosBanner?.banner_secao,
-    "image_data"
-  );
-  const sectionPosBannerItemsImage = await fetchImagesForItems(
-    sectionPosBanner?.items
-  );
-
-  sectionPosBanner.items = sectionPosBannerItemsImage;
+  promises.push(fetchImage(sectionPosBanner, sectionPosBanner?.banner_secao, "image_data"));
+  promises.push(fetchImagesForItems(sectionPosBanner?.items).then(images => sectionPosBanner.items = images));
 
   const nossasSolucoesEstrategicas = nossas_solucoes_estrategicas || {};
-  const nossasSolucoesEstrategicasItemsImage = await fetchImagesForItems(
-    nossasSolucoesEstrategicas?.items
-  );
+  promises.push(fetchImagesForItems(nossasSolucoesEstrategicas?.items).then(images => {
+    if (nossas_solucoes_estrategicas) {
+      nossasSolucoesEstrategicas.items = images;
+    }
+  }));
 
-  if (nossas_solucoes_estrategicas) {
-    nossasSolucoesEstrategicas.items = nossasSolucoesEstrategicasItemsImage;
-  }
+  await Promise.all(promises);
 
   return {
     seo: seo,
