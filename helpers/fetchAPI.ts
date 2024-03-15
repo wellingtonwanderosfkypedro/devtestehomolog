@@ -1,4 +1,4 @@
-const API_URL = <string>process.env.NEXT_PUBLIC_WORDPRESS_API_ENDPOINT;
+import { API_URL } from "./constants";
 
 export const fetchAPI = async (
   query = "",
