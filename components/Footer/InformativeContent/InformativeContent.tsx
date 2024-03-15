@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import SocialMediaLinks from "./SocialMediaLinks";
 
 import LogoNeoway from "@/assets/images/footer/LogoNeoway.png";

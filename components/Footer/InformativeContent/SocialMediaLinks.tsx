@@ -1,11 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-import instagram from "@/assets/images/footer/instagram.png";
 import facebook from "@/assets/images/footer/facebook.png";
+import instagram from "@/assets/images/footer/instagram.png";
 import linkedin from "@/assets/images/footer/linkedin.png";
 import youtube from "@/assets/images/footer/youtube.png";
-import x from "@/assets/images/footer/X.svg";
+import x from "../../../assets/images/footer/x.svg";
 
 const SocialMediaLinks: React.FC = () => {
   return (
