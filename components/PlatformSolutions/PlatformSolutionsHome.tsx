@@ -8,7 +8,7 @@ interface PlatformSolutionsHomeProps {
 }
 
 const PlatformSolutionsHome = ({ data }: PlatformSolutionsHomeProps) => {
-  const { title, content, content_2, button, image_data } = data;
+  const { title, content, content_2, button, image } = data;
 
   const typeOfContent =
     typeof content_2 === "string" || content_2?.length === 1;
@@ -45,9 +45,9 @@ const PlatformSolutionsHome = ({ data }: PlatformSolutionsHomeProps) => {
         </div>
         <div className="mt-9 tablet:mt-0 tablet:max-w-[60%] maxDesktop:max-w-[60%]">
           <Image
-            src={image_data?.url ? image_data?.url : ""}
-            width={image_data?.width}
-            height={image_data?.height}
+            src={image?.url ? image?.url : ""}
+            width={image?.width}
+            height={image?.height}
             alt="Device"
           />
         </div>

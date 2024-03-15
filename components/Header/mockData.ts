@@ -56,7 +56,7 @@ export const mockHeader: MenuData = {
           childItems: {
             edges: [
               {
-                title: "Inteliência Comercial",
+                title: "Inteligência Comercial",
                 headerSection: {
                   title: "Prospecção de Clientes e Inteligência Comercial",
                   description:

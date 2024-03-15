@@ -5,10 +5,10 @@ const nextConfig = {
     domains: ["blog.neoway.com.br"],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'blog.neoway.com.br',
-        port: '**',
-        pathname: '**',
+        protocol: "https",
+        hostname: "blog.neoway.com.br",
+        port: "**",
+        pathname: "**",
       },
     ],
   },

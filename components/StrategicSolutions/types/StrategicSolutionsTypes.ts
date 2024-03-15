@@ -1,3 +1,5 @@
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
 export interface StrategicSolutionsType {
   title: string;
   description: string;
@@ -5,19 +7,8 @@ export interface StrategicSolutionsType {
 }
 
 export interface SolutionCard {
-  image_data: ImageData;
+  image: ImageData;
   title: string;
   description: string;
-  link: Link;
-}
-
-interface Link {
-  title: string;
-  url: string;
-}
-
-interface ImageData {
-  url: string;
-  width: number;
-  height: number;
+  link: ButtonLink;
 }

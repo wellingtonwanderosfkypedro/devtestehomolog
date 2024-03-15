@@ -1,12 +1,11 @@
-import React from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
 import ItemCustomerExperience from "./ItemCustomerExperience";
 
-import { Item } from "./types/CustomerExperienceTypes";
 import NavigationButton from "./Navigation";
+import { Item } from "./types/CustomerExperienceTypes";
 
 interface CustomerCarouselProps {
   items: Item[];
@@ -16,6 +15,7 @@ interface CustomerCarouselProps {
 const CustomerCarousel = ({ items, slidesView }: CustomerCarouselProps) => {
   const isSlidesView =
     slidesView == 2 ? "h-[100%] tablet:w-[824px]" : "h-[100%]";
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -34,7 +34,8 @@ const CustomerCarousel = ({ items, slidesView }: CustomerCarouselProps) => {
       navigation={{
         nextEl: ".swiper-button-next-custom",
         prevEl: ".swiper-button-prev-custom",
-        disabledClass: "bg-orange-300 stroke-white",
+        disabledClass:
+          "bg-orange-300 stroke-white hover:bg-white disabled-swiper-track",
       }}
       className={isSlidesView}
     >

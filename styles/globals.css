@@ -179,4 +179,11 @@ a {
   font-weight: 700;
 }
 
+.swiper-button-next-custom:hover path,
+.swiper-button-prev-custom:hover path {
+  stroke: white;
+}
 
+.disabled-swiper-track:hover path {
+  stroke: #F0680A !important;
+}

@@ -18,15 +18,19 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
 
   return (
     <div
-      className={`bg-white text-zinc-900  min-h-[430px] w-[950px] flex h-full rounded-b-lg ${
+      className={`bg-white text-zinc-900  w-[950px] flex h-full rounded-b-lg ${
         isSimpleIcons ? "pl-6" : "pl-3"
       }`}
       onClick={(e) => {
         e.stopPropagation();
       }}
     >
-      <ul className={`pt-6 ${isSimpleIcons ? "flex w-full h-fit" : "w-[20%]"}`}>
-        <div className={`${isSimpleIcons ? "flex flex-wrap  gap-6" : ""}`}>
+      <ul
+        className={`pt-6 ${
+          isSimpleIcons ? "flex w-full h-fit" : "w-[20%] pb-8"
+        }`}
+      >
+        <div className={`${isSimpleIcons ? "flex flex-wrap  gap-6 pb-8" : ""}`}>
           {menuItem?.map((item, key) => {
             if (item.title) {
               return (

@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 
-import Step1 from "./Step1/Step1";
-import Step2 from "./Step2/Step2";
-import FormFooter from "./FormFooter/FormFooter";
-import SuccessScreen from "./SuccessScreen/SuccessScreen";
-import FormHeader from "./FormHeader/FormHeader";
+import { Form } from "../types/formOurSolutionsTypes";
 import Button from "./Button";
 import ErrorScreen from "./ErrorScreen/ErrorScreen";
-import { Form } from "../types/formOurSolutionsTypes";
+import FormFooter from "./FormFooter/FormFooter";
+import FormHeader from "./FormHeader/FormHeader";
+import Step1 from "./Step1/Step1";
+import Step2 from "./Step2/Step2";
+import SuccessScreen from "./SuccessScreen/SuccessScreen";
 
 interface FormValues {
   company: string;
@@ -130,21 +130,25 @@ const Form = ({ form }: FormProps) => {
   };
 
   if (requestStatus === "success") {
-    return <SuccessScreen
-      information={form?.information}
-      security={{
-        icon: form.image_data,
-        text: form.security_title
-      }}
-    />;
+    return (
+      <SuccessScreen
+        information={form?.information}
+        security={{
+          icon: form.icon.url,
+          text: form.security_title,
+        }}
+      />
+    );
   } else if (requestStatus === "error") {
-    return <ErrorScreen
-      information={form?.information}
-      security={{
-        icon: form.image_data,
-        text: form.security_title
-      }}
-    />;
+    return (
+      <ErrorScreen
+        information={form?.information}
+        security={{
+          icon: form.icon.url,
+          text: form.security_title,
+        }}
+      />
+    );
   }
 
   return (
@@ -155,11 +159,11 @@ const Form = ({ form }: FormProps) => {
           onNextStep={onNextStep}
           titleStep1={{
             title1: form?.title_form_step_1,
-            title2: form?.title_form_step_complement_1
+            title2: form?.title_form_step_complement_1,
           }}
           titleStep2={{
             title1: form?.title_form_step_2,
-            title2: form?.title_form_step_complement_2
+            title2: form?.title_form_step_complement_2,
           }}
         />
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -181,8 +185,8 @@ const Form = ({ form }: FormProps) => {
         <FormFooter
           information={form?.information}
           security={{
-            icon: form?.image_data,
-            text: form?.security_title
+            icon: form?.icon.url,
+            text: form?.security_title,
           }}
         />
       </div>

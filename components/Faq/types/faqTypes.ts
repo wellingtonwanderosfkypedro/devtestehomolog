@@ -1,17 +1,13 @@
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
 export interface FAQInterface {
   title: string;
   subTitle: string;
   description: string;
-  button: Button;
-  image_data: string;
+  button: ButtonLink;
+  icon: ImageData;
   items: ItemsFAQ[];
 }
-
-type Button = {
-  title: string;
-  url: string;
-  target: string;
-};
 
 type ItemsFAQ = {
   title: string;

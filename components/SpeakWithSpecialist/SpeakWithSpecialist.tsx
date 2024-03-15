@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Richtext from "../RichText/RichText";
 import { SpeakWithSpecialistCard } from "./components/SpeakWithSpecialistCard";
 import { SpeakSpecialistType } from "./types/speakWithSpecialistTypes";
@@ -8,18 +9,20 @@ export interface SpeakWithSpecialistData {
 }
 
 export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
+  data.items = Object.values(data.items);
+
   return (
     <div className="bg-[#f4f4fa]">
-      <div className="maxDesktop:max-w-[1440px] mx-auto laptop:py-8 pt-12 pb-[34px] laptop:px-0 px-5 lg:px-24 flex laptop:flex-row flex-col justify-between self-start ">
+      <div className="maxDesktop:max-w-[1440px] mx-auto laptop:py-24 pt-12 pb-[34px] laptop:px-0 px-5 lg:px-24 flex laptop:flex-row flex-col justify-between self-start ">
         <div className="laptop:w-5/12 laptop:block hidden">
           <Image
-            src={data.image_data.url}
-            width={data.image_data.width}
-            height={data.image_data.height}
+            src={data.image.url}
+            width={data.image.width}
+            height={data.image.height}
             alt=""
           />
-          <button className="w-10/12 bg-[#1B1B96] hover:bg-[#14147b] text-white	py-4 w-4/5 flex justify-center mx-auto mt-1.5 rounded-md text-base font-semibold">
-            Fale com um especialista
+          <button className="w-10/12 bg-[#1B1B96] hover:bg-white text-white	py-4 w-4/5 flex justify-center mx-auto mt-1.5 rounded-md text-base font-semibold border border-[#1B1B96] hover:text-[#1B1B96] transition-all duration-300">
+            <Link href={""}>Fale com um especialista</Link>
           </button>
         </div>
 
@@ -32,10 +35,6 @@ export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
               }
             />
           </div>
-          {/* <h2 className="font-rajdhani laptop:text-5xl text-2xl laptop:leading-[58px] font-medium text-[#28283F]">
-            <span className="font-bold text-[#1B1B96] "></span>{" "}
-            <span className="font-bold text-[#1B1B96] "></span>{" "}
-          </h2> */}
 
           <p className="text-lg text-gray-200 font-normal mt-6 max-tablet:text-base">
             {data.descricao}

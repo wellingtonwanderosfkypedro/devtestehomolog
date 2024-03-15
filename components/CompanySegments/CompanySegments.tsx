@@ -8,7 +8,9 @@ interface CompanySegmentsProps {
 }
 
 const CompanySegments = ({ data }: CompanySegmentsProps) => {
-  //  const { title, description, items } = data;
+  if (data?.items) {
+    data.items = Object.values(data?.items);
+  }
 
   return (
     <div className="w-full bg-gray-100 lg:py-20 py-10">

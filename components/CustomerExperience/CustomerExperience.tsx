@@ -10,6 +10,10 @@ const CustomerExperience = ({
   data,
   slidesView = 3,
 }: CustomerExperienceProps) => {
+  if (data?.items) {
+    data.items = Object.values(data.items);
+  }
+
   return (
     <div className="w-full bg-white lg:py-20 py-10">
       <div className="maxDesktop:max-w-[1440px] px-6 mx-auto py-8 lg:px-24">

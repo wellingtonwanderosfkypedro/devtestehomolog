@@ -40,8 +40,8 @@ export const PlatformSolutions = ({ idPage }: PageProps) => {
 
   return (
     <div className="maxDesktop:max-w-[1440px] mx-auto py-8 lg:px-24">
-      <div className="bg-white flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between">
-        <div className="flex flex-col tablet:justify-center tablet:max-w-[40%] maxDesktop:max-w-[40%]">
+      <div className="bg-white flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between justify-center">
+        <div className="flex flex-col tablet:justify-center tablet:max-w-[45%] maxDesktop:max-w-[40%]">
           <h2 className="text-[25.92px] leading-[32.4px] text-gray-500 font-rajdhani font-bold tablet:leading-[50px] tablet:text-[40px]">
             {contentComponent.title}
           </h2>
@@ -67,7 +67,7 @@ export const PlatformSolutions = ({ idPage }: PageProps) => {
             Fale com um especialista
           </Link>
         </div>
-        <div className="mt-9 tablet:mt-0 tablet:max-w-[60%] maxDesktop:max-w-[60%]">
+        <div className="mt-9 tablet:mt-0 tablet:max-w-[45%] maxDesktop:max-w-[60%]">
           <Image src={Device} width={725} height={598} alt="Device" />
         </div>
       </div>

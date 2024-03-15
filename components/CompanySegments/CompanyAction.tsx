@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Item } from "./types/companySegments";
@@ -8,26 +7,16 @@ interface CompanyActionProps {
 }
 
 export const CompanyAction = ({ action }: CompanyActionProps) => {
-  const [valuesImage, setValuesImage] = useState({
-    width: 38,
-    height: 60,
-    src: "",
-  });
-
-  const { title, description, image_data, button } = action;
-
-  useEffect(() => {
-    if (typeof image_data === "string") {
-      setValuesImage({ width: 59.26, height: 59.26, src: image_data });
-    }
-  }, [image_data]);
+  const { title, description, logo, button } = action;
 
   return (
     <div className="bg-blue-500 lg:px-9 px-8 py-7 lg:py-10 lg:max-w-[519px]">
       <div className="flex gap-4">
-        <h3 className="font-archivo items-center lg:text-[28px] text-lg text-white pb-4 flex gap-4 lg:leading-8 leading-4">
+        <h3 className="font-rajdhani items-center lg:text-[28px] text-lg text-white pb-4 flex gap-4 lg:leading-8 leading-4">
           <Image
-            {...valuesImage}
+            src={logo.url}
+            height={logo.height}
+            width={logo.width}
             className="lg:w-[60px] w-[38px] "
             alt="segment action"
           />

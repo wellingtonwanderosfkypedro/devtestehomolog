@@ -1,6 +1,6 @@
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SolutionsCard } from "./components/SolutionsCard";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { StrategicSolutionsType } from "./types/StrategicSolutionsTypes";
 
 export interface StrategicSolutionsProps {
@@ -8,6 +8,9 @@ export interface StrategicSolutionsProps {
 }
 
 export function StrategicSolutions({ data }: StrategicSolutionsProps) {
+
+  data.items = Object.values(data.items)
+
   return (
     <div className="maxDesktop:max-w-[1440px] px-5  mx-auto  pt-12 pb-[34px] flex flex-col justify-between self-start  laptop:py-8 laptop:flex-row laptop:mt-[143px] laptop:mb-[56px] maxDesktop:px-0 strategicSolutions">
       <div className="mb-[30px] laptop:max-w-[502px] laptop:mr-[71px] laptop:mb-0">

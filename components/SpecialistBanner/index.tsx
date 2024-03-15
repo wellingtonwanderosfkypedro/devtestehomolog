@@ -20,18 +20,16 @@ export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
         <div className="w-full flex p-24 pb-10 relative h-[550px] max-desktop:p-14 max-desktop:pb-10">
           <Image
             alt={data.title}
-            width={data?.image_data?.width}
-            height={data?.image_data?.height}
-            src={data?.image_data?.url}
+            width={data?.image?.width}
+            height={data?.image?.height}
+            src={data?.image?.url}
             className="absolute top-0 left-0 w-full h-full object-cover"
           />
-          <div className="w-full z-[2] flex flex-col justify-between max-desktop:pt-8">
+          <div className="w-full z-[2] flex flex-col justify-around max-desktop:pt-8">
             <div className=" flex font-rajdhani text-white max-w-[780px]">
               <h3 className="font-semibold text-5xl max-desktop:text-4xl max-desktop:max-w-[600px]">
                 {data.title}{" "}
-                <span className="font-bold">
-                  {data.title_complement_1}
-                </span>{" "}
+                <span className="font-bold">{data.title_complement_1}</span>{" "}
                 {data.title_complement_2}{" "}
                 <span className="text-orange-300 font-bold">
                   {data.title_complement_3}
@@ -41,7 +39,7 @@ export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
             <Link
               href={data?.button?.url}
               target={data?.button?.target}
-              className="bg-orange-300 max-w-[400px] w-full rounded-md py-4 flex gap-2 justify-center self-center border border-transparent group hover:bg-transparent hover:border-orange-300 transition-all duration-300 ease-in"
+              className="bg-orange-300 max-w-[400px] w-full rounded-md py-4 flex gap-2 justify-center  border border-transparent group hover:bg-transparent hover:border-orange-300 transition-all duration-300 ease-in"
             >
               <span className="text-white font-semibold text-base font-archivo group-hover:text-orange-300 transition-all duration-300 ease-in">
                 {data?.button?.title}

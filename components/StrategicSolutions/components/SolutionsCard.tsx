@@ -6,7 +6,7 @@ interface SolutionsCardProps {
 }
 
 export function SolutionsCard({ item }: SolutionsCardProps) {
-  const bgImage = { backgroundImage: `url(${item?.image_data?.url})` };
+  const bgImage = { backgroundImage: `url(${item?.image?.url})` };
 
   return (
     <div

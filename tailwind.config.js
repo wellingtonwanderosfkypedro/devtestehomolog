@@ -68,14 +68,28 @@ module.exports = {
       rotate: {
         50: "-45deg",
       },
+      transitionProperty: {
+        height: "height",
+      },
       keyframes: {
         showMenu: {
           "0%": { transform: "translateY(-10px)", opacity: "0" },
           "100%": { transform: "translateY(0px)", opacity: "1" },
         },
+        showCardFaq: {
+          "0%": { transform: "translate3d(0, -20px, 0)", opacity: "0" },
+          "100%": { transform: "translatez(0px)", opacity: "1" },
+        },
+        heightCardFaq: {
+          "0%": { height: "0" },
+          "100%": { height: "100%" },
+        },
       },
       animation: {
         "show-menu": "showMenu 0.5s linear",
+        "animation-faq":
+          "showCardFaq .25s cubic-bezier(.215, .61, .355, 1) .1s forwards;",
+        "height-faq": "heightCardFaq .45s cubic-bezier(.48,-.28,.39,1.33)",
       },
       backgroundImage: {
         "banner-form": "url('/banner-principal-form.png')",

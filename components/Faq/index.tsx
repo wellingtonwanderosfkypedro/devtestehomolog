@@ -15,7 +15,7 @@ export const Faq = ({ data }: FaqProps) => {
   };
 
   return (
-    <div className="flex maxDesktop:max-w-[1440px] px-6 mx-auto py-8 lg:px-24">
+    <div className="flex maxDesktop:max-w-[1440px] px-6 mx-auto py-20 lg:px-24">
       <div className="flex gap-[70px] max-laptop:flex-col">
         <div className="flex flex-col gap-2 w-[50%] max-laptop:w-full">
           <h4 className="font-roboto text-blue-400 font-bold text-base uppercase mb-4">
@@ -29,7 +29,7 @@ export const Faq = ({ data }: FaqProps) => {
           </span>
 
           <Link href={data?.button?.url} className="flex gap-2">
-            <Image alt="" src={data?.image_data} width={24} height={24} />
+            <Image alt="" src={data?.icon?.url} width={24} height={24} />
             <span className="font-archivo font-bold text-base">
               {data?.button?.title}
             </span>
@@ -49,7 +49,12 @@ export const Faq = ({ data }: FaqProps) => {
                 }`}
               >
                 <div className="flex">
-                  <p className="font-archivo font-bold text-lg text-blue-700 w-[90%] max-laptop:text-base">
+                  <p
+                    className="font-archivo font-bold text-lg text-blue-700 w-[90%] max-laptop:text-base cursor-pointer"
+                    onClick={() => {
+                      toggleOption(key);
+                    }}
+                  >
                     {qa.title}
                   </p>
                   <button
@@ -71,11 +76,20 @@ export const Faq = ({ data }: FaqProps) => {
                     </span>
                   </button>
                 </div>
-                {isOptionActive && (
-                  <span className="font-roboto font-medium text-base text-gray-700 pt-7">
+
+                <div
+                  className={`pt-7 transition-height duration-300 ease-in-out overflow-hidden ${
+                    isOptionActive ? "animate-animation-faq h-full" : "h-0"
+                  }`}
+                >
+                  <span
+                    className={`font-roboto font-medium text-base text-gray-700 opacity-0 relative transform translate-y-5 ${
+                      isOptionActive ? "animate-animation-faq h-full" : "h-0"
+                    }`}
+                  >
                     {qa.description}
                   </span>
-                )}
+                </div>
               </div>
             );
           })}

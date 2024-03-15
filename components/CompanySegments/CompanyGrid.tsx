@@ -11,7 +11,7 @@ export const CompanyGrid = ({ items }: CompanyGrid) => {
       {items?.slice(1).map((option) => {
         return (
           <div key={option.title}>
-            <CompanyIcon image={option?.image_data} title={option?.title} />
+            <CompanyIcon image={option?.logo} title={option?.title} />
           </div>
         );
       })}

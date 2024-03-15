@@ -1,11 +1,16 @@
 import { ActionResolution } from "./ActionResolution";
 import { CompanyResolution } from "./types/companyResolutionsTypes";
 
-interface CompanyResolutionsProps{
+interface CompanyResolutionsProps {
   data: CompanyResolution;
 }
 
 export const CompanyResolutions = ({ data }: CompanyResolutionsProps) => {
+  data.items = Object.values(data.items).map((item) => ({
+    ...item,
+    sub_items: Object.values(item.sub_items),
+  }));
+
   return (
     <div className="maxDesktop:max-w-[1440px] px-6 mx-auto py-8 lg:px-24">
       <div className="max-w-[1128px] pb-8">

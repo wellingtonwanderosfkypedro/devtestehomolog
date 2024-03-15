@@ -70,7 +70,7 @@ export const Nav = ({ isHeaderWhite }: INavProps) => {
                 ></span>
               </Link>
               <div
-                className={`absolute bg-transparent  min-h-[430px] top-full opacity-100 z-10  left-[15%] ${
+                className={`absolute bg-transparent top-full opacity-100 z-10  left-[15%] ${
                   isMenuActive && " group-hover:opacity-100 animate-show-menu"
                 }`}
               >

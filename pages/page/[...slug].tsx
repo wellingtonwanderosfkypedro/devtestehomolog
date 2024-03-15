@@ -1,18 +1,18 @@
-import CompanySegments from "@/components/CompanySegments/CompanySegments";
-import CustomerExperience from "@/components/CustomerExperience/CustomerExperience";
-import { Faq } from "@/components/Faq";
-import FormAnalyticalSolutions from "@/components/FormAnalyticalSolutions/FormAnalyticalSolutions";
-import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
 import { AppLayout } from "@/components/Layout";
-import PlatformSolutionsHome from "@/components/PlatformSolutions/PlatformSolutionsHome";
 import { SEO } from "@/components/Seo";
-import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
+import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
 import { SpecialistBanner } from "@/components/SpecialistBanner";
+import { Faq } from "@/components/Faq";
+import { processData } from "../../helpers/processData";
+import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
 import { StrategicSolutions } from "@/components/StrategicSolutions/StrategicSolutions";
 import fetchPosts from "@/helpers/fetchPost";
 import { SeoProps } from "@/typings/global";
 import type { GetServerSideProps } from "next";
-import { processData } from "../../helpers/processData";
+import PlatformSolutionsHome from "@/components/PlatformSolutions/PlatformSolutionsHome";
+import CustomerExperience from "@/components/CustomerExperience/CustomerExperience";
+import CompanySegments from "@/components/CompanySegments/CompanySegments";
+import FormAnalyticalSolutions from "@/components/FormAnalyticalSolutions/FormAnalyticalSolutions";
 
 type PageData = {
   seo: SeoProps;
@@ -45,8 +45,6 @@ interface PageProps {
 }
 
 const Page = ({ pagePostData }: PageProps) => {
-  console.log("dataPagePost", pagePostData);
-
   if (!pagePostData) {
     return (
       <AppLayout>

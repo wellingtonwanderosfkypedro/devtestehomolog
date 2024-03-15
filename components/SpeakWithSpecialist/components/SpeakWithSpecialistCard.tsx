@@ -9,7 +9,7 @@ interface ItemCard {
 export function SpeakWithSpecialistCard({ item }: ItemCard) {
   return (
     <div className="flex flex-row items-start bg-white rounded-lg py-4 px-6 mb-8 gap-6 max-tablet:px-4 max-tablet:gap-4">
-      <Image src={item.image_data} alt={""} width={56} height={56} />
+      <Image src={item.image.url} alt={""} width={56} height={56} />
 
       <div className="flex flex-col grow justify-start ">
         <h3 className="font-semibold max-tablet:text-base">{item.title}</h3>

@@ -68,7 +68,7 @@ export const DesktopHeader = () => {
 
           <Link
             href="https://apps.neoway.com.br/auth/login?_gl=1*1g8rov2*_ga*MTI1MDY2Ny4xNzAyNTcwMjQ1*_ga_D0GKM1QCJT*MTcwNTY3MTQ4MC43LjAuMTcwNTY3MTQ4MC42MC4wLjA"
-            className="flex bg-blue-500 text-base font-bold py-3 px-7 min-[1290px]:px-12 text-white text-nowrap hover:bg-white hover:text-blue-800 hover:border hover:border-blue-800"
+            className="flex bg-blue-500 text-base font-bold py-3 px-7 min-[1290px]:px-12 text-white text-nowrap hover:bg-white hover:text-blue-800 border border-blue-800 transition-all duration-500"
           >
             Contato Comercial
           </Link>

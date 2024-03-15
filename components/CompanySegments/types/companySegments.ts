@@ -1,26 +1,21 @@
+import { ButtonLink } from "@/helpers/generalTypes";
+
 export interface CompanySegmentsData {
-    title: string;
-    description: string;
-    items: Item[];
+  title: string;
+  description: string;
+  items: Item[];
 }
 
 export type Item = {
-    logo: number;
-    title: string;
-    link?: string;
-    description?: string;
-    image_data: ImageProps | string;
-    button?: Button;
-}
+  logo: ImageProps;
+  title: string;
+  link?: string;
+  description?: string;
+  button?: ButtonLink;
+};
 
 export type ImageProps = {
-    url: string;
-    width: number;
-    height: number;
-}
-
-type Button = {
-    target: string;
-    title: string;
-    url: string;
-}
+  url: string;
+  width: number;
+  height: number;
+};
