@@ -1,4 +1,4 @@
-export const processData = async (data: any) => {
+export const processData =  (data: any) => {
   const {
     seo,
     somos_o_maior_hub_de_inteligencia,

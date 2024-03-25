@@ -1,18 +1,18 @@
-import { AppLayout } from "@/components/Layout";
-import { SEO } from "@/components/Seo";
-import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
-import { SpecialistBanner } from "@/components/SpecialistBanner";
+import CompanySegments from "@/components/CompanySegments/CompanySegments";
+import CustomerExperience from "@/components/CustomerExperience/CustomerExperience";
 import { Faq } from "@/components/Faq";
-import { processData } from "../../helpers/processData";
+import FormAnalyticalSolutions from "@/components/FormAnalyticalSolutions/FormAnalyticalSolutions";
+import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
+import { AppLayout } from "@/components/Layout";
+import PlatformSolutionsHome from "@/components/PlatformSolutions/PlatformSolutionsHome";
+import { SEO } from "@/components/Seo";
 import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
+import { SpecialistBanner } from "@/components/SpecialistBanner";
 import { StrategicSolutions } from "@/components/StrategicSolutions/StrategicSolutions";
 import fetchPosts from "@/helpers/fetchPost";
 import { SeoProps } from "@/typings/global";
 import type { GetServerSideProps } from "next";
-import PlatformSolutionsHome from "@/components/PlatformSolutions/PlatformSolutionsHome";
-import CustomerExperience from "@/components/CustomerExperience/CustomerExperience";
-import CompanySegments from "@/components/CompanySegments/CompanySegments";
-import FormAnalyticalSolutions from "@/components/FormAnalyticalSolutions/FormAnalyticalSolutions";
+import { processData } from "../../helpers/processData";
 
 type PageData = {
   seo: SeoProps;
@@ -66,6 +66,8 @@ const Page = ({ pagePostData }: PageProps) => {
     faq,
   } = pagePostData;
 
+
+
   return (
     <AppLayout>
       <SEO title={seo?.title} description={seo?.description} />
@@ -99,7 +101,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   try {
     const data: PagePostData = await fetchPosts(pageId);
-    const pagePostData = await processData(data);
+    const pagePostData = processData(data);
 
     return {
       props: {
