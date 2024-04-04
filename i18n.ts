@@ -1,13 +1,13 @@
-const defaultLocale = "pt";
+// const defaultLocale = "pt";
 
-const langs = [defaultLocale, "en"];
+// const langs = [defaultLocale, "en"];
 
-const locales = langs as unknown as string[];
+// const locales = langs as unknown as string[];
 
-export const i18n = {
-  defaultLocale,
-  locales,
-  localeDetection: true,
-};
+// export const i18n = {
+//   defaultLocale,
+//   locales,
+//   localeDetection: true,
+// };
 
-export type Locale = (typeof langs)[number];
+// export type Locale = (typeof langs)[number];

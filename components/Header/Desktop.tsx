@@ -23,11 +23,10 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
 
   return (
     <header
-      className={` w-full mx-auto pt-4 px-2 min-[1100px]:px-4 font-rajdhani  fixed z-50 transition-all  duration-0 border-b-[1px] ${
-        headerWhite
-          ? "bg-white  border-gray-100"
-          : "bg-transparent  border-gray-300"
-      } `}
+      className={` w-full mx-auto pt-4 px-2 min-[1100px]:px-4 font-rajdhani  fixed z-50 transition-all  duration-0 border-b-[1px] ${headerWhite
+        ? "bg-white  border-gray-100"
+        : "bg-transparent  border-gray-300"
+        } `}
     >
       <div className="maxDesktop:max-w-[1440px] min-[1120px]:w-11/12 mx-auto flex justify-between items-center pb-6 relative">
         <Link href="#" className="pb-1 ">
@@ -48,17 +47,15 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
         <Nav isHeaderWhite={headerWhite} />
         <div className="flex items-center justify-between">
           <button
-            className={`flex gap-[10px] cursor-pointer py-3  items-center ${
-              headerWhite ? "" : ""
-            } `}
+            className={`flex gap-[10px] cursor-pointer py-3  items-center ${headerWhite ? "" : ""
+              } `}
           >
             <ChooseThemeIcon headerWhite={headerWhite} />
             <span
-              className={`text-base font-medium px-1 w-[35px] h-[35px] leading-[35px] ${
-                headerWhite
-                  ? "text-blue-900 hover:bg-blue-500 hover:text-white"
-                  : "text-white hover:bg-white hover:text-blue-900"
-              }  hover:font-semibold`}
+              className={`text-base font-medium px-1 w-[35px] h-[35px] leading-[35px] ${headerWhite
+                ? "text-blue-900 hover:bg-blue-500 hover:text-white"
+                : "text-white hover:bg-white hover:text-blue-900"
+                }  hover:font-semibold`}
             >
               Aa
             </span>
@@ -66,20 +63,19 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
 
           <div className="px-5 cursor-pointer relative group">
             <span
-              className={`text-base font-medium text-nowrap uppercase ${
-                headerWhite ? "text-blue-900" : "text-white"
-              } hover:underline hover:font-semibold`}
+              className={`text-base font-medium text-nowrap uppercase ${headerWhite ? "text-blue-900" : "text-white"
+                } hover:underline hover:font-semibold`}
             >
               {langActive}
             </span>
 
             <div className="absolute bg-white top-[24px] left-[-15%] hidden group-hover:block">
-              <ul>
+              {/* <ul>
                 {langs.map((lang, idx) => {
                   return (
                     <>
                       <Link
-                        href={`${path}${lang.codeLang}`}
+                        href={`${path}`}
                         className={`text-base font-medium text-nowrap uppercase  text-blue-900 hover:font-semibold`}
                       >
                         <li key={idx} className="px-2 py-2">
@@ -90,7 +86,7 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
                     </>
                   );
                 })}
-              </ul>
+              </ul> */}
             </div>
           </div>
 
@@ -100,9 +96,8 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
           >
             <LoginIcon color={headerWhite ? "#1D1B9D" : "#FFF"} />
             <span
-              className={`text-base font-medium text-nowrap ${
-                headerWhite ? "text-blue-900" : "text-white"
-              } hover:underline`}
+              className={`text-base font-medium text-nowrap ${headerWhite ? "text-blue-900" : "text-white"
+                } hover:underline`}
             >
               Fazer login
             </span>
