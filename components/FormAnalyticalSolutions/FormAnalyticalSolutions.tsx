@@ -1,3 +1,4 @@
+import { langStore } from "@/helpers/providers/getLang";
 import Form from "../FormOurSolutions/Form/Form";
 import TextArea from "../FormOurSolutions/TextArea/TextArea";
 
@@ -8,6 +9,7 @@ interface FormAnalyticalSolutionsProps {
 }
 
 const FormAnalyticalSolutions = ({ data }: FormAnalyticalSolutionsProps) => {
+  const isEnglish = langStore.getLang();
   const backgroundStyle = {
     backgroundImage: `url(${data?.image_desktop?.url})`,
   };
@@ -21,8 +23,12 @@ const FormAnalyticalSolutions = ({ data }: FormAnalyticalSolutionsProps) => {
         <TextArea
           message3={
             <span className="text-white text-[22px] font-rajdhani font-semibold leading-[27.1px] tablet:text-[48px] tablet:leading-[60px]">
-              {data?.title}{" "}
-              <strong className="font-bold">{data?.title_complement_1}</strong>
+              {isEnglish ? data.englishTitle : data?.title}{" "}
+              <strong className="font-bold">
+                {isEnglish
+                  ? data.englishTitleComplement_1
+                  : data?.title_complement_1}
+              </strong>
             </span>
           }
         />

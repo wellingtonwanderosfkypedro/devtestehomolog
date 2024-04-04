@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { useMedia } from "react-use";
 import Form from "./Form/Form";
@@ -7,12 +8,15 @@ import { isProductBanner } from "@/helpers/isProductBanner";
 import ArrowDown from "@/public/arrow-down.svg";
 import { TitleBanner } from "./TitleBanner";
 import { FormOurSolucion, ProductBanner } from "./types/formOurSolutionsTypes";
+import { useLangContext } from "@/helpers/providers/langCtx";
 
 export interface FormOurSolucionsProps {
   data: FormOurSolucion | ProductBanner;
 }
 
 const FormOurSolutions = ({ data }: FormOurSolucionsProps) => {
+  const { isEnglish } = useLangContext();
+
   const isMob = useMedia("(max-width: 500px)", false);
 
   const backgroundDesktop = {
@@ -36,7 +40,7 @@ const FormOurSolutions = ({ data }: FormOurSolucionsProps) => {
               <TextArea
                 message1={
                   <>
-                    {data?.title}{" "}
+                    {isEnglish ? data.englishTitle : data?.title}{" "}
                     <strong className="text-orange-300 laptop:flex laptop:w-[500px]">
                       {data?.title_complement_1}
                     </strong>{" "}
@@ -45,7 +49,7 @@ const FormOurSolutions = ({ data }: FormOurSolucionsProps) => {
                 }
                 message2={
                   <span className="text-white text-[12px] font-roboto font-normal leading-[18px] tablet:text-[18px] tablet:leading-[27px] laptop:flex laptop:w-[574px]">
-                    {data?.description}
+                    {isEnglish ? data.englishDescription : data?.description}
                   </span>
                 }
               />

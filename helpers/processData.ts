@@ -1,4 +1,4 @@
-export const processData =  (data: any) => {
+export const processData = async (data: any) => {
   const {
     seo,
     somos_o_maior_hub_de_inteligencia,
@@ -19,18 +19,21 @@ export const processData =  (data: any) => {
   }
 
   const faq = perguntas_frequentes;
-  faq.items = Object.values(faq?.items);
+  if (faq?.items) {
+    faq.items = Object.values(faq?.items);
+  }
 
   const sectionPosBanner = secao_pos_banner;
 
-  sectionPosBanner.image = {
-    url: sectionPosBanner?.banner_secao?.url,
-    width: sectionPosBanner?.banner_secao?.width,
-    height: sectionPosBanner?.banner_secao?.height,
-    alt: sectionPosBanner?.banner_secao?.alt,
-  };
-
-  sectionPosBanner.items = Object.values(sectionPosBanner?.items);
+  if (sectionPosBanner) {
+    sectionPosBanner.image = {
+      url: sectionPosBanner?.banner_secao?.url,
+      width: sectionPosBanner?.banner_secao?.width,
+      height: sectionPosBanner?.banner_secao?.height,
+      alt: sectionPosBanner?.banner_secao?.alt,
+    };
+    sectionPosBanner.items = Object.values(sectionPosBanner?.items);
+  }
 
   const nossasSolucoesEstrategicas = nossas_solucoes_estrategicas || {};
 

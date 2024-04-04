@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import LogoMobile from "./assets/logoMobile.png";
@@ -10,13 +11,22 @@ import { useEffect, useState } from "react";
 import { NavMobile } from "./Nav/NavMobile";
 import useScrollHeader from "../../hooks/useScrollHeader";
 import { useWindowSize } from "react-use";
+import { Langs } from "./types";
+import { usePathname } from "next/navigation";
 
-export const MobileHeader = () => {
+export const MobileHeader = ({ langActive, langs }: Langs) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const path = usePathname();
 
   const headerWhite = useScrollHeader();
 
   const windowSize = useWindowSize();
+
+  const [showModalLang, setShowModalLang] = useState(false);
+
+  const showModal = () => {
+    setShowModalLang(!showModalLang);
+  };
 
   const logoHeaderFixed = {
     fixed: windowSize.width >= 400 ? LogoFixed : LogoFixedMobile,
@@ -90,6 +100,43 @@ export const MobileHeader = () => {
                   Aa
                 </span>
               </button>
+
+              <div
+                className="px-3 cursor-pointer relative group"
+                onClick={showModal}
+              >
+                <span
+                  className={`text-base font-medium text-nowrap uppercase ${
+                    headerWhite ? "text-blue-500" : "text-white"
+                  } `}
+                >
+                  {langActive}
+                </span>
+
+                {!showModalLang && (
+                  <div className="absolute bg-white top-[24px] left-[-50%] hidden group-hover:block">
+                    <ul>
+                      {langs.map((lang, idx) => {
+                        return (
+                          <>
+                            <Link
+                              href={`${path}${lang.codeLang}`}
+                              className={`text-base font-medium text-nowrap uppercase  text-blue-500 ${
+                                showModalLang ? "font-semibold" : ""
+                              }`}
+                            >
+                              <li key={idx} className="px-2 py-2">
+                                {" "}
+                                {lang.title}
+                              </li>
+                            </Link>
+                          </>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </>
           )}
 

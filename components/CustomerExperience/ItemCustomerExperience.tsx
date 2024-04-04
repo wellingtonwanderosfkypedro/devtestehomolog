@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Item } from "./types/CustomerExperienceTypes";
+import { langStore } from "@/helpers/providers/getLang";
 
 interface ItemCustomerExperienceProps {
   customer: Item;
@@ -10,7 +11,8 @@ const ItemCustomerExperience = ({
   customer,
   index,
 }: ItemCustomerExperienceProps) => {
-  const { content, logo } = customer;
+  const isEnglish = langStore.getLang();
+  const { content, englishContent, logo } = customer;
   return (
     <div className="bg-white border border-solid border-gray-400 rounded-md pt-[28px] p-[18px] h-[387px] tablet:pt-[18px] tablet:h-[350px] tablet:w-[400px]">
       <div className="tablet:mb-[30px]">
@@ -25,7 +27,7 @@ const ItemCustomerExperience = ({
         “
       </span>
       <p className="text-[16px] font-medium leading-[25.6px] text-neutral-300">
-        {content}”
+        {isEnglish ? englishContent : content} ”
       </p>
     </div>
   );

@@ -1,18 +1,24 @@
-import CompanySegments from "@/components/CompanySegments/CompanySegments";
-import CustomerExperience from "@/components/CustomerExperience/CustomerExperience";
-import { Faq } from "@/components/Faq";
-import FormAnalyticalSolutions from "@/components/FormAnalyticalSolutions/FormAnalyticalSolutions";
-import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
 import { AppLayout } from "@/components/Layout";
-import PlatformSolutionsHome from "@/components/PlatformSolutions/PlatformSolutionsHome";
 import { SEO } from "@/components/Seo";
-import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
+import FormOurSolutions from "@/components/FormOurSolutions/FormOurSolutions";
 import { SpecialistBanner } from "@/components/SpecialistBanner";
+import { Faq } from "@/components/Faq";
+import { processData } from "@/helpers/processData";
+import { SpeakWithSpecialist } from "@/components/SpeakWithSpecialist/SpeakWithSpecialist";
 import { StrategicSolutions } from "@/components/StrategicSolutions/StrategicSolutions";
 import fetchPosts from "@/helpers/fetchPost";
 import { SeoProps } from "@/typings/global";
 import type { GetServerSideProps } from "next";
-import { processData } from "../../helpers/processData";
+import PlatformSolutionsHome from "@/components/PlatformSolutions/PlatformSolutionsHome";
+import CustomerExperience from "@/components/CustomerExperience/CustomerExperience";
+import CompanySegments from "@/components/CompanySegments/CompanySegments";
+import FormAnalyticalSolutions from "@/components/FormAnalyticalSolutions/FormAnalyticalSolutions";
+import { langStore } from "@/helpers/providers/getLang";
+import { redirect } from "next/navigation";
+
+interface ParamsProps {
+  params: { solutions: string; page: string };
+}
 
 type PageData = {
   seo: SeoProps;
@@ -44,15 +50,14 @@ interface PageProps {
   pagePostData: PageData;
 }
 
-const Page = ({ pagePostData }: PageProps) => {
-  if (!pagePostData) {
-    return (
-      <AppLayout>
-        <h1>...oops, page not found!</h1>
-      </AppLayout>
-    );
-  }
+async function getPosts(page: string) {
+  const data = await fetchPosts(page);
 
+  const pagePostData = await processData(data);
+  return pagePostData;
+}
+
+export default async function Page({ params }: ParamsProps) {
   const {
     seo,
     formOurSolutions,
@@ -64,57 +69,26 @@ const Page = ({ pagePostData }: PageProps) => {
     formAnalyticalSolutions,
     specialistBanner,
     faq,
-  } = pagePostData;
+  } = await getPosts(params.page);
 
-
+  const is = langStore.getLang();
 
   return (
-    <AppLayout>
+    <>
       <SEO title={seo?.title} description={seo?.description} />
       {formOurSolutions && <FormOurSolutions data={formOurSolutions} />}
-
       {sectionPosBanner && <SpeakWithSpecialist data={sectionPosBanner} />}
-
       {strategicSolutions && <StrategicSolutions data={strategicSolutions} />}
-
       {platformSolutions && <PlatformSolutionsHome data={platformSolutions} />}
-
       {customerExperience && (
         <CustomerExperience data={customerExperience} slidesView={2} />
       )}
-
       {specialistBanner && <SpecialistBanner data={specialistBanner} />}
-
       {companySegments && <CompanySegments data={companySegments} />}
-
       {faq && <Faq data={faq} />}
-
       {formAnalyticalSolutions && (
         <FormAnalyticalSolutions data={formAnalyticalSolutions} />
       )}
-    </AppLayout>
+    </>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  const pageId = query?.slug as string;
-
-  try {
-    const data: PagePostData = await fetchPosts(pageId);
-    const pagePostData = processData(data);
-
-    return {
-      props: {
-        pagePostData,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        pagePostData: null,
-      },
-    };
-  }
-};
-
-export default Page;
+}

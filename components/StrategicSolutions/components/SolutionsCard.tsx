@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { SolutionCard } from "../types/StrategicSolutionsTypes";
+import { langStore } from "@/helpers/providers/getLang";
 
 interface SolutionsCardProps {
   item: SolutionCard;
 }
 
 export function SolutionsCard({ item }: SolutionsCardProps) {
+  const isEnglish = langStore.getLang();
   const bgImage = { backgroundImage: `url(${item?.image?.url})` };
 
   return (
@@ -15,19 +17,19 @@ export function SolutionsCard({ item }: SolutionsCardProps) {
     >
       <>
         <h3 className="font-rajdhani font-bold text-xl text-white pb-4">
-          {item.title}
+          {isEnglish ? item.englishTitle : item.title}
         </h3>
 
         <span className="font-roboto text-white text-xs leading-[17.64px]">
-          {item.description}
+          {isEnglish ? item.englishDescription : item.description}
         </span>
       </>
 
       <Link
         className="font-roboto text-white text-xs leading-[17.64px] underline"
-        href={item.link.url}
+        href={isEnglish ? item?.englishLink?.url : item?.link?.url}
       >
-        {item.link.title}
+        {isEnglish ? item.englishLink.title : item.link.title}
       </Link>
     </div>
   );

@@ -1,45 +1,63 @@
-export const ChooseThemeIcon = ({ color }: any) => {
+import { useState } from "react";
+
+export const ChooseThemeIcon = ({ headerWhite }: any) => {
+  const [isHover, setIsHover] = useState(false);
+  const colorNoral = isHover ? "#1D1B9D" : "#fff";
+  const colorScroll = !isHover ? "#1D1B9D" : "#fff";
+
+  const setHover = () => {
+    setIsHover(!isHover);
+  };
+
   return (
-    <svg
-      className="hover:border-b border-white"
-      width="35"
-      height="35"
-      viewBox="0 0 35 35"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-    >
-      <mask
-        id="mask0_1089_5125"
-        style={{ maskType: "alpha" }}
-        maskUnits="userSpaceOnUse"
-        x="0"
-        y="0"
+    <span onMouseEnter={setHover} onMouseLeave={setHover}>
+      <svg
+        className={` border-white ${
+          headerWhite ? "hover:bg-blue-500" : "hover:bg-white"
+        }`}
         width="35"
         height="35"
+        viewBox="0 0 35 35"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        <rect width="35" height="35" fill="url(#pattern0)" />
-      </mask>
-      <g mask="url(#mask0_1089_5125)">
-        <rect width="36.4" height="37.1" fill={`${color}`} />
-      </g>
-      <defs>
-        <pattern
-          id="pattern0"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
+        <mask
+          id="mask0_1089_5125"
+          style={{ maskType: "alpha" }}
+          maskUnits="userSpaceOnUse"
+          x="0"
+          y="0"
+          width="35"
+          height="35"
         >
-          <use xlinkHref="#image0_1089_5125" transform="scale(0.00666667)" />
-        </pattern>
-        <image
-          id="image0_1089_5125"
-          width="150"
-          height="150"
-          xlinkHref="data:image/png;base64,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"
-        />
-      </defs>
-    </svg>
+          <rect width="35" height="35" fill="url(#pattern0)" />
+        </mask>
+        <g mask="url(#mask0_1089_5125)">
+          <rect
+            width="36.4"
+            height="37.1"
+            fill={` ${headerWhite ? colorScroll : colorNoral}`}
+          />
+        </g>
+        <defs>
+          <pattern
+            id="pattern0"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use xlinkHref="#image0_1089_5125" transform="scale(0.00666667)" />
+          </pattern>
+          <image
+            id="image0_1089_5125"
+            width="150"
+            height="150"
+            xlinkHref="data:image/png;base64,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"
+          />
+        </defs>
+      </svg>
+    </span>
   );
 };
 

@@ -1,13 +1,16 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FAQInterface } from "./types/faqTypes";
+import { useLangContext } from "@/helpers/providers/langCtx";
 
 interface FaqProps {
   data: FAQInterface;
 }
 
 export const Faq = ({ data }: FaqProps) => {
+  const { isEnglish } = useLangContext();
   const [activeOption, setActiveOption] = useState(null);
 
   const toggleOption = (optionID: any) => {
@@ -19,19 +22,22 @@ export const Faq = ({ data }: FaqProps) => {
       <div className="flex gap-[70px] max-laptop:flex-col">
         <div className="flex flex-col gap-2 w-[50%] max-laptop:w-full">
           <h4 className="font-roboto text-blue-400 font-bold text-base uppercase mb-4">
-            {data?.title}
+            {isEnglish ? data.englishTitle : data?.title}
           </h4>
           <p className="font-rajdhani font-bold text-3xl text-blue-700 max-laptop:text-2xl">
-            {data?.subTitle}
+            {isEnglish ? data.englishSubTitle : data?.subTitle}
           </p>
           <span className="font-roboto font-medium text-base text-gray-700 mb-2 max-w-[490px]">
             {data?.description}
           </span>
 
-          <Link href={data?.button?.url} className="flex gap-2">
+          <Link
+            href={isEnglish ? data?.englishButton?.url : data?.button?.url}
+            className="flex gap-2"
+          >
             <Image alt="" src={data?.icon?.url} width={24} height={24} />
             <span className="font-archivo font-bold text-base">
-              {data?.button?.title}
+              {isEnglish ? data.englishButton.title : data?.button?.title}
             </span>
           </Link>
         </div>
@@ -55,7 +61,7 @@ export const Faq = ({ data }: FaqProps) => {
                       toggleOption(key);
                     }}
                   >
-                    {qa.title}
+                    {isEnglish ? qa.englishTitle : qa.title}
                   </p>
                   <button
                     className="absolute w-11 h-11 p-3 border border-gray-400 rounded-full top-0 right-0 max-tablet:w-8 max-tablet:h-8 max-tablet:p-2"
@@ -87,7 +93,7 @@ export const Faq = ({ data }: FaqProps) => {
                       isOptionActive ? "animate-animation-faq h-full" : "h-0"
                     }`}
                   >
-                    {qa.description}
+                    {isEnglish ? qa.englishDescription : qa.description}
                   </span>
                 </div>
               </div>

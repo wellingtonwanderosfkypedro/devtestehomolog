@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,6 +13,7 @@ import FormHeader from "./FormHeader/FormHeader";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import SuccessScreen from "./SuccessScreen/SuccessScreen";
+import { useLangContext } from "@/helpers/providers/langCtx";
 
 interface FormValues {
   company: string;
@@ -54,6 +56,8 @@ interface FormProps {
 }
 
 const Form = ({ form }: FormProps) => {
+  const { isEnglish } = useLangContext();
+
   const methods = useForm<FormValues>({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -135,7 +139,7 @@ const Form = ({ form }: FormProps) => {
         information={form?.information}
         security={{
           icon: form.icon.url,
-          text: form.security_title,
+          text: isEnglish ? form.englishSecurityTitle : form.security_title,
         }}
       />
     );
@@ -145,7 +149,7 @@ const Form = ({ form }: FormProps) => {
         information={form?.information}
         security={{
           icon: form.icon.url,
-          text: form.security_title,
+          text: isEnglish ? form.englishSecurityTitle : form.security_title,
         }}
       />
     );
@@ -172,13 +176,24 @@ const Form = ({ form }: FormProps) => {
               control={control}
               onNextStep={onNextStep}
               errors={errors}
-              textButton={form?.text_button_step_1}
+              textButton={
+                isEnglish
+                  ? form.englishTextButtonStep_1
+                  : form?.text_button_step_1
+              }
             />
           )}
           {currentStep === 2 && (
             <>
               <Step2 control={control} errors={errors} />
-              <Button message={form?.text_button_step_2} type="submit" />
+              <Button
+                message={
+                  isEnglish
+                    ? form.englishTextButtonStep_2
+                    : form?.text_button_step_2
+                }
+                type="submit"
+              />
             </>
           )}
         </form>
@@ -186,7 +201,7 @@ const Form = ({ form }: FormProps) => {
           information={form?.information}
           security={{
             icon: form?.icon.url,
-            text: form?.security_title,
+            text: isEnglish ? form.englishSecurityTitle : form?.security_title,
           }}
         />
       </div>

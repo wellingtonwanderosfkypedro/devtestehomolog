@@ -84,12 +84,20 @@ module.exports = {
           "0%": { height: "0" },
           "100%": { height: "100%" },
         },
+        fadeInComp: {
+          "0%": { opacity: "0", transform: "translate3d(0, 50%, 0)" },
+          "100%": {
+            opacity: "1",
+            transform: "none",
+          },
+        },
       },
       animation: {
         "show-menu": "showMenu 0.5s linear",
         "animation-faq":
-          "showCardFaq .25s cubic-bezier(.215, .61, .355, 1) .1s forwards;",
+          "showCardFaq .25s cubic-bezier(.215, .61, .355, 1) .1s forwards",
         "height-faq": "heightCardFaq .45s cubic-bezier(.48,-.28,.39,1.33)",
+        "fade-components": "fadeInComp 0.6s ",
       },
       backgroundImage: {
         "banner-form": "url('/banner-principal-form.png')",

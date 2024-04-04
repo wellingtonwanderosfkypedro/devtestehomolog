@@ -3,12 +3,14 @@ import Link from "next/link";
 import Richtext from "../RichText/RichText";
 import { SpeakWithSpecialistCard } from "./components/SpeakWithSpecialistCard";
 import { SpeakSpecialistType } from "./types/speakWithSpecialistTypes";
+import { langStore } from "@/helpers/providers/getLang";
 
 export interface SpeakWithSpecialistData {
   data: SpeakSpecialistType;
 }
 
 export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
+  const isEnglish = langStore.getLang();
   data.items = Object.values(data.items);
 
   return (
@@ -22,7 +24,9 @@ export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
             alt=""
           />
           <button className="w-10/12 bg-[#1B1B96] hover:bg-white text-white	py-4 w-4/5 flex justify-center mx-auto mt-1.5 rounded-md text-base font-semibold border border-[#1B1B96] hover:text-[#1B1B96] transition-all duration-300">
-            <Link href={""}>Fale com um especialista</Link>
+            <Link href={"isEnglish ? data.englishButton.url : data.button.url"}>
+              {isEnglish ? data.englishButton.title : data?.button?.title}
+            </Link>
           </button>
         </div>
 

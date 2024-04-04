@@ -1,7 +1,9 @@
 import { ButtonLink, ImageData } from "@/helpers/generalTypes";
 export interface FormAnalyticalSolution {
   title: string;
+  englishTitle: string;
   title_complement_1: string;
+  englishTitleComplement_1: string;
   image_desktop: ImageData;
   form: Form;
 }
@@ -18,13 +20,19 @@ export type Form = {
   image_data_mobile: ImageData;
   image_data: string;
   security_title: string;
+  englishSecurityTitle: string;
   icon: ImageData;
+  englishTextButtonStep_1: string;
+  englishTextButtonStep_2: string;
 };
 
 export type Information = {
   text: string;
+  englishText: string;
   link_1: ButtonLink;
+  englishLink_1: ButtonLink;
   link_2: ButtonLink;
+  englishLink_2: ButtonLink;
 };
 
 export type Security = {

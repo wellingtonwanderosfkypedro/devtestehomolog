@@ -1,24 +1,26 @@
+"use client";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SolutionsCard } from "./components/SolutionsCard";
 import { StrategicSolutionsType } from "./types/StrategicSolutionsTypes";
+import { useLangContext } from "@/helpers/providers/langCtx";
 
 export interface StrategicSolutionsProps {
   data: StrategicSolutionsType;
 }
 
 export function StrategicSolutions({ data }: StrategicSolutionsProps) {
-
-  data.items = Object.values(data.items)
+  const { isEnglish } = useLangContext();
+  data.items = Object.values(data.items);
 
   return (
     <div className="maxDesktop:max-w-[1440px] px-5  mx-auto  pt-12 pb-[34px] flex flex-col justify-between self-start  laptop:py-8 laptop:flex-row laptop:mt-[143px] laptop:mb-[56px] maxDesktop:px-0 strategicSolutions">
       <div className="mb-[30px] laptop:max-w-[502px] laptop:mr-[71px] laptop:mb-0">
         <h1 className="font-rajdhani text-2xl mb-[14px] text-[#28283F] font-bold laptop:text-[38px] laptop:mb-6">
-          {data.title}
+          {isEnglish ? data.englishTitle : data.title}
         </h1>
         <p className="w-full max-w-[100vw] font-roboto font-medium text-[#7B7B7B] text-lg  desktop:text-2xl  desktop:leading-10">
-          {data.description}
+          {isEnglish ? data.englishDescription : data.description}
         </p>
       </div>
 

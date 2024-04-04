@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useRef, useState } from "react";
 import { ChevronSeeMore } from "../icons";
 import { ChildItem } from "../mockData";
 import { SimpleMenu } from "./SimpleMenu";
@@ -15,11 +14,12 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
     menuItem?.[0].node?.id ?? ""
   );
   const [isSimpleIcons, setIsSimpleIcons] = useState(false);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
       className={`bg-white text-zinc-900  w-[950px] flex h-full rounded-b-lg ${
-        isSimpleIcons ? "pl-6" : "pl-3"
+        isSimpleIcons ? "px-4 w-fit" : "pl-3"
       }`}
       onClick={(e) => {
         e.stopPropagation();
@@ -30,7 +30,11 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
           isSimpleIcons ? "flex w-full h-fit" : "w-[20%] pb-8"
         }`}
       >
-        <div className={`${isSimpleIcons ? "flex flex-wrap  gap-6 pb-8" : ""}`}>
+        <div
+          className={`${
+            isSimpleIcons ? "flex flex-wrap  gap-6 pb-8 max-w-[610px]" : ""
+          }`}
+        >
           {menuItem?.map((item, key) => {
             if (item.title) {
               return (

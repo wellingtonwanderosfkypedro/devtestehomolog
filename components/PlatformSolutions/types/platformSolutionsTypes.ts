@@ -1,20 +1,20 @@
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
 export type PlatformSolution = {
   title: string;
+  englishTitle: string;
   content: string;
+  englishContent: string;
   content_2?: string | string[];
-  button: Button;
-  image: Image;
+  englishContent_2?: string;
+  button: ButtonLink;
+  englishButton: ButtonLink;
+  image: ImageData;
+  isAList?: boolean;
+  listItems?: ListItem[];
 };
 
-type Button = {
-  target: string;
-  title: string;
-  url: string;
-};
-
-type Image = {
-  url: string;
-  width: number;
-  height: number;
-  alt?: string;
+type ListItem = {
+  text: string;
+  englishText: string;
 };

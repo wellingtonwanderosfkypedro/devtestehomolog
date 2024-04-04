@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,18 +7,28 @@ import { useMedia } from "react-use";
 import Arrow from "./Arrow";
 
 import { Specialist } from "./types/specialistBannerTypes";
+import { useLangContext } from "@/helpers/providers/langCtx";
+import useComponentAnimation from "@/hooks/useComponentAnimation";
 
 interface SpecialistBannerProps {
   data: Specialist;
 }
 
 export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
+  const { isEnglish } = useLangContext();
+  const { isVisible, refElement } = useComponentAnimation();
+
   const isMob = useMedia("(max-width: 1024px)", false);
 
   return (
     <>
       {!isMob && (
-        <div className="w-full flex p-24 pb-10 relative h-[550px] max-desktop:p-14 max-desktop:pb-10">
+        <div
+          className={`w-full flex p-24 pb-10 relative h-[550px] max-desktop:p-14 max-desktop:pb-10 ${
+            isVisible ? "animate-fade-components visible" : "invisible"
+          }`}
+          ref={refElement}
+        >
           <Image
             alt={data.title}
             width={data?.image?.width}
@@ -28,7 +39,7 @@ export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
           <div className="w-full z-[2] flex flex-col justify-around max-desktop:pt-8">
             <div className=" flex font-rajdhani text-white max-w-[780px]">
               <h3 className="font-semibold text-5xl max-desktop:text-4xl max-desktop:max-w-[600px]">
-                {data.title}{" "}
+                {isEnglish ? data.englishTitle : data.title}{" "}
                 <span className="font-bold">{data.title_complement_1}</span>{" "}
                 {data.title_complement_2}{" "}
                 <span className="text-orange-300 font-bold">
@@ -37,12 +48,12 @@ export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
               </h3>
             </div>
             <Link
-              href={data?.button?.url}
+              href={isEnglish ? data?.englishButton?.url : data?.button?.url}
               target={data?.button?.target}
               className="bg-orange-300 max-w-[400px] w-full rounded-md py-4 flex gap-2 justify-center  border border-transparent group hover:bg-transparent hover:border-orange-300 transition-all duration-300 ease-in"
             >
               <span className="text-white font-semibold text-base font-archivo group-hover:text-orange-300 transition-all duration-300 ease-in">
-                {data?.button?.title}
+                {isEnglish ? data.englishButton.title : data?.button?.title}
               </span>
               <Arrow />
             </Link>
