@@ -75,6 +75,39 @@
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
+
+    /* --------------------- THEME VARIABLES -------------------- */
+
+    --theme-background-default: #ffffff;
+    --theme-background-accent: #F6F8FD;
+    --theme-background-shelf-disabled: #C4C4C4;
+    
+    --theme-color-text-base: #2A2739;
+    --theme-color-text-base-medium: #232536;
+    --theme-color-text-base-accent: #353345;
+    --theme-color-text-variation-light: #757385;
+    --theme-color-text-variation: #7C7C7C;
+    --theme-color-text-bolder: #0D0B1A;
+    --theme-color-text-primary: #ffffff;
+    --theme-color-error: #ff0000;
+    
+  }
+  
+  .theme-accessibility {
+    --theme-background-default: #101010;
+    --theme-background-accent: #000000;
+    --theme-background-shelf-disabled: #C4C4C4;
+
+    --theme-color-text-base: #ffffff;
+    --theme-color-text-base-medium: #ffffff;
+    --theme-color-text-base-accent: #ffffff;
+    --theme-color-text-variation-light: #999797;
+    --theme-color-text-variation: #ffffff;
+    --theme-color-text-bolder: #ffffff;
+    --theme-color-text-primary: #ffffff;
+    --theme-color-error: #ff0000;
+
+    font-size: 120%;
   }
 }
 
@@ -184,6 +217,20 @@ a {
   stroke: white;
 }
 
+.buttonTalkToASpecialist:hover path {
+  stroke: #1B1B96;
+  transition: all 0.3 ease-in-out;
+}
+
+.disabled-swiper-track {
+  background: #C4C4C4 !important;
+  border: 1px solid #C4C4C4 !important;
+  cursor: not-allowed !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .disabled-swiper-track:hover path {
-  stroke: #F0680A !important;
+  stroke: #ffffff !important;
 }

@@ -16,6 +16,7 @@ export const SimpleMenu = ({
   justIcons,
   setIsSimpleIcons,
 }: MenuItemProps) => {
+
   useEffect(() => {
     if (justIcons && setIsSimpleIcons) {
       setIsSimpleIcons(true);
@@ -28,9 +29,9 @@ export const SimpleMenu = ({
       {" "}
       <Link
         href={itemMenu?.path ?? ""}
-        className="min[1024px]:max-w-[45%]  w-[290px] hover:bg-blue-500 text-blue-700  hover:text-white transition-all"
+        className="min[1024px]:max-w-[45%]  w-[290px]"
       >
-        <li className={`flex items-center gap-2`}>
+        <li className={`flex items-start gap-2`}>
           {itemMenu?.icon && (
             <Image
               src={`/icons/${itemMenu?.icon}`}
@@ -40,15 +41,15 @@ export const SimpleMenu = ({
               className={`hidden lg:block`}
             />
           )}
-          <div className={` `}>
+          <div className={`text-skin-base-medium`}>
             <h4
-              className={`flex items-center gap-2 text-base
-               ${"text-sm font-medium px-2.5 py-1 lg:font-semibold  lg:p-0"}`}
+              className={`flex items-center gap-2  ${!justIcons ? " text-base" : "text-2xl "
+                } ${"text-sm font-medium px-2.5 py-1 lg:font-semibold lg:text-2xl lg:p-0"}`}
             >
               {itemMenu?.label}
             </h4>
             {itemMenu?.title && (
-              <p className="text-gray-200 hover:text-blue-500 text-sm  font-medium">
+              <p className="text-skin-base-accent hover:text-theme-primary-500 text-sm  font-medium">
                 {itemMenu.title}
               </p>
             )}

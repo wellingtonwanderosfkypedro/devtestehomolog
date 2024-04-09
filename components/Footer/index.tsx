@@ -10,7 +10,7 @@ import { mockData } from './mockData';
 
 const Footer: React.FC = () => {
   return (
-    <footer className='bg-white'>
+    <footer className='bg-skin-default'>
       <section className='pb-8 pt-12 laptop:pb-20'>
         <div className='relative flex flex-wrap mx-6 gap-[20px] tablet:gap-[16px] tablet:flex-nowrap tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] laptop:px-24 desktop:pr-12 maxDesktop:max-w-[1440px] '>
           <BackToTopButton />

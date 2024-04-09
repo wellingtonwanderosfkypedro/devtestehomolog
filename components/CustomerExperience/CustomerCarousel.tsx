@@ -5,7 +5,7 @@ import "swiper/swiper-bundle.css";
 
 import ItemCustomerExperience from "./ItemCustomerExperience";
 
-import NavigationButton from "./Navigation";
+import NavigationButton from "../Navigation";
 import { Item } from "./types/CustomerExperienceTypes";
 
 interface CustomerCarouselProps {
@@ -36,7 +36,7 @@ const CustomerCarousel = ({ items, slidesView }: CustomerCarouselProps) => {
         nextEl: ".swiper-button-next-custom",
         prevEl: ".swiper-button-prev-custom",
         disabledClass:
-          "bg-orange-300 stroke-white hover:bg-white disabled-swiper-track",
+        "bg-disabled stroke-white disabled-swiper-track",
       }}
       className={isSlidesView}
     >

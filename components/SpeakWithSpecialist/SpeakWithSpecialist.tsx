@@ -4,6 +4,7 @@ import Richtext from "../RichText/RichText";
 import { SpeakWithSpecialistCard } from "./components/SpeakWithSpecialistCard";
 import { SpeakSpecialistType } from "./types/speakWithSpecialistTypes";
 import { langStore } from "@/helpers/providers/getLang";
+import { Arrow } from "./assets/Arrow";
 
 export interface SpeakWithSpecialistData {
   data: SpeakSpecialistType;
@@ -11,6 +12,10 @@ export interface SpeakWithSpecialistData {
 
 export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
   const isEnglish = langStore.getLang();
+  
+  const portugueseMessage = data?.button?.title ?? 'Fale com um especialista';
+  const englishMessage = data?.englishButton?.title ?? 'Talk to a specialist';
+
   data.items = Object.values(data.items);
 
   return (
@@ -23,9 +28,10 @@ export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
             height={data.image.height}
             alt=""
           />
-          <button className="w-10/12 bg-[#1B1B96] hover:bg-white text-white	py-4 w-4/5 flex justify-center mx-auto mt-1.5 rounded-md text-base font-semibold border border-[#1B1B96] hover:text-[#1B1B96] transition-all duration-300">
-            <Link href={"isEnglish ? data.englishButton.url : data.button.url"}>
-              {isEnglish ? data.englishButton.title : data?.button?.title}
+          <button className="buttonTalkToASpecialist w-10/12 bg-[#1B1B96] hover:bg-skin-default text-skin-primary	py-4 w-4/5 flex justify-center mx-auto mt-1.5 rounded-md text-base font-semibold border border-[#1B1B96] hover:text-[#1B1B96] transition-all duration-300">
+            <Link className="flex justify-center items-center gap-6" href={"isEnglish ? data.englishButton.url : data.button.url"}>
+              {isEnglish ? englishMessage : portugueseMessage}
+              <Arrow />
             </Link>
           </button>
         </div>
@@ -40,7 +46,7 @@ export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
             />
           </div>
 
-          <p className="text-lg text-gray-200 font-normal mt-6 max-tablet:text-base">
+          <p className="text-lg text-skin-base-accent font-normal mt-6 max-tablet:text-base">
             {data.descricao}
           </p>
 

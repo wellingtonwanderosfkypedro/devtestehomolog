@@ -9,7 +9,7 @@ const TextArea = ({ message1, message2, message3 }: TextAreaProps) => {
         <div>
             {message1 && message2 && (
                 <div className="mb-[30px] laptop:max-w-[557px] laptop:mb-[90px]">
-                    <h2 className="text-white font-rajdhani font-semibold text-[34px] leading-[42px] tablet:text-[58px] tablet:leading-[72.5px]">
+                    <h2 className="text-skin-primary font-rajdhani font-semibold text-[34px] leading-[42px] tablet:text-[58px] tablet:leading-[72.5px]">
                         {message1}
                     </h2>
                     {message2}

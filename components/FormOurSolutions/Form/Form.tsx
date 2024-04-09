@@ -157,7 +157,7 @@ const Form = ({ form }: FormProps) => {
 
   return (
     <FormProvider {...methods}>
-      <div className="bg-white px-[30px] py-[20px] rounded-[4.24px] tablet:rounded-md tablet:px-[35px] laptop:max-w-[488px] z-10">
+      <div className="bg-skin-default px-[30px] py-[20px] rounded-[4.24px] tablet:rounded-md tablet:px-[35px] laptop:max-w-[488px] z-10">
         <FormHeader
           currentStep={currentStep}
           onNextStep={onNextStep}

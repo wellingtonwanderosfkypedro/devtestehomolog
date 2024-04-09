@@ -18,8 +18,8 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
 
   return (
     <div
-      className={`bg-white text-zinc-900  w-[950px] flex h-full rounded-b-lg ${
-        isSimpleIcons ? "px-4 w-fit" : "pl-3"
+      className={`bg-skin-default text-zinc-900  w-[950px] flex h-full rounded-b-lg ${
+        isSimpleIcons ? "pl-6" : "pl-3"
       }`}
       onClick={(e) => {
         e.stopPropagation();
@@ -65,11 +65,11 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
       {menuItem?.map((item, key) => {
         return isOpenMenu === item.node?.id && item.title ? (
           <div
-            className={`transition-all w-[80%]  flex flex-col bg-blue-100 p-8  gap-6 rounded-br-lg`}
+            className={`transition-all w-[80%]  flex flex-col bg-theme-primary-100 p-8  gap-6 rounded-br-lg`}
           >
             {item.headerSection && (
               <div className="flex flex-col gap-2">
-                <h3 className="font-semibold text-blue-700 leading-6">
+                <h3 className="font-semibold text-skin-base-medium leading-6">
                   {item?.headerSection?.title}
                 </h3>
                 <p className="font-medium text-sm leading-5 text-gray-700">
@@ -77,7 +77,7 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
                 </p>
                 <Link
                   href={item.headerSection?.path ?? ""}
-                  className="flex gap-2 items-center font-medium text-sm leading-5 text-orange-300 hover:text-orange-600 hover:underline"
+                  className="flex gap-2 items-center font-medium text-sm leading-5 text-theme-secondary-300 hover:text-orange-600 hover:underline"
                 >
                   {item.headerSection?.label}
                   <ChevronSeeMore />

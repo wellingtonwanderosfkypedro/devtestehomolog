@@ -9,7 +9,7 @@ const Arrow = () => {
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
-                    className=" group-hover:stroke-orange-300 transition-all duration-300 ease-in"
+                    className=" group-hover:stroke-theme-secondary-300 transition-all duration-300 ease-in"
                     d="M10 16L14 12L10 8"
                     stroke="white"
                     strokeWidth="1.5"

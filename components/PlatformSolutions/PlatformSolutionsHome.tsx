@@ -35,19 +35,19 @@ const PlatformSolutionsHome = ({ data }: PlatformSolutionsHomeProps) => {
         }`}
       ref={refElement}
     >
-      <div className="bg-white flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between">
+      <div className="bg-skin-default flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between">
         <div className="flex flex-col tablet:justify-center tablet:max-w-[40%] maxDesktop:max-w-[40%]">
-          <h2 className="text-[25.92px] leading-[32.4px] text-gray-500 font-rajdhani font-bold tablet:leading-[50px] tablet:text-[40px]">
+          <h2 className="text-[25.92px] leading-[32.4px] text-skin-base font-rajdhani font-bold tablet:leading-[50px] tablet:text-[40px]">
             {isEnglish ? englishTitle : title}
           </h2>
           {content_2 && (
-            <span className="text-[15px] leading-[22.5px] tablet:text-[20px] tablet:leading-[30px] pt-5 pb-5 text-gray-200 font-roboto font-normal">
+            <span className="text-[15px] leading-[22.5px] tablet:text-[20px] tablet:leading-[30px] pt-5 pb-5 text-skin-base-accent font-roboto font-normal">
               {isEnglish ? englishContent : content}
               <br /> <br />
               {typeOfContent ? (
                 <>{content_2}</>
               ) : (
-                <ul className="font-roboto text-blue-700 text-xl list-disc pl-8 font-semibold max-tablet:text-base max-tablet:pl-4">
+                <ul className="font-roboto text-skin-base-medium text-xl list-disc pl-8 font-semibold max-tablet:text-base max-tablet:pl-4">
                   {content_2?.map((item: string) => {
                     return <li key={item}>{item}</li>;
                   })}
@@ -56,7 +56,7 @@ const PlatformSolutionsHome = ({ data }: PlatformSolutionsHomeProps) => {
             </span>
           )}
           <Link
-            className="bg-white flex justify-center font-rajdhani text-[16px] font-semibold  text-blue-500 hover:bg-blue-500 hover:transition-all hover:text-white w-[76%] pt-4 pb-4 mt-4 border border-solid border-blue-500"
+            className="bg-skin-default flex justify-center font-rajdhani text-[16px] font-semibold  text-theme-primary-500 hover:bg-theme-primary-500 hover:transition-all hover:text-skin-primary w-[76%] pt-4 pb-4 mt-4 border border-solid border-theme-primary-500"
             target={data?.button?.target}
             href={isEnglish ? englishButton?.url : button?.url}
           >

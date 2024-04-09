@@ -41,14 +41,14 @@ const FormOurSolutions = ({ data }: FormOurSolucionsProps) => {
                 message1={
                   <>
                     {isEnglish ? data.englishTitle : data?.title}{" "}
-                    <strong className="text-orange-300 laptop:flex laptop:w-[500px]">
+                    <strong className="text-theme-secondary-300 laptop:flex laptop:w-[500px]">
                       {data?.title_complement_1}
                     </strong>{" "}
                     {data?.title_complement_2}
                   </>
                 }
                 message2={
-                  <span className="text-white text-[12px] font-roboto font-normal leading-[18px] tablet:text-[18px] tablet:leading-[27px] laptop:flex laptop:w-[574px]">
+                  <span className="text-skin-primary text-[12px] font-roboto font-normal leading-[18px] tablet:text-[18px] tablet:leading-[27px] laptop:flex laptop:w-[574px]">
                     {isEnglish ? data.englishDescription : data?.description}
                   </span>
                 }

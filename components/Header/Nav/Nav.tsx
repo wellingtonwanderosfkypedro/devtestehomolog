@@ -49,7 +49,7 @@ export const Nav = ({ isHeaderWhite }: INavProps) => {
               >
                 <span
                   className={`font-medium ${
-                    isHeaderWhite ? "text-blue-700" : "text-white"
+                    isHeaderWhite ? "text-skin-base-medium" : "text-skin-primary"
                   }`}
                 >
                   {menu.node.label}

@@ -21,10 +21,10 @@ export const CompanyResolutions = ({ data }: CompanyResolutionsProps) => {
   return (
     <div className="maxDesktop:max-w-[1440px] px-6 mx-auto py-8 lg:px-24">
       <div className="max-w-[1128px] pb-8">
-        <h3 className="text-blue-800 font-roboto text-xs font-semibold uppercase pb-4">
+        <h3 className="text-theme-primary-800 font-roboto text-xs font-semibold uppercase pb-4">
           {isEnglish ? data.englishTitle : data?.title}
         </h3>
-        <p className="font-rajdhani text-gray-500 font-bold text-lg lg:text-4xl leading-5 lg:leading-10">
+        <p className="font-rajdhani text-skin-base font-bold text-lg lg:text-4xl leading-5 lg:leading-10">
           {isEnglish ? data.englishSubTitle : data?.sub_title}
         </p>
       </div>

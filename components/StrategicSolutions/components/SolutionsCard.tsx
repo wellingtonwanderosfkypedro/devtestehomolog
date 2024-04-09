@@ -16,18 +16,18 @@ export function SolutionsCard({ item }: SolutionsCardProps) {
       className=" max-w-[306px] h-[359px] flex flex-col justify-between pt-[50px] p-6 "
     >
       <>
-        <h3 className="font-rajdhani font-bold text-xl text-white pb-4">
-          {isEnglish ? item.englishTitle : item.title}
+        <h3 className="font-rajdhani font-bold text-xl text-skin-primary pb-4">
+          {item.title}
         </h3>
 
-        <span className="font-roboto text-white text-xs leading-[17.64px]">
-          {isEnglish ? item.englishDescription : item.description}
+        <span className="font-roboto text-skin-primary text-xs leading-[17.64px]">
+          {item.description}
         </span>
       </>
 
       <Link
-        className="font-roboto text-white text-xs leading-[17.64px] underline"
-        href={isEnglish ? item?.englishLink?.url : item?.link?.url}
+        className="font-roboto text-skin-primary text-xs leading-[17.64px] underline"
+        href={item.link.url}
       >
         {isEnglish ? item.englishLink.title : item.link.title}
       </Link>

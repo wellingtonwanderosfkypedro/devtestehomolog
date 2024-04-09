@@ -5,13 +5,13 @@ import { Item } from "./types/companyResolutionsTypes";
 
 const options = {
   purple: {
-    text: "blue-300",
+    text: "theme-primary-300",
   },
   blue: {
-    text: "blue-800",
+    text: "theme-primary-800",
   },
   orange: {
-    text: "orange-300",
+    text: "theme-secondary-300",
   },
 };
 
@@ -46,7 +46,7 @@ export const ActionResolution = ({ resolutions }: ActionsResolutionsProps) => {
               >
                 {title}
               </h3>
-              <p className="text-gray-200 pb-8 text-sm lg:text-base leading-4">
+              <p className="text-skin-base-accent pb-8 text-sm lg:text-base leading-4">
                 {isEnglish ? englishDescription : description}
               </p>
               <div className="pb-5 flex flex-col justify-between gap-5">

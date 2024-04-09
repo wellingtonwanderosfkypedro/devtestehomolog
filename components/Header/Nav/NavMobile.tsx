@@ -35,7 +35,7 @@ export const NavMobile = () => {
               >
                 <span
                   className={`font-semibold ${
-                    isMenuActive ? "text-blue-500" : "text-blue-700"
+                    isMenuActive ? "text-theme-primary-500" : "text-skin-base-medium"
                   } `}
                 >
                   {menu.node.label}

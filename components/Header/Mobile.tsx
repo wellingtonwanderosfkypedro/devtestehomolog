@@ -62,12 +62,12 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
   return (
     <header
       className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-30 font-rajdhani fixed ${isOpenMenu || headerWhite
-        ? "bg-white border-b-[1px] border-blue-100"
+        ? "bg-skin-default border-b-[1px] border-theme-primary-100"
         : "bg-transparent"
         } `}
     >
       <div
-        className={`navbar flex justify-between items-center px-6 pb-6 ${isOpenMenu && "border-b-[1px] border-blue-100"
+        className={`navbar flex justify-between items-center px-6 pb-6 ${isOpenMenu && "border-b-[1px] border-theme-primary-100"
           }`}
       >
         <Link href="#" className="pb-1 ">
@@ -91,7 +91,7 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
 
               <button>
                 <span
-                  className={`text-base font-medium ${headerWhite ? "text-blue-500" : "text-white"
+                  className={`text-base font-medium ${headerWhite ? "text-theme-primary-500" : "text-skin-primary"
                     }`}
                 >
                   Aa
@@ -103,21 +103,21 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
                 onClick={showModal}
               >
                 <span
-                  className={`text-base font-medium text-nowrap uppercase ${headerWhite ? "text-blue-500" : "text-white"
+                  className={`text-base font-medium text-nowrap uppercase ${headerWhite ? "text-theme-primary-500" : "text-skin-primary"
                     } `}
                 >
                   {langActive}
                 </span>
 
                 {!showModalLang && (
-                  <div className="absolute bg-white top-[24px] left-[-50%] hidden group-hover:block">
+                  <div className="absolute bg-skin-default top-[24px] left-[-50%] hidden group-hover:block">
                     {/* <ul>
                       {langs.map((lang, idx) => {
                         return (
                           <>
                             <Link
                               href={`${path}`}
-                              className={`text-base font-medium text-nowrap uppercase  text-blue-500 ${showModalLang ? "font-semibold" : ""
+                              className={`text-base font-medium text-nowrap uppercase  text-theme-primary-500 ${showModalLang ? "font-semibold" : ""
                                 }`}
                             >
                               <li key={idx} className="px-2 py-2">
@@ -141,7 +141,7 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
                 ? "bg-transparent"
                 : headerWhite
                   ? "bg-black-300"
-                  : "bg-white"
+                  : "bg-skin-default"
                 }`}
             >
               <span
@@ -149,7 +149,7 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
                   ? "bg-black-300 transform rotate-[135deg]  h-[1px]"
                   : headerWhite
                     ? "bg-black-300 top-[-8px]"
-                    : "top-[-8px] bg-white"
+                    : "top-[-8px] bg-skin-default"
                   } `}
               ></span>
               <span
@@ -157,7 +157,7 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
                   ? "bg-black-300 transform rotate-[-135deg] bg-black h-[1px]"
                   : headerWhite
                     ? "bg-black-300 bottom-[-8px]"
-                    : "bottom-[-8px] bg-white"
+                    : "bottom-[-8px] bg-skin-default"
                   } `}
               ></span>
             </span>
@@ -165,7 +165,7 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
         </div>
       </div>
       <div
-        className={`trasition-all duration-300 transform  ease-in  text-black-300 block absolute  bg-inherit w-full z-50 top-[90px] ${isOpenMenu
+        className={`trasition-all duration-300 transform  ease-in  text-skin-bolder block absolute  bg-inherit w-full z-50 top-[90px] ${isOpenMenu
           ? "h-screen top-4  overflow-y-auto "
           : " overflow-y-hidden  h-0"
           } `}
@@ -176,13 +176,13 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
             className="flex gap-[10px] max-[500px]:gap-[6px] cursor-pointer py-3 px-12 max-[420px]:px-5"
           >
             <LoginIcon color={"#E96024"} />
-            <span className="text-base text-blue-700 text-nowrap">
+            <span className="text-base text-skin-base-medium text-nowrap">
               Fazer login
             </span>
           </Link>
           <Link
             href=""
-            className="flex text-orange-500 bg-orange-500/[.15] text-sm font-semibold py-3 px-12 max-[420px]:px-5 border-[1px] border-orange-500 text-nowrap"
+            className="flex text-theme-secondary-500 bg-theme-secondary-500/[.15] text-sm font-semibold py-3 px-12 max-[420px]:px-5 border-[1px] border-theme-secondary-500 text-nowrap"
           >
             Contato Comercial
           </Link>

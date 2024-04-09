@@ -12,7 +12,7 @@ const InformativeContent: React.FC = () => {
                 height={73}
                 alt="Logo Neoway"
             />
-            <span className='flex text-blue-500 font-rajdhani font-bold text-xl mt-11 mb-3 desktop:whitespace-nowrap'>
+            <span className='flex text-theme-primary-500 font-rajdhani font-bold text-xl mt-11 mb-3 desktop:whitespace-nowrap'>
                 Siga nossas redes
             </span>
             <SocialMediaLinks />

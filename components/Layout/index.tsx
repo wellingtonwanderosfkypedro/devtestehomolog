@@ -2,6 +2,7 @@ import { Archivo, Rajdhani, Roboto } from "next/font/google";
 import { ReactNode } from "react";
 import Footer from "../Footer";
 import { Header } from "../Header";
+import { AccessibilityProvider } from "@/contexts/AccessibilityContetxt";
 
 const fontRajdhani = Rajdhani({
   weight: ["300", "400", "500", "600", "700"],
@@ -27,13 +28,15 @@ interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
-    <main
-      className={`${fontRajdhani.variable} ${fontRoboto.variable} ${fontArchivo.variable}`}
-    >
-      <Header />
-      <>{children}</>
-      <Footer  />
-    </main>
+    <AccessibilityProvider>
+      <main
+        className={`${fontRajdhani.variable} ${fontRoboto.variable} ${fontArchivo.variable} bg-skin-default`}
+      >
+        <Header />
+        <>{children}</>
+        <Footer  />
+      </main>
+    </AccessibilityProvider>
   );
 };
 

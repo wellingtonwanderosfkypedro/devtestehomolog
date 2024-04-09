@@ -25,7 +25,7 @@ export const CompanyIcon = ({ image, title }: CompanyIconProps) => {
     typeof image === "string" ? valuesImage : image;
 
   return (
-    <div className="bg-white flex flex-col lg:gap-7 gap-4 max-w-[232px] px-6 py-8 lg:p-10 max-h-[147px] lg:h-[209px] lg:max-h-[209px]">
+    <div className="bg-skin-default flex flex-col lg:gap-7 gap-4 max-w-[232px] px-6 py-8 lg:p-10 max-h-[147px] lg:h-[209px] lg:max-h-[209px]">
       <Image
         className="w-[38px] lg:w-[60px]"
         src={url}
@@ -33,7 +33,7 @@ export const CompanyIcon = ({ image, title }: CompanyIconProps) => {
         height={height}
         alt={title}
       />
-      <p className="font-semibold lg:text-2xl text-lg font-rajdhani text-gray-500 leading-5">
+      <p className="font-semibold lg:text-2xl text-lg font-rajdhani text-skin-base leading-5">
         {title}
       </p>
     </div>

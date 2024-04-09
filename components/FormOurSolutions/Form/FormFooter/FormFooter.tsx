@@ -15,7 +15,7 @@ const FormFooter = ({ information, security }: FormFooterProps) => {
   return (
     <div className="laptop:mb-[10px]">
       <div className="mt-[10px] mb-[10px] tablet:mt-[25px] tablet:mb-[20px]">
-        <p className="text-neutral-300 font-roboto font-normal text-[10px] leading-[18px] tablet:text-[14px]">
+        <p className="text-skin-variation-light font-roboto font-normal text-[10px] leading-[18px] tablet:text-[14px]">
           {isEnglish ? information.englishText : information?.text}
           <Link
             className="underline ml-1"
@@ -47,7 +47,7 @@ const FormFooter = ({ information, security }: FormFooterProps) => {
 
       <div className="flex items-center gap-2 tablet:gap-3">
         <Image src={security?.icon} width={21.6} height={24} alt="Security" />
-        <span className="text-neutral-300 font-roboto font-normal text-[10px] leading-[18px] tablet:text-[14px]">
+        <span className="text-skin-variation-light font-roboto font-normal text-[10px] leading-[18px] tablet:text-[14px]">
           {security?.text}
         </span>
       </div>

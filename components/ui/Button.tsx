@@ -11,15 +11,15 @@ interface ButtonProps extends ComponentProps<typeof Link> {
 const options = {
   purple: {
     class:
-      "text-blue-300 border border-blue-300 hover:bg-blue-300 hover:text-white transition-all",
+      "text-theme-primary-300 border border-theme-primary-300 hover:bg-theme-primary-300 hover:text-skin-primary transition-all",
   },
   blue: {
     class:
-      "text-blue-800 border  border-blue-800 hover:bg-blue-800 hover:text-white transition-all",
+      "text-theme-primary-800 border  border-theme-primary-800 hover:bg-theme-primary-800 hover:text-skin-primary transition-all",
   },
   orange: {
     class:
-      "text-orange-300 border border-orange-300 hover:border-none hover:bg-orange-300 hover:text-white transition-all",
+      "text-theme-secondary-300 border border-theme-secondary-300 hover:border-none hover:bg-theme-secondary-300 hover:text-skin-primary transition-all",
   },
 };
 

@@ -14,13 +14,13 @@ const RenderMenuItem: React.FC<RenderMenuItemProps> = ({ menuItem }) => {
             key={menuItem?.id}
         >
             {url ? (
-                <Link className='flex text-blue-500 font-rajdhani font-bold text-xl my-5 tablet:mt-0 desktop:mt-0'
+                <Link className='flex text-theme-primary-500 font-rajdhani font-bold text-xl my-5 tablet:mt-0 desktop:mt-0'
                     href={url}
                 >
                     {menuItem?.label}
                 </Link>
             ) : (
-                <span className='flex text-blue-500 font-rajdhani font-bold text-xl my-5 tablet:mt-0 desktop:mt-0'>
+                <span className='flex text-theme-primary-500 font-rajdhani font-bold text-xl my-5 tablet:mt-0 desktop:mt-0'>
                     {menuItem?.label}
                 </span>
             )}

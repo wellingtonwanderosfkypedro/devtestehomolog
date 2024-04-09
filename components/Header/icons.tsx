@@ -13,7 +13,7 @@ export const ChooseThemeIcon = ({ headerWhite }: any) => {
     <span onMouseEnter={setHover} onMouseLeave={setHover}>
       <svg
         className={` border-white ${
-          headerWhite ? "hover:bg-blue-500" : "hover:bg-white"
+          headerWhite ? "hover:bg-theme-primary-500" : "hover:bg-skin-default"
         }`}
         width="35"
         height="35"

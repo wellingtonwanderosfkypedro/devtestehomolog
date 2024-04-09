@@ -12,7 +12,7 @@ const ListResolution = ({ subItem }: ListResolutionProps) => {
   return (
     <div className="h-[54px] flex gap-3 items-center">
       <Image alt={"Icon"} width={width} height={height} src={url} />
-      <p className="lg:text-sm text-xs text-gray-200 font-roboto font-medium">
+      <p className="lg:text-sm text-xs text-skin-base-accent font-roboto font-medium">
         {subItem.text}
       </p>
     </div>

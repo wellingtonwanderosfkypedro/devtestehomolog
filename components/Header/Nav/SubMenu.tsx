@@ -27,8 +27,8 @@ export const SubMenu = ({
     <>
       <div className="flex submenu w-full cursor-pointer">
         <div
-          className={`text-blue-700 font-medium p-2.5 w-full ${
-            isOpen && !isMob && "bg-blue-500 text-white"
+          className={`text-skin-base-medium font-medium p-2.5 w-full ${
+            isOpen && !isMob && "bg-theme-primary-500 text-skin-primary"
           } ${isMob ? "py-1" : ""}`}
         >
           <li onClick={(e) => handleMenuItemClick(e, subMenuItem?.node?.id)}>

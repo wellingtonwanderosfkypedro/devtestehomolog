@@ -30,7 +30,7 @@ export const PlatformSolutions = ({ idPage }: PageProps) => {
 
   const renderItems = () => {
     return (
-      <ul className="font-roboto text-blue-700 text-xl list-disc pl-8 font-semibold max-tablet:text-base max-tablet:pl-4">
+      <ul className="font-roboto text-skin-base-medium text-xl list-disc pl-8 font-semibold max-tablet:text-base max-tablet:pl-4">
         {contentComponent.arrayItems?.map((item, key) => {
           return <li key={key}>{item}</li>;
         })}
@@ -40,18 +40,18 @@ export const PlatformSolutions = ({ idPage }: PageProps) => {
 
   return (
     <div className="maxDesktop:max-w-[1440px] mx-auto py-8 lg:px-24">
-      <div className="bg-white flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between justify-center">
+      <div className="bg-skin-default flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between justify-center">
         <div className="flex flex-col tablet:justify-center tablet:max-w-[45%] maxDesktop:max-w-[40%]">
-          <h2 className="text-[25.92px] leading-[32.4px] text-gray-500 font-rajdhani font-bold tablet:leading-[50px] tablet:text-[40px]">
+          <h2 className="text-[25.92px] leading-[32.4px] text-skin-base font-rajdhani font-bold tablet:leading-[50px] tablet:text-[40px]">
             {contentComponent.title}
           </h2>
-          <span className="text-[15px] leading-[22.5px] tablet:text-[20px] tablet:leading-[30px] pt-5 pb-5 text-gray-200 font-roboto font-normal">
+          <span className="text-[15px] leading-[22.5px] tablet:text-[20px] tablet:leading-[30px] pt-5 pb-5 text-skin-base-accent font-roboto font-normal">
             {contentComponent.subTitle}
             <br /> <br />
             <span
               className={` ${
                 contentComponent.idPage === "prevencao-perdas"
-                  ? "font-medium text-blue-700"
+                  ? "font-medium text-skin-base-medium"
                   : ""
               }`}
             >
@@ -61,7 +61,7 @@ export const PlatformSolutions = ({ idPage }: PageProps) => {
             </span>
           </span>
           <Link
-            className="bg-white flex justify-center font-rajdhani text-[16px] font-semibold  text-blue-500 hover:bg-blue-500 hover:transition-all hover:text-white w-[76%] pt-4 pb-4 mt-4 border border-solid border-blue-500"
+            className="bg-skin-default flex justify-center font-rajdhani text-[16px] font-semibold  text-theme-primary-500 hover:bg-theme-primary-500 hover:transition-all hover:text-skin-primary w-[76%] pt-4 pb-4 mt-4 border border-solid border-theme-primary-500"
             href={"#"}
           >
             Fale com um especialista

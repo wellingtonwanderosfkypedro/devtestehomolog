@@ -14,7 +14,7 @@ const ItemCustomerExperience = ({
   const isEnglish = langStore.getLang();
   const { content, englishContent, logo } = customer;
   return (
-    <div className="bg-white border border-solid border-gray-400 rounded-md pt-[28px] p-[18px] h-[387px] tablet:pt-[18px] tablet:h-[350px] tablet:w-[400px]">
+    <div className="bg-skin-default border border-solid border-gray-400 rounded-md pt-[28px] p-[18px] h-[387px] tablet:pt-[18px] tablet:h-[350px] tablet:w-[400px]">
       <div className="tablet:mb-[30px]">
         <Image
           src={logo?.url}
@@ -23,10 +23,10 @@ const ItemCustomerExperience = ({
           height={logo?.height}
         />
       </div>
-      <span className="text-[16px] font-medium leading-[25.6px] text-neutral-300">
+      <span className="text-[16px] font-medium leading-[25.6px] text-skin-variation-light">
         “
       </span>
-      <p className="text-[16px] font-medium leading-[25.6px] text-neutral-300">
+      <p className="text-[16px] font-medium leading-[25.6px] text-skin-variation-light">
         {isEnglish ? englishContent : content} ”
       </p>
     </div>

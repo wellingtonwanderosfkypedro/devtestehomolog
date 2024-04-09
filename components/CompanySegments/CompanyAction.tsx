@@ -21,13 +21,13 @@ export const CompanyAction = ({ action, isEnglish }: CompanyActionProps) => {
 
   return (
     <div
-      className={`bg-blue-500 lg:px-9 px-8 py-7 lg:py-10 lg:max-w-[519px] ${
+      className={`bg-theme-primary-500 lg:px-9 px-8 py-7 lg:py-10 lg:max-w-[519px] ${
         isVisible ? "animate-fade-components visible" : "invisible"
       }`}
       ref={refElement}
     >
       <div className="flex gap-4">
-        <h3 className="font-rajdhani items-center lg:text-[28px] text-lg text-white pb-4 flex gap-4 lg:leading-8 leading-4">
+        <h3 className="font-rajdhani items-center lg:text-[28px] text-lg text-skin-primary pb-4 flex gap-4 lg:leading-8 leading-4">
           <Image
             src={logo.url}
             height={logo.height}
@@ -38,11 +38,11 @@ export const CompanyAction = ({ action, isEnglish }: CompanyActionProps) => {
           {title}
         </h3>
       </div>
-      <p className="text-white lg:text-lg text-sm font-roboto pb-6">
+      <p className="text-skin-primary lg:text-lg text-sm font-roboto pb-6">
         {isEnglish ? englishDescription : description}
       </p>
       <Link
-        className="bg-orange-300 h-14 flex text-xs items-center justify-center text-white font-rajdhani laptop:w-[60%] laptop:text-[16px] font-semibold transition-all duration-500 hover:text-orange-300 hover:bg-white"
+        className="bg-theme-secondary-300 h-14 flex text-xs items-center justify-center text-skin-primary font-rajdhani laptop:w-[60%] laptop:text-[16px] font-semibold transition-all duration-500 hover:text-theme-secondary-300 hover:bg-white"
         href={button?.url ? button?.url : ""}
         target={isEnglish ? englishButton?.target : button?.target}
       >

@@ -19,7 +19,7 @@ export const MenuItemRenderMobile: React.FC<MenuItemProps> = ({ menuItem }) => {
 
   return (
     <div
-      className={`bg-white text-zinc-900  rounded-b-lg ${isSimpleIcons ? "pl-6" : "pl-3"
+      className={`bg-skin-default text-zinc-900  rounded-b-lg ${isSimpleIcons ? "pl-6" : "pl-3"
         }`}
       onClick={(e) => {
         e.stopPropagation();

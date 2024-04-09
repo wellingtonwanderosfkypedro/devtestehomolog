@@ -6,16 +6,37 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
+      textColor: {
+        skin: {
+          base: "var(--theme-color-text-base)",
+          "base-medium": "var(--theme-color-text-base-medium)",
+          "base-accent": "var(--theme-color-text-base-accent)",
+          "variation-light": "var(--theme-color-text-variation-light)",
+          "variation": "var(--theme-color-text-variation)",
+          bolder: "var(--theme-color-text-bolder)",
+          primary: "var(--theme-color-text-primary)",
+          error: "var(--theme-color-error)",
+        }
+      },
+      backgroundColor: {
+        skin: {
+          default: "var(--theme-background-default)",
+          accent: "var(--theme-background-accent)",
+        }
+      },
       screens: {
+        mini: "280px",
+        mobile: "375px",
         tablet: "640px",
         laptop: "1024px",
         desktop: "1280px",
         maxDesktop: "1440px",
       },
       colors: {
-        blue: {
+        "theme-primary": {
           100: "#DDDDF0",
           300: "#6C6DF3",
           400: "#1B1B96",
@@ -24,13 +45,14 @@ module.exports = {
           800: "#1C1B9D",
           900: "#353345",
         },
-        orange: {
+        "theme-secondary": {
           100: "#F0680A99",
           200: "#F0680A",
           300: "#FF5C00",
           500: "#FF6006",
           600: "#E96024",
         },
+        disabled: "var(--theme-background-shelf-disabled)",
         gray: {
           100: "#F6F8FD",
           200: "#7C7C7C",
@@ -43,18 +65,16 @@ module.exports = {
           700: "#495057",
         },
         black: {
+          100: "#000000",
           300: "#0D0B1A",
         },
-        white: "#ffffff",
         border: {
           100: "#F3F3F366",
         },
         neutral: {
           100: "#F2F5FC",
+          200: "#E0E0E0",
           300: "#757385",
-        },
-        red: {
-          400: "#FF0000",
         },
       },
       fontFamily: {

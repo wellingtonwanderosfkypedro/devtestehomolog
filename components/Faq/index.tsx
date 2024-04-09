@@ -21,11 +21,11 @@ export const Faq = ({ data }: FaqProps) => {
     <div className="flex maxDesktop:max-w-[1440px] px-6 mx-auto py-20 lg:px-24">
       <div className="flex gap-[70px] max-laptop:flex-col">
         <div className="flex flex-col gap-2 w-[50%] max-laptop:w-full">
-          <h4 className="font-roboto text-blue-400 font-bold text-base uppercase mb-4">
+          <h4 className="font-roboto text-theme-primary-400 font-bold text-base uppercase mb-4">
             {isEnglish ? data.englishTitle : data?.title}
           </h4>
-          <p className="font-rajdhani font-bold text-3xl text-blue-700 max-laptop:text-2xl">
-            {isEnglish ? data.englishSubTitle : data?.subTitle}
+          <p className="font-rajdhani font-bold text-3xl text-skin-base-medium max-laptop:text-2xl">
+            {data?.subTitle}
           </p>
           <span className="font-roboto font-medium text-base text-gray-700 mb-2 max-w-[490px]">
             {data?.description}
@@ -56,7 +56,7 @@ export const Faq = ({ data }: FaqProps) => {
               >
                 <div className="flex">
                   <p
-                    className="font-archivo font-bold text-lg text-blue-700 w-[90%] max-laptop:text-base cursor-pointer"
+                    className="font-archivo font-bold text-lg text-skin-base-medium w-[90%] max-laptop:text-base cursor-pointer"
                     onClick={() => {
                       toggleOption(key);
                     }}
@@ -70,10 +70,10 @@ export const Faq = ({ data }: FaqProps) => {
                     }}
                   >
                     <span
-                      className={`block relative transition duration-300 ease-in-out h-[2px] rounded-full bg-orange-200`}
+                      className={`block relative transition duration-300 ease-in-out h-[2px] rounded-full bg-theme-secondary-200`}
                     >
                       <span
-                        className={` block w-full h-full absolute transition duration-500 ease-in-out rounded-full bg-orange-200 ${
+                        className={` block w-full h-full absolute transition duration-500 ease-in-out rounded-full bg-theme-secondary-200 ${
                           isOptionActive
                             ? "top-0"
                             : "transform rotate-[90deg]  h-[1px]"

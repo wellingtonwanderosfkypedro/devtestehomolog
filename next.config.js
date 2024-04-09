@@ -9,7 +9,7 @@ const nextConfig = {
   },
   reactStrictMode: true,
   images: {
-    domains: ["blog.neoway.com.br"],
+    domains: ["blog.neoway.com.br", "http.cat"],
     remotePatterns: [
       {
         protocol: "https",

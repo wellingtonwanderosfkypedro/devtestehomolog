@@ -14,7 +14,7 @@ const CompanySegments = ({ data }: { data: CompanySegmentsData }) => {
   }
 
   return (
-    <div className="w-full bg-gray-100 lg:py-20 py-10">
+    <div className="w-full bg-skin-accent lg:py-20 py-10">
       <div className="maxDesktop:max-w-[1440px] px-6 mx-auto py-8 lg:px-24">
         <div
           className={`${
@@ -25,7 +25,7 @@ const CompanySegments = ({ data }: { data: CompanySegmentsData }) => {
           <h3 className="lg:text-3xl text-2xl font-bold font-rajdhani">
             {isEnglish ? data?.englishTitle : data?.title}
           </h3>
-          <p className="lg:text-lg text-[13px] font-roboto pb-10 text-gray-200 font-medium pt-2">
+          <p className="lg:text-lg text-[13px] font-roboto pb-10 text-skin-base-accent font-medium pt-2">
             {isEnglish ? data?.englishDescription : data?.description}
           </p>
         </div>
