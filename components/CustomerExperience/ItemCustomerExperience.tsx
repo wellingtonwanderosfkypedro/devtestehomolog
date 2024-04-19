@@ -23,10 +23,10 @@ const ItemCustomerExperience = ({
           height={logo?.height}
         />
       </div>
-      <span className="text-[16px] font-medium leading-[25.6px] text-skin-variation-light">
+      <span className="text-4 font-medium leading-[25.6px] text-skin-variation-light">
         “
       </span>
-      <p className="text-[16px] font-medium leading-[25.6px] text-skin-variation-light">
+      <p className="text-4 font-medium leading-[25.6px] text-skin-variation-light">
         {isEnglish ? englishContent : content} ”
       </p>
     </div>

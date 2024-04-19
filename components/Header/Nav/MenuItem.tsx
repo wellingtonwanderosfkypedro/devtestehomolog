@@ -65,7 +65,7 @@ export const MenuItemRender: React.FC<MenuItemProps> = ({ menuItem }) => {
       {menuItem?.map((item, key) => {
         return isOpenMenu === item.node?.id && item.title ? (
           <div
-            className={`transition-all w-[80%]  flex flex-col bg-theme-primary-100 p-8  gap-6 rounded-br-lg`}
+            className={`transition-all w-[80%]  flex flex-col bg-menu p-8  gap-6 rounded-br-lg`}
           >
             {item.headerSection && (
               <div className="flex flex-col gap-2">

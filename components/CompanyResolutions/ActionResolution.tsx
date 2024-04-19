@@ -46,7 +46,7 @@ export const ActionResolution = ({ resolutions }: ActionsResolutionsProps) => {
               >
                 {title}
               </h3>
-              <p className="text-skin-base-accent pb-8 text-sm lg:text-base leading-4">
+              <p className="text-skin-variation-light pb-8 text-4 lg:text-base leading-4">
                 {isEnglish ? englishDescription : description}
               </p>
               <div className="pb-5 flex flex-col justify-between gap-5">

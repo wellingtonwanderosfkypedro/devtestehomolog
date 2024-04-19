@@ -37,11 +37,11 @@ const PlatformSolutionsHome = ({ data }: PlatformSolutionsHomeProps) => {
     >
       <div className="bg-skin-default flex flex-col mx-6 tablet:flex-row tablet:max-w-[95%] tablet:mx-auto laptop:max-w-[100%] maxDesktop:justify-between">
         <div className="flex flex-col tablet:justify-center tablet:max-w-[40%] maxDesktop:max-w-[40%]">
-          <h2 className="text-[25.92px] leading-[32.4px] text-skin-base font-rajdhani font-bold tablet:leading-[50px] tablet:text-[40px]">
+          <h2 className="text-[25.92px] leading-[32.4px] text-skin-base font-rajdhani font-bold tablet:leading-[50px] tablet:text-10">
             {isEnglish ? englishTitle : title}
           </h2>
           {content_2 && (
-            <span className="text-[15px] leading-[22.5px] tablet:text-[20px] tablet:leading-[30px] pt-5 pb-5 text-skin-base-accent font-roboto font-normal">
+            <span className="text-4 leading-[22.5px] tablet:text-5 tablet:leading-[30px] pt-5 pb-5 text-skin-base-accent font-roboto font-normal">
               {isEnglish ? englishContent : content}
               <br /> <br />
               {typeOfContent ? (
@@ -56,7 +56,7 @@ const PlatformSolutionsHome = ({ data }: PlatformSolutionsHomeProps) => {
             </span>
           )}
           <Link
-            className="bg-skin-default flex justify-center font-rajdhani text-[16px] font-semibold  text-theme-primary-500 hover:bg-theme-primary-500 hover:transition-all hover:text-skin-primary w-[76%] pt-4 pb-4 mt-4 border border-solid border-theme-primary-500"
+            className="bg-skin-default flex justify-center font-rajdhani text-4 font-semibold  text-theme-primary-500 hover:bg-theme-primary-500 hover:transition-all hover:text-skin-primary w-[76%] pt-4 pb-4 mt-4 border border-solid border-theme-primary-500"
             target={data?.button?.target}
             href={isEnglish ? englishButton?.url : button?.url}
           >

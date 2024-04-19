@@ -16,10 +16,10 @@ export function StrategicSolutions({ data }: StrategicSolutionsProps) {
   return (
     <div className="maxDesktop:max-w-[1440px] px-5  mx-auto  pt-12 pb-[34px] flex flex-col justify-between self-start  laptop:py-8 laptop:flex-row laptop:mt-[143px] laptop:mb-[56px] maxDesktop:px-0 strategicSolutions">
       <div className="mb-[30px] laptop:max-w-[502px] laptop:mr-[71px] laptop:mb-0">
-        <h1 className="font-rajdhani text-2xl mb-[14px] text-[#28283F] font-bold laptop:text-[38px] laptop:mb-6">
+        <h1 className="font-rajdhani text-2xl mb-[14px] text-[var(--theme-title-our-solutions)] font-bold laptop:text-[38px] laptop:mb-6">
           {isEnglish ? data.englishTitle : data.title}
         </h1>
-        <p className="w-full max-w-[100vw] font-roboto font-medium text-[#7B7B7B] text-lg  desktop:text-2xl  desktop:leading-10">
+        <p className="w-full max-w-[100vw] font-roboto font-medium text-skin-variation-light text-lg  desktop:text-2xl  desktop:leading-10">
           {isEnglish ? data.englishDescription : data.description}
         </p>
       </div>

@@ -13,7 +13,7 @@ const Buttons = ({
   }
 
   return (
-    <div className={"flex gap-3 mini:flex-col laptop:flex-row mini:mt-5 tablet:mt-10" + onlyMobileButton ? "lg:hidden" : ""}>
+    <div className={"flex gap-3 mini:flex-col laptop:flex-row mini:mt-5 tablet:mt-10" + (onlyMobileButton ? "lg:hidden" : "")}>
       {buttons.map((button) => (
         <ButtonBanner {...button} key={button.text} />
       ))}

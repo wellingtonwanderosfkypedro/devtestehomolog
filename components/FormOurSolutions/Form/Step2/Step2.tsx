@@ -18,7 +18,7 @@ const Step2: React.FC<Step2Props> = ({ control, errors }) => {
             <input className='bg-neutral-100 w-[100%] focus-visible:outline-none h-[39.62px] tablet:h-[56px] text-skin-variation-light placeholder:text-skin-variation-light 
               px-[16px] placeholder:font-archivo font-archivo placeholder:text-[11.31px] text-[11.31px] 
               placeholder:leading-[16.97px] leading-[16.97px] placeholder:font-normal font-normal
-              tablet:placeholder:text-[16px] tablet:text-[16px] tablet:placeholder:leading-[24px]'
+              tablet:placeholder:text-4 tablet:text-4 tablet:placeholder:leading-[24px]'
               placeholder='Email Corporativo' {...field} />
           )}
         />
@@ -37,7 +37,7 @@ const Step2: React.FC<Step2Props> = ({ control, errors }) => {
             <input className='bg-neutral-100 w-[100%] focus-visible:outline-none h-[39.62px] tablet:h-[56px] text-skin-variation-light placeholder:text-skin-variation-light 
               px-[16px] placeholder:font-archivo font-archivo placeholder:text-[11.31px] text-[11.31px] 
               placeholder:leading-[16.97px] leading-[16.97px] placeholder:font-normal font-normal
-              tablet:placeholder:text-[16px] tablet:text-[16px] tablet:placeholder:leading-[24px]'
+              tablet:placeholder:text-4 tablet:text-4 tablet:placeholder:leading-[24px]'
               placeholder='Comente sua demanda' {...field}
             />
           )}
@@ -59,12 +59,12 @@ const Step2: React.FC<Step2Props> = ({ control, errors }) => {
               control={control}
               render={({ field }) => (
                 <select className='bg-neutral-100 cursor-pointer appearance-none w-[100%] focus-visible:outline-none h-[39.62px] tablet:h-[56px] text-skin-variation-light px-[16px] font-archivo text-[11.31px] 
-              leading-[16.97px] font-normal tablet:text-[16px] tablet:leading-[24px]'
+              leading-[16.97px] font-normal tablet:text-4 tablet:leading-[24px]'
                   {...field}
                   value={field.value || "option1"}
                   onChange={(e) => field.onChange(e.target.value)}
                 >
-                  <option className='text-skin-variation-light font-archivo text-[11.31px] leading-[16.97px] font-normal tablet:text-[16px] tablet:leading-[24px]'
+                  <option className='text-skin-variation-light font-archivo text-[11.31px] leading-[16.97px] font-normal tablet:text-4 tablet:leading-[24px]'
                     value="option1" hidden
                   >
                     Em quais áreas podemos te ajudar?
@@ -73,7 +73,7 @@ const Step2: React.FC<Step2Props> = ({ control, errors }) => {
                     return (
                       <option
                         key={index}
-                        className='text-skin-variation-light font-archivo text-[11.31px] leading-[16.97px] font-normal tablet:text-[16px] tablet:leading-[24px]'
+                        className='text-skin-variation-light font-archivo text-[11.31px] leading-[16.97px] font-normal tablet:text-4 tablet:leading-[24px]'
                         value={item}
                       >
                         {item}

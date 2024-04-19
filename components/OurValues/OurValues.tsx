@@ -1,28 +1,33 @@
+'use client';
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
 import ItemCustomerExperience from "./ItemCustomerExperience";
 
-import NavigationButton from "../Navigation";
 import { Item } from "./types/CustomerExperienceTypes";
+import NavigationButton from "../Navigation";
 
 interface OurValuesProps {
+  fsiStyle?: boolean;
   title: string;
   items: Item[];
   slidesView: number;
 }
 
-const OurValues = ({ title, items, slidesView }: OurValuesProps) => {
+const OurValues = ({ fsiStyle, title, items, slidesView }: OurValuesProps) => {
+
+  const name = "OurValues";
+
   const isSlidesView =
     slidesView == 2 ? "h-[100%] tablet:w-[824px]" : "h-[100%]";
 
   return (
     <div className="max-w-screen-xl pb mx-5 lg:m-auto">
-      <div className="flex justify-between items-center mt-28 mb-8">
-        <p className="font-rajdhani font-bold text-4xl tablet:max-w-[605px]">{title}</p>
+      <div className="flex justify-between items-center mini:mt-12 tablet:mt-28 mb-8">
+        <p className="font-rajdhani text-10 font-bold mini:text-2xl tablet:text-10 tablet:max-w-[605px]">{title}</p>
         <div className="hidden lg:flex">
-          <NavigationButton />
+          <NavigationButton name={name} />
         </div>
       </div>
       <Swiper
@@ -40,20 +45,20 @@ const OurValues = ({ title, items, slidesView }: OurValuesProps) => {
           },
         }}
         navigation={{
-          nextEl: ".swiper-button-next-custom",
-          prevEl: ".swiper-button-prev-custom",
+          nextEl: `.swiper-button-next-custom-${name}`,
+          prevEl: `.swiper-button-prev-custom-${name}`,
           disabledClass:
-          "bg-disabled stroke-white disabled-swiper-track",
+            "bg-disabled stroke-white disabled-swiper-track",
         }}
         className={`${isSlidesView} !pb-7`}
       >
         {items?.map((customer, index) => (
           <SwiperSlide key={customer.title}>
-            <ItemCustomerExperience customer={customer} index={index} />
+            <ItemCustomerExperience customer={customer} index={index} fsiStyle={fsiStyle} />
           </SwiperSlide>
         ))}
         <div className="flex mt-8 lg:hidden justify-center">
-          <NavigationButton />
+          <NavigationButton name={name} />
         </div>
       </Swiper>
     </div>

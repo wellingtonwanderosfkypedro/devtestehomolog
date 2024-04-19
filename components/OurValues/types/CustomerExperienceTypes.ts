@@ -9,6 +9,7 @@ export type Item = {
   title: string;
   description: string;
   link?: string;
+  fsiStyle?: boolean;
 };
 
 type Image = {

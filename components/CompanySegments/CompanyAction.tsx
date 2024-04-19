@@ -42,7 +42,7 @@ export const CompanyAction = ({ action, isEnglish }: CompanyActionProps) => {
         {isEnglish ? englishDescription : description}
       </p>
       <Link
-        className="bg-theme-secondary-300 h-14 flex text-xs items-center justify-center text-skin-primary font-rajdhani laptop:w-[60%] laptop:text-[16px] font-semibold transition-all duration-500 hover:text-theme-secondary-300 hover:bg-white"
+        className="bg-theme-secondary-300 h-14 flex text-xs items-center justify-center text-skin-primary font-rajdhani laptop:w-[60%] laptop:text-4 font-semibold transition-all duration-500 hover:text-theme-secondary-300 hover:bg-white"
         href={button?.url ? button?.url : ""}
         target={isEnglish ? englishButton?.target : button?.target}
       >

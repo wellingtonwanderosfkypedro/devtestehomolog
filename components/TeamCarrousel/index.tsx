@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -26,13 +27,16 @@ export function TeamCarrousel({
   description: string,
   persons: Person[]
 }) {
+
+  const name = "TeamCarrousel";
+
   return (
     <div className="px-6 lg:px-28 py-12 bg-theme-primary-500">
       <div className="max-w-screen-xl m-auto">
         <div className="flex flex-col lg:flex-row lg:items-center mb-16">
           <div className="flex-[1]">
-            <p className="text-lg font-bold font-rajdhani text-theme-secondary-300">{sectionName}</p>
-            <p className="text-4xl lg:text-[42px] font-bold text-white font-rajdhani text-left  mb-4 lg:mb-0">{title}</p>
+            <p className="text-4 font-bold font-rajdhani text-theme-secondary-300">{sectionName}</p>
+            <p className="text-9 lg:text-10 font-bold text-white font-rajdhani text-left  mb-4 lg:mb-0">{title}</p>
           </div>
           <p className="flex-[1] text-white font-roboto text-lg">{description}</p>
         </div>
@@ -51,8 +55,8 @@ export function TeamCarrousel({
             },
           }}
           navigation={{
-            nextEl: ".swiper-button-next-custom",
-            prevEl: ".swiper-button-prev-custom",
+            nextEl: `.swiper-button-next-custom-${name}`,
+            prevEl: `.swiper-button-prev-custom-${name}`,
             disabledClass:
               "bg-disabled border-disabled stroke-white disabled-swiper-track",
           }}
@@ -65,7 +69,7 @@ export function TeamCarrousel({
             )
           })}
           <div className="flex mt-8 lg:hidden justify-center">
-            <NavigationButton />
+            <NavigationButton name={name} />
           </div>
         </Swiper>
       </div>

@@ -48,7 +48,7 @@ const FormOurSolutions = ({ data }: FormOurSolucionsProps) => {
                   </>
                 }
                 message2={
-                  <span className="text-skin-primary text-[12px] font-roboto font-normal leading-[18px] tablet:text-[18px] tablet:leading-[27px] laptop:flex laptop:w-[574px]">
+                  <span className="text-skin-primary text-[12px] font-roboto font-normal leading-[18px] tablet:text-4.5 tablet:leading-[27px] laptop:flex laptop:w-[574px]">
                     {isEnglish ? data.englishDescription : data?.description}
                   </span>
                 }

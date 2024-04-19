@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import Richtext from "../RichText/RichText";
@@ -5,12 +6,14 @@ import { SpeakWithSpecialistCard } from "./components/SpeakWithSpecialistCard";
 import { SpeakSpecialistType } from "./types/speakWithSpecialistTypes";
 import { langStore } from "@/helpers/providers/getLang";
 import { Arrow } from "./assets/Arrow";
+import { useAccessibilityContext } from "@/contexts/AccessibilityContetxt";
 
 export interface SpeakWithSpecialistData {
   data: SpeakSpecialistType;
 }
 
 export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
+  const { cookieItem } = useAccessibilityContext();
   const isEnglish = langStore.getLang();
   
   const portugueseMessage = data?.button?.title ?? 'Fale com um especialista';
@@ -19,7 +22,7 @@ export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
   data.items = Object.values(data.items);
 
   return (
-    <div className="bg-[#f4f4fa]">
+    <div className="bg-skin-distinct">
       <div className="maxDesktop:max-w-[1440px] mx-auto laptop:py-24 pt-12 pb-[34px] laptop:px-0 px-5 lg:px-24 flex laptop:flex-row flex-col justify-between self-start ">
         <div className="laptop:w-5/12 laptop:block hidden">
           <Image
@@ -39,7 +42,7 @@ export function SpeakWithSpecialist({ data }: SpeakWithSpecialistData) {
         <div className="laptop:w-5/12 font-archivo">
           <div className="font-rajdhani text-left">
             <Richtext
-              colorText="#000"
+              colorText="var(--theme-color-text-distinct)"
               text={
                 "# **Inteligência analítica**  da Neoway para **Prevenção de Perdas** em todas as etapas do seu negócio."
               }

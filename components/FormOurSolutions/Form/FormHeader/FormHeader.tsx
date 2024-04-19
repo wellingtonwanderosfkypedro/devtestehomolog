@@ -26,7 +26,7 @@ const FormHeader = ({
   return (
     <>
       <IdentifiesSteps currentStep={currentStep} onNextStep={onNextStep} />
-      <h3 className="text-[16px] leading-[20px] text-skin-bolder pt-[20px] pb-[15px] tablet:pt-[10px] tablet:pb-[10px] font-rajdhani font-bold tablet:text-[24px] tablet:leading-[30px]">
+      <h3 className="text-4 leading-[20px] text-skin-bolder pt-[20px] pb-[15px] tablet:pt-[10px] tablet:pb-[10px] font-rajdhani font-bold tablet:text-[24px] tablet:leading-[30px]">
         {currentStep === 1 ? (
           <>
             {titleStep1?.title1}{" "}

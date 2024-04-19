@@ -8,24 +8,46 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    fontSize: {
+      0.5: "0.125rem", // 2px
+      1: "0.25rem", // 4px
+      1.5: "0.375rem", // 6px
+      2: "0.5rem", // 8px
+      2.5: "0.625rem", // 10px
+      3: "0.75rem", // 12px
+      3.5: "0.875rem", // 14px
+      4: "1rem", // 16px
+      4.5: "1.125rem", // 18px
+      5: "1.25rem", // 20px
+      6: "1.5rem", // 24px
+      7: "1.75rem", // 28px
+      8: "2rem", // 32px
+      9: "2.25rem", // 36px
+      10: "2.5rem", // 40px
+      11: "3rem", // 48px
+    },
     extend: {
       textColor: {
         skin: {
           base: "var(--theme-color-text-base)",
+          distinct: "var(--theme-color-text-distinct)",
           "base-medium": "var(--theme-color-text-base-medium)",
           "base-accent": "var(--theme-color-text-base-accent)",
           "variation-light": "var(--theme-color-text-variation-light)",
-          "variation": "var(--theme-color-text-variation)",
+          variation: "var(--theme-color-text-variation)",
           bolder: "var(--theme-color-text-bolder)",
           primary: "var(--theme-color-text-primary)",
           error: "var(--theme-color-error)",
-        }
+          "question-faq": "var(--theme-color-text-faq)",
+          "text-orange": "var(--theme-color-text-orange)",
+        },
       },
       backgroundColor: {
         skin: {
           default: "var(--theme-background-default)",
           accent: "var(--theme-background-accent)",
-        }
+          distinct: "var(--theme-background-distinct)",
+        },
       },
       screens: {
         mini: "280px",
@@ -36,8 +58,11 @@ module.exports = {
         maxDesktop: "1440px",
       },
       colors: {
+        menu: "var(--theme-menu-color)",
+        "orange-button": "var(--theme-color-button-orange)",
+        "orange-button-text": "var(--theme-color-text-orange)",
+
         "theme-primary": {
-          100: "#DDDDF0",
           300: "#6C6DF3",
           400: "#1B1B96",
           500: "#1D1B9D",

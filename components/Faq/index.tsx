@@ -27,7 +27,7 @@ export const Faq = ({ data }: FaqProps) => {
           <p className="font-rajdhani font-bold text-3xl text-skin-base-medium max-laptop:text-2xl">
             {data?.subTitle}
           </p>
-          <span className="font-roboto font-medium text-base text-gray-700 mb-2 max-w-[490px]">
+          <span className="font-roboto font-medium text-base text-skin-question-faq  mb-2 max-w-[490px]">
             {data?.description}
           </span>
 
@@ -36,7 +36,7 @@ export const Faq = ({ data }: FaqProps) => {
             className="flex gap-2"
           >
             <Image alt="" src={data?.icon?.url} width={24} height={24} />
-            <span className="font-archivo font-bold text-base">
+            <span className="font-archivo font-bold text-base text-skin-distinct">
               {isEnglish ? data.englishButton.title : data?.button?.title}
             </span>
           </Link>
@@ -89,7 +89,7 @@ export const Faq = ({ data }: FaqProps) => {
                   }`}
                 >
                   <span
-                    className={`font-roboto font-medium text-base text-gray-700 opacity-0 relative transform translate-y-5 ${
+                    className={`font-roboto font-medium text-base text-skin-question-faq opacity-0 relative transform translate-y-5 ${
                       isOptionActive ? "animate-animation-faq h-full" : "h-0"
                     }`}
                   >

@@ -38,11 +38,11 @@ export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
           />
           <div className="w-full z-[2] flex flex-col justify-around max-desktop:pt-8">
             <div className=" flex font-rajdhani text-skin-primary max-w-[780px]">
-              <h3 className="font-semibold text-5xl max-desktop:text-4xl max-desktop:max-w-[600px]">
+              <h3 className="font-semibold text-5xl max-desktop:text-4xl max-desktop:max-w-[600px] text-[48px]">
                 {isEnglish ? data.englishTitle : data.title}{" "}
                 <span className="font-bold">{data.title_complement_1}</span>{" "}
                 {data.title_complement_2}{" "}
-                <span className="text-theme-secondary-300 font-bold">
+                <span className="text-skin-text-orange font-bold">
                   {data.title_complement_3}
                 </span>
               </h3>
@@ -50,9 +50,9 @@ export const SpecialistBanner = ({ data }: SpecialistBannerProps) => {
             <Link
               href={isEnglish ? data?.englishButton?.url : data?.button?.url}
               target={data?.button?.target}
-              className="bg-theme-secondary-300 max-w-[400px] w-full rounded-md py-4 flex gap-2 justify-center  border border-transparent group hover:bg-transparent hover:border-theme-secondary-300 transition-all duration-300 ease-in"
+              className="bg-orange-button max-w-[400px] w-full rounded-md py-4 flex gap-2 justify-center  border border-transparent group hover:bg-transparent hover:border-orange-button transition-all duration-300 ease-in items-center"
             >
-              <span className="text-skin-primary font-semibold text-base font-archivo group-hover:text-theme-secondary-300 transition-all duration-300 ease-in">
+              <span className="text-skin-primary font-semibold text-base font-archivo group-hover:text-skin-text-orange transition-all duration-300 ease-in">
                 {isEnglish ? data.englishButton.title : data?.button?.title}
               </span>
               <Arrow />

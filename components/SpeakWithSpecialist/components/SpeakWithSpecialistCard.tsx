@@ -15,7 +15,7 @@ export function SpeakWithSpecialistCard({ item }: ItemCard) {
       <Image src={item.image.url} alt={""} width={56} height={56} />
 
       <div className="flex flex-col grow justify-start ">
-        <h3 className="font-semibold max-tablet:text-base">
+        <h3 className="font-semibold max-tablet:text-base text-skin-distinct">
           {isEnglish ? item.englishTitle : item.title}
         </h3>
         <p className="text-lg text-skin-base-accent font-normal max-tablet:text-sm">

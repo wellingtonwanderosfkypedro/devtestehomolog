@@ -1,3 +1,4 @@
+'use client';
 import { useMedia } from "react-use";
 import { ICard } from "../types/ISectionFourC";
 import Card from "./Card";
@@ -25,7 +26,7 @@ const Cards = ({ title, description, cards }: ICards) => {
           <h3 className="mini:text-2xl tablet:text-4xl font-bold font-rajdhani tablet:w-6/12 mini:w-full">
             {title}
           </h3>
-          <p className="font-roboto mini:text-[14px] tablet:text-lg tablet:w-6/12 mini:w-full">
+          <p className="font-roboto mini:text-3.5 tablet:text-lg tablet:w-6/12 mini:w-full">
             {description}
           </p>
         </div>

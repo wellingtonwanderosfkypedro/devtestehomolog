@@ -24,7 +24,7 @@ export const CompanyResolutions = ({ data }: CompanyResolutionsProps) => {
         <h3 className="text-theme-primary-800 font-roboto text-xs font-semibold uppercase pb-4">
           {isEnglish ? data.englishTitle : data?.title}
         </h3>
-        <p className="font-rajdhani text-skin-base font-bold text-lg lg:text-4xl leading-5 lg:leading-10">
+        <p className="font-rajdhani text-skin-base font-bold text-lg lg:text-4xl lg:leading-10 text-9 leading-10">
           {isEnglish ? data.englishSubTitle : data?.sub_title}
         </p>
       </div>

@@ -13,7 +13,7 @@ const Card = ({ card, index }: { card: ICard; index: number }) => {
       <h4 className="tablet:my-3 mini:my-2 font-rajdhani font-bold color-gray-500 tablet:text-xl mini:text-base mini:leading-tight">
         {card.title}
       </h4>
-      <p className="font-rajdhani color-neutral-300 tablet:text-base mini:text-[10px] mini:leading-tight">{card.text}</p>
+      <p className="font-rajdhani color-neutral-300 tablet:text-base mini:text-2.5 mini:leading-tight">{card.text}</p>
     </div>
   );
 };

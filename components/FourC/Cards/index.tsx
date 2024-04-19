@@ -1,3 +1,4 @@
+'use client';
 import { useMedia } from "react-use";
 import { ICard } from "../types/IFourC";
 import Card from "./Card";

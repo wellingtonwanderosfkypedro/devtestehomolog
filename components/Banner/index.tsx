@@ -1,3 +1,4 @@
+'use client';
 import { useMedia } from "react-use";
 
 import { BannerProps } from "./types/BannerProps";
@@ -12,7 +13,7 @@ const Banner = ({
   buttons,
   image_desktop,
   image_mobile,
-  onlyMobileButton
+  onlyMobileButton = false
 }: BannerProps) => {
   const isMob = useMedia("(max-width: 500px)", false);
 
@@ -37,7 +38,7 @@ const Banner = ({
               <Richtext text={title} colorText="#FFF" />
             </div>
 
-            <div className="text-white text-[12px] font-roboto font-normal leading-[18px] tablet:text-[18px] tablet:leading-[27px] laptop:w-[574px] mini:mt-3 laptop:mt-5">
+            <div className="text-white text-[12px] font-roboto font-normal leading-[18px] tablet:text-4.5 tablet:leading-[27px] laptop:w-[574px] mini:mt-3 laptop:mt-5">
               <Richtext text={description} colorText="#FFF" />
             </div>
           </div>
