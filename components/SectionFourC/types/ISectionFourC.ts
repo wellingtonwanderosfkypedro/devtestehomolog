@@ -1,44 +1,50 @@
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
 export interface ISectionFourC {
-    title: string
-    description: string
-    cards: ICard[]
-    diligencias: IDiligencias
-    specialist: ISpecialist
+  title: string;
+  englishTitle: string;
+  subtitle: string;
+  englishSubtitle: string;
+  cards: ICard[];
+  itemsDiligencias: IDiligencias;
+  neowayAjudaGerarResultado: ISpecialist;
 }
 
 export interface ICard {
-    title: string
-    text: string
+  title: string;
+  englishTitle: string;
+  text: string;
+  englishText: string;
 }
 
 export interface IDiligencias {
-    title: string
-    text: string
-    cards: IDiligenciasCard[]
-    image: IImage
+  diligenciasTitle: string;
+  diligenciasEnglishTitle: string;
+  diligenciasText: string;
+  diligenciasEnglishText: string;
+  cards: IDiligenciasCard[];
+  image: ImageData;
 }
 
 interface IDiligenciasCard {
-    src: string
-    title: string
-    text: string
+  icon: ImageData;
+  title: string;
+  englishTitle: string;
+  text: string;
+  englishText: string;
 }
 
 export interface ISpecialist {
-    src: string
-    title: string
-    text: string
-    button: IButton
+  logo: ImageData;
+  title: string;
+  englishTitle: string;
+  text: string;
+  englishText: string;
+  button: ButtonLink;
+  englishButton: ButtonLink;
 }
 
 interface IButton {
-    text: string
-    link: string
-}
-
-interface IImage {
-    url: string
-    alt: string
-    width: number
-    height: number
+  text: string;
+  link: string;
 }

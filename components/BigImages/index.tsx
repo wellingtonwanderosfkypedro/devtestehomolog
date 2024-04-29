@@ -1,9 +1,11 @@
-'use client';
+"use client";
 import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { SliderImagesNeowwayTypes } from "./types/sliderImagesNeoway";
 
-export default function BigImages({ images }: Readonly<{ images: { src: string, alt: string, width: number, height: number }[] }>) {
+export default function BigImages({ images }: SliderImagesNeowwayTypes) {
+  const imagesMap = Object.values(images);
   return (
     <div className="mt-28 ml-2 lg:ml-0">
       <Swiper
@@ -12,7 +14,7 @@ export default function BigImages({ images }: Readonly<{ images: { src: string, 
         breakpoints={{
           560: {
             slidesPerView: 1.5,
-            spaceBetween: 8
+            spaceBetween: 8,
           },
           768: {
             slidesPerView: 2.2,
@@ -22,12 +24,17 @@ export default function BigImages({ images }: Readonly<{ images: { src: string, 
           },
         }}
       >
-        {images?.map((image) => (
+        {imagesMap?.map((image) => (
           <SwiperSlide key={image.alt}>
-            <Image {...image} alt={image.alt} />
+            <Image
+              src={image.url}
+              alt={"image?.alt"}
+              width={image.width}
+              height={image.height}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
-  )
+  );
 }

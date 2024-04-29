@@ -9,26 +9,41 @@ import LastCases from "@/components/LastCases";
 import Newsletter from "@/components/Newsletter";
 
 // MOCKS
-import { fsiMockBanner } from "./mocks/fsiMockBanner";
-import { fsiMockSolutions } from "./mocks/fsiMockSolutions";
-import { fsiMockForm } from "./mocks/fsiMockForm";
-import { fsiMockSectionFourC } from "./mocks/fsiMockSectionFourC";
-import { fsiMockSlideSolutions } from "./mocks/fsiMockSlideSolutions";
-import { fsiMockRegulation } from "./mocks/fsiMockRegulation";
-import { fsiMockLastCases } from "./mocks/fsiMockLastCases";
-import { newsletter } from "./mocks/newsLetter";
+import { fsiMockBanner } from "../../helpers/mocks/fsi/mocks/fsiMockBanner";
+import { fsiMockSolutions } from "../../helpers/mocks/fsi/mocks/fsiMockSolutions";
+import { fsiMockForm } from "../../helpers/mocks/fsi/mocks/fsiMockForm";
+import { fsiMockSectionFourC } from "../../helpers/mocks/fsi/mocks/fsiMockSectionFourC";
+import { fsiMockSlideSolutions } from "../../helpers/mocks/fsi/mocks/fsiMockSlideSolutions";
+import { fsiMockRegulation } from "../../helpers/mocks/fsi/mocks/fsiMockRegulation";
+import { fsiMockLastCases } from "../../helpers/mocks/fsi/mocks/fsiMockLastCases";
+import { newsletter } from "../../helpers/mocks/fsi/mocks/newsLetter";
+import MultipleSolutions from "@/components/MultipleSolutions";
+import { sliderCompanies } from "@/helpers/mocks/fsi/mocks/fsiMockSliderCompanies";
+import { NumerosComConfianca } from "@/components/NumerosDeConfiança";
+import { mockNumerosConfianca } from "@/helpers/mocks/fsi/mocks/fsiMockNumerosConfiança";
 
 const FSI = () => {
   return (
     <>
-      <Banner {...fsiMockBanner} />
-      <Solutions {...fsiMockSolutions}/>
-      <OurValues {...fsiMockSlideSolutions} />
+      <Banner data={fsiMockBanner} />
+      <Solutions {...fsiMockSolutions} />
+      <OurValues
+        data={fsiMockSlideSolutions}
+        slidesView={3.3}
+        fsiStyle={true}
+      />
       <Regulation {...fsiMockRegulation} />
-      <SectionFourC {...fsiMockSectionFourC}/>
+      <SectionFourC {...fsiMockSectionFourC} />
       <LastCases {...fsiMockLastCases} />
+      <NumerosComConfianca {...mockNumerosConfianca} />
+      <MultipleSolutions {...sliderCompanies} />
+
+      <Newsletter
+        data={newsletter}
+        backgroundAcceptImage={false}
+        textColor="#1B1B96"
+      />
       <FormAnalyticalSolutions data={fsiMockForm} />
-      <Newsletter {...newsletter} />
     </>
   );
 };

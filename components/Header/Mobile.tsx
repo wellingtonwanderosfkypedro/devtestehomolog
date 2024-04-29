@@ -13,9 +13,12 @@ import useScrollHeader from "../../hooks/useScrollHeader";
 import { useWindowSize } from "react-use";
 import { Langs } from "./types";
 import { usePathname } from "next/navigation";
+import { useAccessibilityContext } from "@/contexts/AccessibilityContetxt";
 
 export const MobileHeader = ({ langActive, langs }: Langs) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const { handleSetCookie, cookieItem } = useAccessibilityContext();
+
   const path = usePathname();
 
   const headerWhite = useScrollHeader();
@@ -36,6 +39,20 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
   const openMenu = () => {
     setIsOpenMenu(!isOpenMenu);
   };
+
+  useEffect(() => {
+    if (cookieItem.theme) {
+      document.documentElement.classList.add("theme-accessibility");
+    } else {
+      document.documentElement.classList.remove("theme-accessibility");
+    }
+
+    if (cookieItem.font) {
+      document.documentElement.classList.add("font-accessibility");
+    } else {
+      document.documentElement.classList.remove("font-accessibility");
+    }
+  }, [cookieItem]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,14 +78,16 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
 
   return (
     <header
-      className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-30 font-rajdhani fixed ${isOpenMenu || headerWhite
-        ? "bg-skin-default border-b-[1px] border-theme-primary-100"
-        : "bg-transparent"
-        } `}
+      className={`w-full transition-all duration-100 ease-in  transform mx-auto pt-4 z-30 font-rajdhani fixed ${
+        isOpenMenu || headerWhite
+          ? "bg-skin-default border-b-[1px] border-theme-primary-100"
+          : "bg-transparent"
+      } `}
     >
       <div
-        className={`navbar flex justify-between items-center px-6 pb-6 ${isOpenMenu && "border-b-[1px] border-theme-primary-100"
-          }`}
+        className={`navbar flex justify-between items-center px-6 pb-6 ${
+          isOpenMenu && "border-b-[1px] border-theme-primary-100"
+        }`}
       >
         <Link href="#" className="pb-1 ">
           <Image
@@ -85,14 +104,15 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
         <div className="flex items-center justify-between gap-5">
           {!isOpenMenu && (
             <>
-              <button>
+              <button onClick={() => handleSetCookie("theme")}>
                 <ChooseThemeIcon color={headerWhite ? "#1D1B9D" : "#FFF"} />
               </button>
 
-              <button>
+              <button onClick={() => handleSetCookie("font")}>
                 <span
-                  className={`text-base font-medium ${headerWhite ? "text-theme-primary-500" : "text-skin-primary"
-                    }`}
+                  className={`text-base font-medium ${
+                    headerWhite ? "text-theme-primary-500" : "text-skin-primary"
+                  }`}
                 >
                   Aa
                 </span>
@@ -103,8 +123,9 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
                 onClick={showModal}
               >
                 <span
-                  className={`text-base font-medium text-nowrap uppercase ${headerWhite ? "text-theme-primary-500" : "text-skin-primary"
-                    } `}
+                  className={`text-base font-medium text-nowrap uppercase ${
+                    headerWhite ? "text-theme-primary-500" : "text-skin-primary"
+                  } `}
                 >
                   {langActive}
                 </span>
@@ -137,38 +158,42 @@ export const MobileHeader = ({ langActive, langs }: Langs) => {
 
           <button onClick={openMenu} className="w-[18px] h-[12px]">
             <span
-              className={`block relative transition duration-500 ease-in-out h-[2px] rounded-full ${isOpenMenu
-                ? "bg-transparent"
-                : headerWhite
+              className={`block relative transition duration-500 ease-in-out h-[2px] rounded-full ${
+                isOpenMenu
+                  ? "bg-transparent"
+                  : headerWhite
                   ? "bg-black-300"
                   : "bg-skin-default"
-                }`}
+              }`}
             >
               <span
-                className={` block w-full h-full absolute transition duration-500 ease-in-out rounded-full ${isOpenMenu
-                  ? "bg-black-300 transform rotate-[135deg]  h-[1px]"
-                  : headerWhite
+                className={` block w-full h-full absolute transition duration-500 ease-in-out rounded-full ${
+                  isOpenMenu
+                    ? "bg-black-300 transform rotate-[135deg]  h-[1px]"
+                    : headerWhite
                     ? "bg-black-300 top-[-8px]"
                     : "top-[-8px] bg-skin-default"
-                  } `}
+                } `}
               ></span>
               <span
-                className={` block w-full h-full absolute transition duration-500 ease-in-out rounded-full ${isOpenMenu
-                  ? "bg-black-300 transform rotate-[-135deg] bg-black h-[1px]"
-                  : headerWhite
+                className={` block w-full h-full absolute transition duration-500 ease-in-out rounded-full ${
+                  isOpenMenu
+                    ? "bg-black-300 transform rotate-[-135deg] bg-black h-[1px]"
+                    : headerWhite
                     ? "bg-black-300 bottom-[-8px]"
                     : "bottom-[-8px] bg-skin-default"
-                  } `}
+                } `}
               ></span>
             </span>
           </button>
         </div>
       </div>
       <div
-        className={`trasition-all duration-300 transform  ease-in  text-skin-bolder block absolute  bg-inherit w-full z-50 top-[90px] ${isOpenMenu
-          ? "h-screen top-4  overflow-y-auto "
-          : " overflow-y-hidden  h-0"
-          } `}
+        className={`trasition-all duration-300 transform  ease-in  text-skin-bolder block absolute  bg-inherit w-full z-50 top-[90px] ${
+          isOpenMenu
+            ? "h-screen top-4  overflow-y-auto "
+            : " overflow-y-hidden  h-0"
+        } `}
       >
         <div className="flex justify-center py-4 max-[500px]:px-4">
           <Link

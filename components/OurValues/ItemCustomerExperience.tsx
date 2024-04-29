@@ -13,7 +13,7 @@ const ItemCustomerExperience = ({
   index,
   fsiStyle,
 }: ItemCustomerExperienceProps) => {
-  const { title, description, icon, link } = customer;
+  const { title, text, icon, link } = customer;
 
   const fsiTitle = fsiStyle
     ? "mini:text-gray-500 mini:font-bold mini:leading-tight mini:font-rajdhani mini:text-lg tablet:text-2xl"
@@ -50,11 +50,11 @@ const ItemCustomerExperience = ({
       <p
         className={`text-4 font-normal leading-[25.6px] text-gray-300 mt-4 ${fsiText}`}
       >
-        {description}
+        {text}
       </p>
       {link && (
         <Link
-          href={link}
+          href={link?.url}
           className="text-theme-secondary-500 font-bold leading-6 font-roboto tablet:text-lg mini:text-[10.691px] mt-auto"
         >
           Saiba mais {">"}

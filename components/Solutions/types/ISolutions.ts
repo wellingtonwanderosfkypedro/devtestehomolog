@@ -1,16 +1,18 @@
-export interface ISolutions {
-    title: string;
-    companies: ICompany[];
+import { ImageData } from "@/helpers/generalTypes";
+
+export interface ConfiamNeowayTypes {
+  title: string;
+  englishTitle: string;
+  sliderEmpresas: ICompany[];
 }
 
 interface ICompany {
-    nome: string;
-    desktop: IDevice;
-    mobile: IDevice;
+  nameCompany: string;
+  icon: ImageData;
 }
 
 interface IDevice {
-    src: string;
-    width: number;
-    height: number;
+  src: string;
+  width: number;
+  height: number;
 }

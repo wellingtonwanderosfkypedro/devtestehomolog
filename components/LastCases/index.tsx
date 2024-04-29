@@ -2,8 +2,7 @@ import Link from "next/link";
 import { ILastCases } from "./types/ILastCases";
 import LCSlider from "./LCSlider";
 
-const LastCases = ({ title, link, cases }: ILastCases) => {
-
+const LastCases = ({ title, button, cases }: ILastCases) => {
   return (
     <section className="maxDesktop:max-w-[1440px] px-6 mx-auto mini:py-10 laptop:py-10 mini:pb-16 mini:pt-0 laptop:pb-[150px] lg:px-24 mini:gap-6 tablet:gap-20">
       <div className="flex mini:flex-col tablet:flex-row justify-between items-center w-full mb-10">
@@ -11,10 +10,13 @@ const LastCases = ({ title, link, cases }: ILastCases) => {
           {title}
         </h3>
         <Link
-          href={link}
+          href={button.url}
           className="text-orange-500 font-rajdhani leading-tight tablet:text-lg mini:text-4 mt-20"
         >
-          <span className="text-gray-500 underline-offset-1 underline font-bold">Veja nossos cases</span> {">"}
+          <span className="text-gray-500 underline-offset-1 underline font-bold">
+            {button.title}
+          </span>{" "}
+          {">"}
         </Link>
       </div>
       <LCSlider cases={cases} slidesView={4} />

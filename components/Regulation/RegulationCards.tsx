@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
@@ -6,16 +6,15 @@ import "swiper/swiper-bundle.css";
 import NavigationButton from "../Navigation";
 
 import RegulationCard from "./RegulationCard";
-import { IIcon } from "./types/IRegulation";
+import { Certification } from "./types/IRegulation";
 
 const RegulationCards = ({
   icons,
   slidesView,
 }: {
-  icons: IIcon[];
+  icons: Certification[];
   slidesView: number;
 }) => {
-
   const name = "RegulationCards";
 
   const isSlidesView =
@@ -27,7 +26,7 @@ const RegulationCards = ({
       spaceBetween={20}
       breakpoints={{
         280: {
-            slidesPerView: 1.8,
+          slidesPerView: 1.8,
         },
         560: {
           slidesPerView: 1.5,
@@ -51,13 +50,13 @@ const RegulationCards = ({
         <SwiperSlide key={icon.title}>
           <RegulationCard
             title={icon.title}
-            description={icon.description}
+            description={icon.text}
             icon={icon}
           />
         </SwiperSlide>
       ))}
       <div className="flex mt-10 justify-center">
-          <NavigationButton name={name} />
+        <NavigationButton name={name} />
       </div>
     </Swiper>
   );

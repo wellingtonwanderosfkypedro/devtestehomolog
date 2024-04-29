@@ -5,16 +5,16 @@ import { ISectionFourC } from "./types/ISectionFourC";
 
 const SectionFourC = ({
   title,
-  description,
+  subtitle,
   cards,
-  diligencias,
-  specialist,
+  itemsDiligencias,
+  neowayAjudaGerarResultado,
 }: ISectionFourC) => {
   return (
     <section>
-      <Cards title={title} description={description} cards={cards} />
-      <Diligence diligencias={diligencias} />
-      <Specialist specialist={specialist} />
+      <Cards title={title} description={subtitle} cards={cards} />
+      <Diligence diligencias={itemsDiligencias} />
+      <Specialist specialist={neowayAjudaGerarResultado} />
     </section>
   );
 };

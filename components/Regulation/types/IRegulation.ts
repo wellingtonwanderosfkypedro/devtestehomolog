@@ -1,18 +1,19 @@
+import { ImageData } from "@/helpers/generalTypes";
+
 export interface IRegulation {
   title: string;
-  subtitle: string;
-  selos: IImage[];
-  icons: IIcon[]
+  englishTitle: string;
+  text: string;
+  englishText: string;
+  selosCertificacoes: ImageData[];
+  certifications: Certification[];
   slidesView: number;
 }
 
-export interface IImage {
-  src: string;
-  alt: string;
-}
-
-export interface IIcon {
-  icon?: IImage;
+export interface Certification {
+  icon?: ImageData;
   title: string;
-  description: string;
+  englishTitle: string;
+  text: string;
+  englishText: string;
 }

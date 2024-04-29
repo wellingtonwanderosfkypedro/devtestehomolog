@@ -1,22 +1,21 @@
-export interface ISection {
-    title: string;
-    sections: {
-        companies: ICompany[]
-    }[];
-    button: {
-        text: string
-        link: string
-    }
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
+export interface TrustedNeowayTypes {
+  title: string;
+  englishTitle: string;
+  sliderEmpresas: ImageData[];
+  button: ButtonLink;
+  englishButton: ButtonLink;
 }
 
 interface ICompany {
-    nome: string;
-    desktop: IDevice;
-    mobile: IDevice;
+  nome: string;
+  desktop: IDevice;
+  mobile: IDevice;
 }
 
 interface IDevice {
-    src: string;
-    width: number;
-    height: number;
+  src: string;
+  width: number;
+  height: number;
 }

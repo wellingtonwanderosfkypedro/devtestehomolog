@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useMedia } from "react-use";
 import { ISpecialist } from "../types/ISectionFourC";
 import Image from "next/image";
@@ -20,7 +20,7 @@ const Specialist = ({ specialist }: { specialist: ISpecialist }) => {
       className="text-white flex flex-col items-center py-16"
     >
       <Image
-        src={specialist.src}
+        src={specialist.logo.url}
         alt={specialist.title}
         width={154}
         height={73}
@@ -33,9 +33,9 @@ const Specialist = ({ specialist }: { specialist: ISpecialist }) => {
       </p>
       <Link
         className="text-theme-primary-500 bg-white py-4 px-12 font-rajdani leading-6 rounded-md font-semibold hover:bg-gray-100"
-        href={specialist.button.link}
+        href={specialist.button.url}
       >
-        {specialist.button.text}
+        {specialist.button.title}
       </Link>
     </div>
   );

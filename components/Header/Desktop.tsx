@@ -18,12 +18,18 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
   const path = usePathname();
 
   useEffect(() => {
-    if (cookieItem) {
-      document.documentElement.classList.add('theme-accessibility')
+    if (cookieItem.theme) {
+      document.documentElement.classList.add("theme-accessibility");
     } else {
-      document.documentElement.classList.remove('theme-accessibility')
+      document.documentElement.classList.remove("theme-accessibility");
     }
-  }, [cookieItem])
+
+    if (cookieItem.font) {
+      document.documentElement.classList.add("font-accessibility");
+    } else {
+      document.documentElement.classList.remove("font-accessibility");
+    }
+  }, [cookieItem]);
 
   const [showModalLang, setShowModalLang] = useState(false);
 
@@ -33,10 +39,11 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
 
   return (
     <header
-      className={` w-full mx-auto pt-4 px-2 min-[1100px]:px-4 font-rajdhani  fixed z-50 transition-all  duration-0 border-b-[1px] ${headerWhite
-        ? "bg-skin-default  border-gray-100"
-        : "bg-transparent  border-gray-300"
-        } `}
+      className={` w-full mx-auto pt-4 px-2 min-[1100px]:px-4 font-rajdhani  fixed z-50 transition-all  duration-0 border-b-[1px] ${
+        headerWhite
+          ? "bg-skin-default  border-gray-100"
+          : "bg-transparent  border-gray-300"
+      } `}
     >
       <div className="maxDesktop:max-w-[1440px] min-[1120px]:w-11/12 mx-auto flex justify-between items-center pb-6 relative">
         <Link href="#" className="pb-1 ">
@@ -56,26 +63,32 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
         </Link>
         <Nav isHeaderWhite={headerWhite} />
         <div className="flex items-center justify-between">
-          <button
-            className={`flex gap-[10px] cursor-pointer py-3  items-center ${headerWhite ? "" : ""
-              } `}
-            onClick={handleSetCookie}
+          <div
+            className={`flex gap-[10px] cursor-pointer py-3  items-center ${
+              headerWhite ? "" : ""
+            } `}
           >
-            <ChooseThemeIcon headerWhite={headerWhite} />
-            <span
-              className={`text-base font-medium px-1 w-[35px] h-[35px] leading-[35px] ${headerWhite
-                ? "text-skin-base-accent hover:bg-theme-primary-500 hover:text-skin-primary"
-                : "text-skin-primary hover:bg-skin-default hover:text-skin-base-accent"
+            <button onClick={() => handleSetCookie("theme")}>
+              <ChooseThemeIcon headerWhite={headerWhite} />
+            </button>
+            <button onClick={() => handleSetCookie("font")}>
+              <span
+                className={`text-base font-medium px-1 w-[35px] h-[35px] leading-[35px] ${
+                  headerWhite
+                    ? "text-skin-base-accent hover:bg-theme-primary-500 hover:text-skin-primary"
+                    : "text-skin-primary hover:bg-skin-default hover:text-skin-base-accent"
                 }  hover:font-semibold`}
-            >
-              Aa
-            </span>
-          </button>
+              >
+                Aa
+              </span>
+            </button>
+          </div>
 
           <div className="px-5 cursor-pointer relative group">
             <span
-              className={`text-base font-medium text-nowrap uppercase ${headerWhite ? "text-skin-base-accent" : "text-skin-primary"
-                } hover:underline hover:font-semibold`}
+              className={`text-base font-medium text-nowrap uppercase ${
+                headerWhite ? "text-skin-base-accent" : "text-skin-primary"
+              } hover:underline hover:font-semibold`}
             >
               {langActive}
             </span>
@@ -107,8 +120,9 @@ export const DesktopHeader = ({ langActive, langs }: Langs) => {
           >
             <LoginIcon color={headerWhite ? "#1D1B9D" : "#FFF"} />
             <span
-              className={`text-base font-medium text-nowrap ${headerWhite ? "text-skin-base-accent" : "text-skin-primary"
-                } hover:underline`}
+              className={`text-base font-medium text-nowrap ${
+                headerWhite ? "text-skin-base-accent" : "text-skin-primary"
+              } hover:underline`}
             >
               Fazer login
             </span>

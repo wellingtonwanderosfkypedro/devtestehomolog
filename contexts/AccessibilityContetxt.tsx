@@ -1,53 +1,55 @@
-"use client"
-import Cookies from 'universal-cookie';
+"use client";
+import Cookies from "universal-cookie";
 import { createContext, useContext, useMemo, useState } from "react";
 
 interface AccessibilityContextProps {
   cookieItem: any;
   setCookieItem: React.Dispatch<React.SetStateAction<any>>;
-  handleSetCookie: () => void;
+  handleSetCookie: (cookieType: string) => void;
 }
 
 const AccessibilityContext = createContext({} as AccessibilityContextProps);
 
 function AccessibilityProvider({ children }: { children: React.ReactNode }) {
+  const themeAccessibility = {
+    font: false,
+    theme: false,
+  };
   const cookies = new Cookies();
 
-  const [cookieItem, setCookieItem] = useState(cookies.get('theme-accessibility') ?? false)
-  
-  function handleSetCookie() {
-    const hasCookie = cookies.get('theme-accessibility')
+  const [cookieItem, setCookieItem] = useState(themeAccessibility);
 
-    if (!hasCookie) {
-      cookies.set('theme-accessibility', true)
-      
-      setCookieItem(cookies.get('theme-accessibility'))
+  function handleSetCookie(cookieType: string) {
+    const hasCookie = cookies.get(cookieType);
 
-      return
-    }
+    const updatedThemeAccess = {
+      ...cookieItem,
+      [cookieType]: !hasCookie,
+    };
 
-    cookies.set('theme-accessibility', false)
-      
-    setCookieItem(cookies.get('theme-accessibility'))
+    setCookieItem(updatedThemeAccess);
+    cookies.set(cookieType, !hasCookie);
   }
-  
+
   const valuesMemoized = useMemo(
     () => ({
       cookieItem,
       setCookieItem,
     }),
-    [cookieItem, setCookieItem],
+    [cookieItem, setCookieItem]
   );
 
   return (
-    <AccessibilityContext.Provider value={{...valuesMemoized, handleSetCookie}}>
+    <AccessibilityContext.Provider
+      value={{ ...valuesMemoized, handleSetCookie }}
+    >
       {children}
     </AccessibilityContext.Provider>
-  )
+  );
 }
 
 const useAccessibilityContext = () => {
-  return useContext(AccessibilityContext)
-}
+  return useContext(AccessibilityContext);
+};
 
 export { AccessibilityProvider, useAccessibilityContext };

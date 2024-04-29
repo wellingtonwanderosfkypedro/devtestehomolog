@@ -1,27 +1,25 @@
 import Banner from "@/components/Banner";
+import BigImages from "@/components/BigImages";
+import LastCases from "@/components/LastCases";
+import { MoveUs } from "@/components/MovesUs";
+import MultipleSolutions from "@/components/MultipleSolutions";
+import Newsletter from "@/components/Newsletter";
 import OurValues from "@/components/OurValues/OurValues";
-import TextArea from "@/components/TextArea/TextArea";
-import { TextWithSideImage } from "@/components/TextWithSideImage";
+import Recognition from "@/components/Recognition";
+import { TeamCarrousel } from "@/components/TeamCarrousel";
+import fetchPosts from "@/helpers/fetchPost";
 import { SeoProps } from "@/typings/global";
-import { GetStaticProps } from "next";
 import {
   banner,
   bigImages,
+  moveUsMock,
   multipleSolutions,
   newsletter,
   ourValues,
+  recognitionMocks,
   teamCarrousel,
-  textArea,
-  textWithSideImage,
-  textWithSideImage2,
-} from "./mock";
-import { TeamCarrousel } from "@/components/TeamCarrousel";
-import Recognition from "@/components/Recognition";
-import BigImages from "@/components/BigImages";
-import MultipleSolutions from "@/components/MultipleSolutions";
-import Newsletter from "@/components/Newsletter";
-import LastCases from "@/components/LastCases";
-import { fsiMockLastCases } from "../fsi/mocks/fsiMockLastCases";
+} from "../../helpers/mocks/about/mock";
+import { fsiMockLastCases } from "../../helpers/mocks/fsi/mocks/fsiMockLastCases";
 
 type PageData = {
   seo: SeoProps;
@@ -54,19 +52,36 @@ interface PageProps {
   pagePostData: PageData;
 }
 
-export default function Page() {
+async function getPosts() {
+  const posts = await fetchPosts("quem_somos");
+  return {
+    seo: posts?.seo,
+    bannerQuemSomos: posts?.bannerQuemSomos,
+    oQueNosMove: posts?.oQueNosMove,
+    valores: posts?.valores,
+    oTime: posts?.oTime,
+    reconhecimento: posts?.reconhecimento,
+    sliderImagensNeoway: posts?.sliderImagensNeoway,
+    confiamNeoway: posts?.confiamNeoway,
+    ultimosCases: posts?.ultimosCases,
+    newsletter: posts?.newsletter,
+  };
+}
+
+export default async function Page() {
+  const datas = await getPosts();
+
   return (
     <>
-      <Banner {...banner} />
-      <TextArea {...textArea} />
-      <TextWithSideImage {...textWithSideImage} />
-      <OurValues {...ourValues} />
-      <TeamCarrousel {...teamCarrousel} />
-      <Recognition {...textWithSideImage2} />
+      <Banner data={banner} />
+      <MoveUs data={moveUsMock} />
+      <OurValues data={ourValues} slidesView={3.3} />
+      <TeamCarrousel data={teamCarrousel} />
+      <Recognition data={recognitionMocks} />
       <BigImages {...bigImages} />
       <MultipleSolutions {...multipleSolutions} />
       <LastCases {...fsiMockLastCases} />
-      <Newsletter {...newsletter} />
+      <Newsletter data={newsletter} />
     </>
   );
 }

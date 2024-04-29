@@ -1,11 +1,19 @@
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
 export interface BannerProps {
+  tag: string;
+  englishTag: string;
   title: string;
+  englishTitle: string;
   description: string;
-  flag?: string;
-  buttons?: BannerButton[];
-  image_desktop: BannerImage;
-  image_mobile: BannerImage;
-  onlyMobileButton?: boolean
+  englishDescription: string;
+  buttonFaleConosco: ButtonLink;
+  englishButtonFaleConosco: ButtonLink;
+  buttonSonhecaSolucoes: ButtonLink;
+  englishButtonSonhecaSolucoes: ButtonLink;
+  image_desktop: ImageData;
+  image_mobile: ImageData;
+  onlyMobileButton?: boolean;
 }
 
 export interface BannerButton {

@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { IIcon } from "./types/IRegulation";
+import { Certification } from "./types/IRegulation";
 
 interface IRegulationCard {
   title: string;
   description: string;
-  icon?: IIcon;
+  icon?: Certification;
 }
 
 const RegulationCard = ({ title, description, icon }: IRegulationCard) => {
@@ -15,7 +15,7 @@ const RegulationCard = ({ title, description, icon }: IRegulationCard) => {
       {icon && (
         <div className="mb-4">
           <Image
-            src={icon.icon?.src ?? "/"}
+            src={icon.icon?.url ?? "/"}
             alt={icon.icon?.alt ?? "Regulation card"}
             width={60}
             height={60}
@@ -29,7 +29,13 @@ const RegulationCard = ({ title, description, icon }: IRegulationCard) => {
       >
         {title}
       </span>
-      <p className={"text-gray-200 font-medium leading-relaxed font-roboto mini:text-xs laptop:text-base"}>{description}</p>
+      <p
+        className={
+          "text-gray-200 font-medium leading-relaxed font-roboto mini:text-xs laptop:text-base"
+        }
+      >
+        {description}
+      </p>
     </div>
   );
 };

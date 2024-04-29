@@ -1,14 +1,20 @@
-import { IImage } from "@/components/Regulation/types/IRegulation";
+import { ImageData, ButtonLink } from "@/helpers/generalTypes";
 
 export interface ILastCases {
-    title: string;
-    link: string;
-    cases: Case[];
+  title: string;
+  englishTitle: string;
+  button: ButtonLink;
+  englishBtton: ButtonLink;
+  cases: Case[];
 }
 
 export interface Case {
-    imageDescription: string;
-    title: string;
-    description: string;
-    image: IImage;
+  linkCase: string;
+  tag: string;
+  englishTag: string;
+  title: string;
+  englishTitle: string;
+  description: string;
+  englishDescription: string;
+  imageCase: ImageData;
 }

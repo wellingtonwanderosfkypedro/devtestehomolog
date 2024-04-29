@@ -1,14 +1,10 @@
 "use client";
 import { useMedia } from "react-use";
+import { NewsLetterTypes } from "./types/newsletterTypes";
 
 interface NewsletterProps {
-  title: string;
-  text: string;
-  input: {
-    placeholder: string;
-    textButton: string;
-  };
-  backgroundAcceptImage: boolean;
+  data: NewsLetterTypes;
+  backgroundAcceptImage?: boolean;
   textColor?: string;
   textColorAccessibility?: string;
   imageUrlDesktop?: string;
@@ -18,9 +14,7 @@ interface NewsletterProps {
 }
 
 export default function Newsletter({
-  title,
-  text,
-  input,
+  data,
   backgroundAcceptImage = true,
   textColor = "#ffffff",
   imageUrlDesktop = "/mocks/fsi/FourC/FourCBannerBottom.png",
@@ -49,19 +43,21 @@ export default function Newsletter({
       style={
         !backgroundAcceptImage
           ? backgroundColorActive
-          : isMob ? backgroundMobile : backgroundDesktop
+          : isMob
+          ? backgroundMobile
+          : backgroundDesktop
       }
       className="flex flex-col items-center py-16"
     >
       <div className="max-w-[41.25rem] text-center">
         <p className="text-theme-secondary-300 font-rajdhani font-semibold text-base">
-          Newsletter
+          {data?.tag}
         </p>
         <h3 className="tablet:pt-6 tablet:pb-4 mini:pt-9 mini:pb-4 font-radjani max-w-xl text-center text-[2rem] lg:m-auto m-5 tablet:leading-normal mini:leading-relaxed font-bold">
-          {title}
+          {data?.title}
         </h3>
         <p className="pb-12 font-roboto text-base leading-8 text-center tablet:max-w-full mini:max-w-[275px] m-auto">
-          {text}
+          {data?.subtitle}
         </p>
         <label
           htmlFor="email-newsletter"
@@ -95,13 +91,13 @@ export default function Newsletter({
 
           <input
             name="email-newsletter"
-            placeholder={input?.placeholder}
+            placeholder={data?.placeholderInput}
             type="text"
             className="flex outline-none border-none w-full text-gray-500 placeholder-current font-rajdhani text-xs h-full"
           />
 
           <button className="rounded-lg max-w-28 bg-theme-secondary-300 flex w-full justify-center items-center h-full lg:text-base text-xs text-white">
-            {input?.textButton}
+            {data?.textButton}
           </button>
         </label>
       </div>

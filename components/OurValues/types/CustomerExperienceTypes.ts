@@ -1,19 +1,19 @@
-export interface ClienteExperience {
+import { ButtonLink, ImageData } from "@/helpers/generalTypes";
+
+export interface OurValuesType {
   title: string;
-  description: string;
+  englishTitle: string;
+  description?: string;
+  englishDescription?: string;
   items: Item[];
 }
 
 export type Item = {
-  icon?: Image;
   title: string;
-  description: string;
-  link?: string;
+  englishTitle: string;
+  text: string;
+  englishText: string;
+  link?: ButtonLink;
   fsiStyle?: boolean;
-};
-
-type Image = {
-  url: string;
-  width: number;
-  height: number;
+  icon?: ImageData;
 };

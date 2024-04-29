@@ -14,7 +14,6 @@ interface CustomerCarouselProps {
 }
 
 const CustomerCarousel = ({ items, slidesView }: CustomerCarouselProps) => {
-
   const name = "CustomerCarousel";
 
   const isSlidesView =
@@ -38,8 +37,7 @@ const CustomerCarousel = ({ items, slidesView }: CustomerCarouselProps) => {
       navigation={{
         nextEl: `.swiper-button-next-custom-${name}`,
         prevEl: `.swiper-button-prev-custom-${name}`,
-        disabledClass:
-        "bg-disabled stroke-white disabled-swiper-track",
+        disabledClass: "bg-disabled stroke-white disabled-swiper-track",
       }}
       className={isSlidesView}
     >
@@ -48,7 +46,7 @@ const CustomerCarousel = ({ items, slidesView }: CustomerCarouselProps) => {
           <ItemCustomerExperience customer={customer} index={index} />
         </SwiperSlide>
       ))}
-      <NavigationButton name={name} />
+      {items.length > 2 && <NavigationButton name={name} />}
     </Swiper>
   );
 };
